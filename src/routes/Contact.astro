@@ -1,9 +1,8 @@
 ---
 import Ledger from '../layouts/Ledger.astro';
 import Row from '../components/Row.astro';
-import SmsBlock from '../components/SmsBlock.astro';
 ---
-<Ledger route="/contact" page="contact" hover="boxed" footerIndex="0005" scene="plate">
+<Ledger route="/contact" page="contact" hover="boxed" footerIndex="0004" scene="plate">
   <Row index="0001" id="contact-head" class="ch0" label="Contact" reveal="mask-rows">
     <div class="g">
       <div class="c1-7">
@@ -56,9 +55,6 @@ import SmsBlock from '../components/SmsBlock.astro';
     </div>
   </Row>
 
-  <Row index="0004" id="sms" label="Join Our SMS List">
-    <div class="g"><div class="c1-5"><SmsBlock level="h2" id="sms-contact" /></div></div>
-  </Row>
 </Ledger>
 
 <style is:global>

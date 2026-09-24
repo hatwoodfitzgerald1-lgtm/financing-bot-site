@@ -2,8 +2,6 @@
 import Ledger from '../layouts/Ledger.astro';
 import Row from '../components/Row.astro';
 import PaperButton from '../components/PaperButton.astro';
-import Tally from '../components/Tally.astro';
-import SmsBlock from '../components/SmsBlock.astro';
 import { wallRows } from '../data/wallRows.js';
 import offering from '../data/offering.json';
 const pocket = wallRows.slice(0, 12);
@@ -16,7 +14,7 @@ const worksheet = [
   ['amortization', '0.00', 'p.47', '0.00', 'p.52'],
 ];
 ---
-<Ledger route="/" page="home" hover="carriage" footerIndex="0010" loader={true} scene="wall">
+<Ledger route="/" page="home" hover="carriage" footerIndex="0009" loader={true} scene="wall">
   <!-- 0001 Hero: the Operations Ledger Grid with the Overnight Queue wall in the grid at the right -->
   <section class="row flush hero" id="hero" aria-label="Financing Bot">
     <span class="row-idx" aria-hidden="true">0001</span>
@@ -220,13 +218,6 @@ const worksheet = [
     </div>
   </Row>
 
-  <!-- 0009 Join Our SMS List -->
-  <Row index="0009" id="sms" label="Join Our SMS List">
-    <div class="g">
-      <div class="c1-5"><SmsBlock level="h2" id="sms-home" /></div>
-      <div class="c7-12 sms-tally" data-reveal="rise"><Tally size={160} /></div>
-    </div>
-  </Row>
 </Ledger>
 
 <style is:global>
@@ -353,9 +344,6 @@ body[data-page="home"] {
   #about-teaser .inset { background: rgba(26,27,29,0.82); padding: 28px; border: var(--hair) solid var(--rule); margin-left: var(--gutter); }
   #about-teaser .inset .link { margin-top: 16px; }
   @media (max-width: 899px) { #about-teaser .band { aspect-ratio: auto; min-height: 520px; } #about-teaser .inset { margin: 24px var(--gutter); } }
-  .sms-tally { display: flex; align-items: center; justify-content: center; color: var(--paper); }
-  .sms-tally .tally { width: 160px; height: 120px; }
-  @media (max-width: 899px) { .sms-tally { display: none; } }
 
 }
 </style>
