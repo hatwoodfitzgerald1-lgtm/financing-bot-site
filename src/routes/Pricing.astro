@@ -4,12 +4,6 @@ import Row from '../components/Row.astro';
 import PaperButton from '../components/PaperButton.astro';
 import offering from '../data/offering.json';
 const packs = offering.packs;
-const kv = [
-  ['files', packs.map((p) => p.filesLabel + ', ' + p.valid)],
-  ['seats', packs.map((p) => p.seats)],
-  ['queue', packs.map((p) => p.queue)],
-  ['support', packs.map((p) => p.support)],
-];
 ---
 <Ledger route="/pricing" page="pricing" hover="tabulate" footerIndex="0006" scene="drums">
   <!-- 0001 Header: the H1 over the tally wall, the balance drums at the right -->
@@ -31,55 +25,42 @@ const kv = [
     </div>
   </section>
 
-  <!-- 0002 The ledger, spanning all 12 columns -->
-  <Row index="0002" id="ledger" flush label="The ledger">
-    <div class="ledger-wrap" id="ledger-wrap">
-      <table class="pl" id="pl" data-reveal="draw-table">
-        <thead>
-          <tr class="pl-name">
-            <th scope="col" class="pl-i"><span class="sr-only">row</span></th>
-            {packs.map((p, i) => (<th scope="col" class="pl-c" data-col={i}><div class="pl-nm"><span class="cap">{p.ledgerName}</span><span class="chip">{p.chip}</span>{p.recommend && <span class="chip rec" id="rec-chip">{p.recommend}</span>}</div></th>))}
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="pl-total" style="--i:0">
-            <td class="pl-i m">total</td>
-            {packs.map((p, i) => (<td class="pl-c" data-col={i}><span class="tot m"><span class="drum" data-drum={p.priceLabel}>{p.priceLabel.replace(/\d/g, '0')}</span></span></td>))}
-          </tr>
-          <tr class="pl-rate" style="--i:1">
-            <td class="pl-i m">rate</td>
-            {packs.map((p, i) => (<td class="pl-c m" data-col={i}>{p.rateLabel} <span class="ash">{p.arithmetic}</span></td>))}
-          </tr>
-          {kv.map(([k, vals], j) => (
-            <tr class="pl-kv" style={`--i:${j + 2}`}>
-              <td class="pl-i m">{k}</td>
-              {(vals as string[]).map((v, i) => (<td class="pl-c" data-col={i}>{v}</td>))}
-            </tr>
-          ))}
-          <tr class="pl-inc pl-shared" style="--i:6">
-            <td class="pl-i m">every pack</td>
-            <td class="pl-c pl-span" colspan="3">{offering.inEveryPack}</td>
-          </tr>
-          <tr class="pl-inc pl-only" style="--i:7">
-            <td class="pl-i m">only here</td>
-            {offering.onlyHere.map((t, i) => (<td class="pl-c" data-col={i}>{t}</td>))}
-          </tr>
-          <tr class="pl-btn" style="--i:8">
-            <td class="pl-i"></td>
-            {packs.map((p, i) => (<td class="pl-c" data-col={i}>
-              {p.blocks && <div class="blocks-line">
-                <div class="stepper" role="group" aria-label="Enterprise blocks">
-                  <button type="button" id="ent-minus" aria-label="One block fewer">−</button>
-                  <output id="ent-qty" for="ent-minus ent-plus">1</output>
-                  <button type="button" id="ent-plus" aria-label="One block more">+</button>
-                </div>
-                <div class="m small" id="ent-readout" aria-live="polite"><span class="drum" data-drum="1">1</span> block | <span class="drum" data-drum="2,000">2,000</span> files | <span class="drum" data-drum="$36,000.00">$36,000.00</span></div>
-              </div>}
-              <PaperButton label={p.button} class="full center" data={{ add: p.sku, qtyfrom: p.blocks ? 'ent-qty' : '' }} />
-            </td>))}
-          </tr>
-        </tbody>
-      </table>
+  <!-- 0002 The packs: three cards, then the work every pack does -->
+  <Row index="0002" id="ledger" flush label="The packs">
+    <div class="cards" id="pl" data-reveal="rise">
+      {packs.map((p, i) => (
+        <article class={'card' + (p.recommend ? ' rec' : '')} data-col={i} aria-label={p.name}>
+          <header class="card-head">
+            <div class="pl-nm"><span class="cap">{p.ledgerName}</span>{p.recommend && <span class="chip rec" id="rec-chip">{p.recommend}</span>}</div>
+            <p class="for">{p.forLine}</p>
+          </header>
+          <div class="card-price">
+            <span class="tot m"><span class="drum" data-drum={p.priceLabel}>{p.priceLabel.replace(/\d/g, '0')}</span></span>
+            <span class="rate m">{p.rateLabel} <span class="ash">{p.arithmetic}</span></span>
+            <span class="files m ash">{p.filesLabel}, valid {p.valid}</span>
+          </div>
+          <ul class="differs">
+            {p.differs.map((d, k) => (<li class={k === 0 && d.endsWith(':') ? 'plus' : ''}>{d}</li>))}
+          </ul>
+          <footer class="card-foot">
+            {p.blocks && <div class="blocks-line">
+              <div class="stepper" role="group" aria-label="Enterprise blocks">
+                <button type="button" id="ent-minus" aria-label="One block fewer">−</button>
+                <output id="ent-qty" for="ent-minus ent-plus">1</output>
+                <button type="button" id="ent-plus" aria-label="One block more">+</button>
+              </div>
+              <div class="m small" id="ent-readout" aria-live="polite"><span class="drum" data-drum="1">1</span> block | <span class="drum" data-drum="2,000">2,000</span> files | <span class="drum" data-drum="$36,000.00">$36,000.00</span></div>
+            </div>}
+            <PaperButton label={p.button} class="full center" data={{ add: p.sku, qtyfrom: p.blocks ? 'ent-qty' : '' }} />
+          </footer>
+        </article>
+      ))}
+    </div>
+    <div class="g mt2 shared" id="shared" data-reveal="rise">
+      <div class="c1-5"><h2 class="hv">In every pack</h2><p class="mt small">The same work on every file, whichever pack it comes from. The packs differ in rate, seats and the service around the queue, never in what is done to the file.</p></div>
+      <dl class="c7-12 shared-list">
+        {offering.inEveryPackItems.map(([h, body]) => (<div class="item"><dt>{h}</dt><dd>{body}</dd></div>))}
+      </dl>
     </div>
   </Row>
 
@@ -122,54 +103,50 @@ body[data-page="pricing"] {
 
   .ph { border-top: 0; overflow: hidden; }
   .ph-g { min-height: 0; align-items: center; }
-  .ph-copy { padding: clamp(18px, 2.5vh, 26px) 24px clamp(12px, 2vh, 18px) 0; position: relative; z-index: 2; }
+  .ph-copy { padding: clamp(16px, 2vh, 22px) 24px clamp(10px, 1.5vh, 14px) 0; position: relative; z-index: 2; }
   .ph .scene-text { display: none; }
   .ph-copy h1 { font-size: clamp(28px, 2.6vw, 38px); }
   .ph-copy .lede { font-size: 15px; max-width: 58ch; }
-  .ph-scene { grid-column: 8 / -1; margin-right: calc(-1 * var(--gutter)); align-self: stretch; position: relative; min-height: 150px; }
+  .ph-scene { grid-column: 8 / -1; margin-right: calc(-1 * var(--gutter)); align-self: stretch; position: relative; min-height: 140px; }
   .ph-scene .scene { position: absolute; inset: 0; }
   .drums-2d { display: none; grid-template-columns: repeat(3, 1fr); gap: 8px; place-items: center; padding: 24px; font-family: var(--mono); }
   .drums-2d > div { display: grid; text-align: center; font-size: clamp(28px, 6vw, 48px); border: var(--hair) solid var(--rule); padding: 16px 8px; width: 100%; }
   .drums-2d small { font-size: 12px; color: var(--ash); }
   .scene.is-2d .drums-2d { display: grid; }
   @media (max-width: 899px) { .ph-scene { grid-column: 1 / -1; margin-inline: calc(-1 * var(--gutter)); min-height: 240px; } .ph-scene .scene { position: relative; height: 240px; } }
-  /* The ledger table */
-  .ledger-wrap { width: 100vw; overflow-x: auto; }
-  .pl { width: 100%; border-collapse: collapse; table-layout: fixed; min-width: 900px; }
-  .pl th, .pl td { border-bottom: var(--hair) solid var(--rule); vertical-align: top; text-align: left; padding: 8px 16px; font-size: 13px; line-height: 1.4; }
-  .pl .pl-span { columns: 2; column-gap: 32px; }
-  .pl-only td, .pl-shared td { font-size: 12.5px; }
-  .pl .pl-i { width: 88px; padding-left: var(--gutter); color: var(--ash); font-family: var(--mono); font-size: 12px; border-right: var(--hair) solid var(--rule); }
-  .pl .pl-c { border-right: var(--hair) solid var(--rule); }
-  .pl .pl-c:last-child { border-right: 0; padding-right: var(--gutter); }
-  .pl thead th { padding-top: 12px; padding-bottom: 10px; font-weight: 400; }
-  .pl-nm { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
-  .pl-nm .cap { font-weight: 600; font-size: 14px; }
-  .pl-total .tot { font-size: 32px; line-height: 1; }
-  .pl-total td { padding-top: 10px; padding-bottom: 10px; }
-  .pl-inc td { transition: background var(--fast) var(--cr); }
-  .pl-inc.lit td { background: var(--slate); }
-  .pl-btn td { padding-top: 12px; padding-bottom: 14px; vertical-align: bottom; }
-  .blocks-line { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+  /* The pack cards */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 16px var(--gutter) 0; border: var(--hair) solid var(--rule); }
+  .card { display: grid; grid-template-rows: auto auto 1fr auto; border-right: var(--hair) solid var(--rule); padding: 18px 22px 18px; min-height: 0; position: relative; background: var(--graphite); }
+  .card:last-child { border-right: 0; }
+  .card.rec { background: var(--slate); }
+  .card.rec::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--paper); }
+  .card-head .pl-nm { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+  .card-head .cap { font-weight: 600; font-size: 14px; letter-spacing: 0.02em; }
+  .card-head .for { margin-top: 8px; font-size: 13.5px; line-height: 1.4; color: rgba(233,229,218,0.8); min-height: 2.8em; }
+  .card-price { display: grid; gap: 3px; padding: 14px 0 12px; border-top: var(--hair) solid var(--rule); border-bottom: var(--hair) solid var(--rule); margin-top: 12px; }
+  .card-price .tot { font-size: 34px; line-height: 1; }
+  .card-price .rate { font-size: 13px; }
+  .card-price .files { font-size: 12px; }
+  .differs { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 6px; align-content: start; font-size: 13px; line-height: 1.45; }
+  .differs li { padding-left: 18px; position: relative; }
+  .differs li::before { content: ''; position: absolute; left: 0; top: 0.62em; width: 8px; height: 1px; background: var(--ash); }
+  .differs li.plus { padding-left: 0; font-family: var(--mono); font-size: 12px; color: var(--ash); letter-spacing: 0.02em; }
+  .differs li.plus::before { display: none; }
+  .card-foot { margin-top: 14px; align-self: end; }
+  .blocks-line { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
   .blocks-line .stepper { margin: 0; }
-  .pl .pl-c.hi { background: var(--el-1); }
-  .pl thead .pl-c.hi .cap { position: relative; }
-  .pl thead .pl-c.hi::before { content: attr(data-ri); }
-  .pl .rec.pulse { animation: pulse var(--base) var(--ra) 2; }
-  
+  .card.hi { outline: var(--hair) solid var(--paper); outline-offset: -1px; }
+  .rec.pulse { animation: pulse var(--base) var(--ra) 2; }
+  .shared { padding-block: 40px clamp(32px, 4vw, 64px); }
+  .shared-list { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; border-top: var(--hair) solid var(--rule); }
+  .shared-list .item { padding: 12px 0; border-bottom: var(--hair) solid var(--rule); }
+  .shared-list dt { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+  .shared-list dd { margin: 0; font-size: 12.5px; line-height: 1.45; color: rgba(233,229,218,0.78); }
   @media (max-width: 899px) {
-    .pl { min-width: 0; display: block; }
-    .pl thead, .pl tbody, .pl tr, .pl th, .pl td { display: block; }
-    .pl thead { display: none; }
-    .pl tr { border: 0; }
-    .pl .pl-i { width: auto; border-right: 0; border-bottom: 0; padding: 12px var(--gutter) 4px; }
-    .pl .pl-c { border-right: 0; padding-inline: var(--gutter); }
-    .pl-btn .pl-c { padding-bottom: 12px; }
-    .pl-btn .pl-i { display: none; }
-    .pl-rate .pl-c::before, .pl-kv .pl-c::before, .pl-only .pl-c::before, .pl-total .pl-c::before { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ash); margin-bottom: 2px; }
-    .pl .pl-c[data-col="0"]::before { content: "100 file pack"; } .pl .pl-c[data-col="1"]::before { content: "500 file pack"; } .pl .pl-c[data-col="2"]::before { content: "enterprise block"; }
-    .pl-btn .pl-c::before, .pl-shared .pl-c::before { content: none; }
-    .pl .pl-span { columns: 1; }
+    .cards { grid-template-columns: 1fr; margin: 0; border-left: 0; border-right: 0; }
+    .card { border-right: 0; border-bottom: var(--hair) solid var(--rule); padding-inline: var(--gutter); }
+    .card:last-child { border-bottom: 0; }
+    .shared-list { grid-template-columns: 1fr; }
   }
   .pilot-row .rl { margin: 0 var(--gutter) 16px; }
   .pilot-row .txt { font-size: 13px; }
