@@ -1,0 +1,57 @@
+---
+// The one server rendered catch all. Every route in design doc 6.1 resolves
+// here; /terms and /privacy send a 301; every unknown path renders the
+// designed not found page with a real 404 status.
+export const prerender = false;
+
+import Home from '../routes/Home.astro';
+import Pricing from '../routes/Pricing.astro';
+import Product from '../routes/Product.astro';
+import About from '../routes/About.astro';
+import Blog from '../routes/Blog.astro';
+import Post1 from '../routes/PostForm1084.astro';
+import Post2 from '../routes/PostLargeDeposit.astro';
+import Post3 from '../routes/PostPriorToDoc.astro';
+import Post4 from '../routes/PostGovernance.astro';
+import Drafter from '../routes/Drafter.astro';
+import Contact from '../routes/Contact.astro';
+import Cart from '../routes/Cart.astro';
+import Checkout from '../routes/Checkout.astro';
+import OrderConfirmation from '../routes/OrderConfirmation.astro';
+import Terms from '../routes/Terms.astro';
+import Privacy from '../routes/Privacy.astro';
+import NotFound from '../routes/NotFound.astro';
+
+const routes: Record<string, any> = {
+  '/': Home,
+  '/pricing': Pricing,
+  '/product': Product,
+  '/about': About,
+  '/blog': Blog,
+  '/blog/form-1084-add-backs': Post1,
+  '/blog/large-deposit-letter': Post2,
+  '/blog/prior-to-doc-prior-to-close': Post3,
+  '/blog/ai-governance-file': Post4,
+  '/drafter': Drafter,
+  '/contact': Contact,
+  '/cart': Cart,
+  '/checkout': Checkout,
+  '/order-confirmation': OrderConfirmation,
+  '/terms-of-service': Terms,
+  '/privacy-policy': Privacy,
+};
+const aliases: Record<string, string> = { '/terms': '/terms-of-service', '/privacy': '/privacy-policy' };
+
+let path = new URL(Astro.request.url).pathname;
+if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1);
+path = path.toLowerCase();
+
+if (aliases[path]) return Astro.redirect(aliases[path], 301);
+
+// /index.html style requests and the explicit /404 preview
+if (path === '/index.html') return Astro.redirect('/', 301);
+
+const Page = routes[path];
+if (!Page) Astro.response.status = 404;
+---
+{Page ? <Page /> : <NotFound />}

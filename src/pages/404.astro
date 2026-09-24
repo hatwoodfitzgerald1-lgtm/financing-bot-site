@@ -1,0 +1,8 @@
+---
+// The designed not found page for the literal /404 path and for any request
+// the catch all does not answer; always a real 404 status.
+export const prerender = false;
+import NotFound from '../routes/NotFound.astro';
+Astro.response.status = 404;
+---
+<NotFound />
