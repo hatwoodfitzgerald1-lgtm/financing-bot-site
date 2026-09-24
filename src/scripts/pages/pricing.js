@@ -21,7 +21,7 @@ export function init({ env }) {
 
   // totals roll when the ledger enters
   const table = document.getElementById('pl');
-  const tot = table.querySelectorAll('.pl-total [data-drum]');
+  const tot = table.querySelectorAll('.card-price [data-drum]');
   if (!env.rm) {
     tot.forEach((d) => rollTo(d, d.dataset.drum.replace(/\d/g, '0'), { instant: true }));
     new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { tot.forEach((d, i) => setTimeout(() => rollTo(d, d.dataset.drum, { stagger: true, duration: 0.8 }), i * 120)); o.disconnect(); } }, { threshold: 0.2 }).observe(table);
@@ -30,12 +30,8 @@ export function init({ env }) {
   const pack = new URLSearchParams(location.search).get('pack');
   const col = { '100': 0, '500': 1, 'enterprise': 2 }[pack];
   if (col !== undefined) {
-    table.querySelectorAll(`[data-col="${col}"]`).forEach((c) => c.classList.add('hi'));
-    const head = table.querySelector(`thead [data-col="${col}"] .pl-nm`);
-    if (head) { const ri = document.createElement('span'); ri.className = 'm small paper'; ri.textContent = '0002'; head.prepend(ri); }
-    const chip = table.querySelector(`thead [data-col="${col}"] .chip`); if (chip) chip.classList.add('pulse');
+    const card = table.querySelector(`.card[data-col="${col}"]`);
+    if (card) { card.classList.add('hi'); const chip = card.querySelector('.chip'); if (chip) chip.classList.add('pulse'); }
   }
   if (location.hash === '#ledger' && col === undefined) { const rec = document.getElementById('rec-chip'); if (rec) setTimeout(() => rec.classList.add('pulse'), 600); }
-  // inclusion rows light across all three columns
-  table.querySelectorAll('.pl-inc').forEach((tr) => { tr.addEventListener('mouseenter', () => tr.classList.add('lit')); tr.addEventListener('mouseleave', () => tr.classList.remove('lit')); });
 }
