@@ -119,12 +119,14 @@ const io = new IntersectionObserver((entries) => {
     if (!en.isIntersecting) continue;
     const el = en.target;
     el.classList.add('in');
+    // A photograph behind a wipe never triggers native lazy loading in Chromium while it is clipped, so start it here
+    el.querySelectorAll('img[loading="lazy"]').forEach((img) => { img.loading = 'eager'; });
     if (el.dataset.reveal === 'count') rollDrumsIn(el);
     if (el.dataset.reveal === 'draw-table') el.querySelectorAll('tbody tr').forEach((tr, i) => { if (!tr.style.getPropertyValue('--i')) tr.style.setProperty('--i', i); });
     io.unobserve(el);
   }
 }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-document.querySelectorAll('[data-reveal], .seal-wrap, .tally, .scene, .kitfig').forEach((el) => { if (env.rm) { el.classList.add('in'); if (el.dataset.reveal === 'count') rollDrumsIn(el); } else io.observe(el); });
+document.querySelectorAll('[data-reveal], .seal-wrap, .tally, .scene, .kitfig').forEach((el) => { if (env.rm) { el.classList.add('in'); el.querySelectorAll('img[loading="lazy"]').forEach((img) => { img.loading = 'eager'; }); if (el.dataset.reveal === 'count') rollDrumsIn(el); } else io.observe(el); });
 // Row level reveals: a ledger's rows and an index's rows land as each one enters the
 // viewport (a short Carriage Return stagger within the batch that arrives together),
 // so a tall table never sits empty while the visitor scrolls it.
