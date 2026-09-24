@@ -227,6 +227,7 @@ input[type="range"]:active::-webkit-slider-thumb { transform: scale(1.1); }
 .band .alt-line::before { content: 'photograph pending'; display: block; color: var(--paper); margin-bottom: 4px; }
 /* Media bands */
 .band { position: relative; width: 100vw; overflow: hidden; background: var(--slate); }
+.band picture { display: block; width: 100%; height: 100%; }
 .band img, .band video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .band.r21 { aspect-ratio: 21 / 9; max-height: 900px; }
 .band.r2 { aspect-ratio: 2 / 1; max-height: 820px; }
