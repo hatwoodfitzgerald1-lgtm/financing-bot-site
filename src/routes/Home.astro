@@ -22,8 +22,9 @@ const worksheet = [
     <span class="row-idx" aria-hidden="true">0001</span>
     <div class="g hero-g">
       <div class="c1-6 hero-copy">
-        <div class="h1-mask" aria-hidden="false"><h1 class="hv" id="h1">Read, recalculated<br />and cited. Your<br />underwriter decides.</h1><i class="cover c1" aria-hidden="true"></i><i class="cover c2" aria-hidden="true"></i><i class="cover c3" aria-hidden="true"></i></div>
-        <p class="lede audience">For underwriting managers at independent mortgage banks closing 200 to 5,000 loans a month, where the underwriter is the constraint.</p>
+        <p class="kicker m" id="hero-kicker">Read, recalculated and cited. Your underwriter decides.</p>
+        <div class="h1-mask" aria-hidden="false"><h1 class="hv" id="h1">AI underwriting<br />software for lenders.</h1><i class="cover c1" aria-hidden="true"></i><i class="cover c2" aria-hidden="true"></i></div>
+        <p class="lede audience">Upload the loan file. Financing Bot reads every page, recalculates each income figure by its rule, sources every large deposit, reconciles the AUS findings and drafts the conditions in your wording, with every figure beside the page it came from. Built for independent mortgage banks closing 200 to 5,000 loans a month, where the underwriter is the constraint.</p>
         <div class="flex cta">
           <PaperButton label={offering.primaryButton.label} price={offering.primaryButton.price} href={offering.primaryButton.href} id="hero-cta" />
           <a class="link hv" href="/product">See how it works</a>
@@ -240,14 +241,15 @@ body[data-page="home"] {
   .hero-copy h1 { max-width: 20ch; }
   /* the H1 lines rise from behind the grid's row rules one row at a time: three covers, one per line, retract upward after the loader split; the H1 itself is one text block so it is the LCP element */
   .h1-mask { position: relative; width: fit-content; }
-  .h1-mask .cover { position: absolute; left: -4px; right: -4px; height: 34%; background: var(--graphite); border-bottom: var(--hair) solid var(--rule); transform-origin: top; transform: scaleY(1); }
-  .h1-mask .c1 { top: 0; } .h1-mask .c2 { top: 33%; } .h1-mask .c3 { top: 66%; }
+  .kicker { margin: 0 0 18px; color: var(--ash); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .h1-mask .cover { position: absolute; left: -4px; right: -4px; height: 51%; background: var(--graphite); border-bottom: var(--hair) solid var(--rule); transform-origin: top; transform: scaleY(1); }
+  .h1-mask .c1 { top: 0; } .h1-mask .c2 { top: 50%; }
   &.loaded .h1-mask .cover { animation: uncover var(--base) var(--cr) forwards; }
-  &.loaded .h1-mask .c2 { animation-delay: 0.07s; } &.loaded .h1-mask .c3 { animation-delay: 0.14s; }
+  &.loaded .h1-mask .c2 { animation-delay: 0.07s; }
   
   @media (prefers-reduced-motion: reduce) { .h1-mask .cover { display: none; } }
   html.rm & .h1-mask .cover { display: none; }
-  .audience { margin-top: 24px; max-width: 42ch; color: rgba(233,229,218,0.8); }
+  .audience { margin-top: 24px; max-width: 46ch; color: rgba(233,229,218,0.8); }
   .cta { margin-top: 40px; }
   .clear-cap { margin-top: 40px; max-width: 46ch; min-height: 72px; }
   .cap-line { font-size: 15px; line-height: 1.5; min-height: 1.5em; }
