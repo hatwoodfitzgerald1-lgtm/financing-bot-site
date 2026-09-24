@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1600">
+<title>Financing Bot: Income worksheet</title>
+<link rel="stylesheet" href="shell.css">
+</head>
+<body data-screen="worksheets">
+<header class="shell">
+  <div class="bar">
+    <a class="wordmark" href="#">
+      <svg viewBox="0 0 32 24" width="24" height="18" fill="none" stroke="#E9E5DA" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M6 3v18"/><path d="M12 3v18"/><path d="M18 3v18"/><path d="M24 3v18"/><path d="M2 20L28 4"/></svg>
+      <span>Financing Bot</span>
+    </a>
+    <span class="lender">Sample Mortgage Co.</span>
+    <span class="date">Tue Sep 23, 2026 09:41</span>
+    <span class="user">J. Ortiz, DE</span>
+  </div>
+  <nav class="tabs">
+    <a href="#" data-tab="queue">Queue</a>
+    <a href="#" data-tab="files">Files</a>
+    <a href="#" class="on" data-tab="worksheets">Worksheets</a>
+    <a href="#" data-tab="conditions">Conditions</a>
+    <a href="#" data-tab="packages">Packages</a>
+    <a href="#" data-tab="account">Account</a>
+    <span class="balance">balance <b>412</b> files</span>
+  </nav>
+</header>
+
+<main class="body">
+  <div class="head">
+    <h1>Income worksheet</h1>
+    <div class="meta"><span>Form 1084</span><span>LN 2026090412</span><span>R.M., co borrower T.M.</span><span>Conv</span><span>118 pages</span><span>J. Ortiz, DE</span><span class="chipwrap"><span class="chip">decision ready</span></span></div>
+    <div class="right"><span class="btn">Open package</span><span class="btn fill">Sign worksheet</span></div>
+  </div>
+
+  <div class="ws">
+    <div class="ws-main">
+      <div class="section-title">
+        <span class="idx">01</span>
+        <h2>Schedule C, sole proprietorship. Self employed borrower R.M.</h2>
+        <span class="count">two full years of returns: 2024 p.47, 2025 p.52</span>
+      </div>
+      <table class="ws-table">
+        <thead>
+          <tr>
+            <th>Form 1084 line</th>
+            <th class="r">2024</th>
+            <th>cite</th>
+            <th class="r">2025</th>
+            <th>cite</th>
+            <th>rule applied</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Schedule C line 31 net profit</td><td class="num r">84,600.00</td><td class="cite">p.47</td><td class="num r">92,150.00</td><td class="cite">p.52</td><td class="muted">starting figure, per return</td></tr>
+          <tr><td>line 13 depreciation</td><td class="num r">9,850.00</td><td class="cite">p.47</td><td class="num r">10,400.00</td><td class="cite">p.52</td><td class="muted">added back, non cash expense</td></tr>
+          <tr><td>line 12 depletion</td><td class="num r">0.00</td><td class="cite">p.47</td><td class="num r">0.00</td><td class="cite">p.52</td><td class="muted">added back, none claimed</td></tr>
+          <tr><td>line 30 business use of home</td><td class="num r">4,200.00</td><td class="cite">p.47</td><td class="num r">4,200.00</td><td class="cite">p.52</td><td class="muted">added back, non cash expense</td></tr>
+          <tr><td>line 24b meals (subtracted)</td><td class="num r">(1,380.00)</td><td class="cite">p.47</td><td class="num r">(2,120.00)</td><td class="cite">p.52</td><td class="muted">subtracted, non deductible portion</td></tr>
+          <tr><td>amortization</td><td class="num r">0.00</td><td class="cite">p.47</td><td class="num r">0.00</td><td class="cite">p.52</td><td class="muted">added back, none claimed</td></tr>
+          <tr class="total"><td>year total</td><td class="num r">97,270.00</td><td class="cite"></td><td class="num r">104,630.00</td><td class="cite"></td><td class="muted mono">trend: 2025 up 7.6% on 2024, two year average applies</td></tr>
+        </tbody>
+      </table>
+
+      <div class="ws-foot">
+        <div class="cell">
+          <div class="lbl">24 month total</div>
+          <div class="fig ac" id="fig-total">201,900.00</div>
+          <div class="sub mono">97,270.00 + 104,630.00</div>
+        </div>
+        <div class="cell">
+          <div class="lbl">monthly qualifying income</div>
+          <div class="fig ac big" id="fig-mqi">$8,412.50</div>
+          <div class="sub mono">(97,270.00 + 104,630.00) &divide; 24</div>
+          <div class="sub mono">recalculated, sourced p.47, p.52</div>
+        </div>
+        <div class="cell grey">
+          <div class="lbl">AUS entered</div>
+          <div class="fig muted">$7,568.75</div>
+          <div class="sub mono">DU findings, income as submitted</div>
+        </div>
+        <div class="cell grey">
+          <div class="lbl">difference</div>
+          <div class="fig muted">+$843.75</div>
+          <div class="sub mono">line 13 depreciation, both years</div>
+          <div class="sub mono">(9,850.00 + 10,400.00) &divide; 24 = 843.75</div>
+        </div>
+      </div>
+
+      <div class="section-title">
+        <span class="idx">04</span>
+        <h2>Arithmetic, as calculated</h2>
+        <span class="count">each step with its running total, in the order the form reads</span>
+      </div>
+      <table class="ar-table">
+        <thead><tr><th>Step</th><th>Line</th><th>cite</th><th class="r">figure</th><th class="r">running total</th></tr></thead>
+        <tbody>
+          <tr><td class="num">01</td><td>2024 Schedule C line 31 net profit</td><td class="cite">p.47</td><td class="num r">84,600.00</td><td class="num r">84,600.00</td></tr>
+          <tr><td class="num">02</td><td>plus line 13 depreciation</td><td class="cite">p.47</td><td class="num r">9,850.00</td><td class="num r">94,450.00</td></tr>
+          <tr><td class="num">03</td><td>plus line 12 depletion</td><td class="cite">p.47</td><td class="num r">0.00</td><td class="num r">94,450.00</td></tr>
+          <tr><td class="num">04</td><td>plus line 30 business use of home</td><td class="cite">p.47</td><td class="num r">4,200.00</td><td class="num r">98,650.00</td></tr>
+          <tr><td class="num">05</td><td>minus line 24b meals</td><td class="cite">p.47</td><td class="num r">(1,380.00)</td><td class="num r">97,270.00</td></tr>
+          <tr><td class="num">06</td><td>2025 Schedule C line 31 net profit</td><td class="cite">p.52</td><td class="num r">92,150.00</td><td class="num r">189,420.00</td></tr>
+          <tr><td class="num">07</td><td>plus line 13 depreciation</td><td class="cite">p.52</td><td class="num r">10,400.00</td><td class="num r">199,820.00</td></tr>
+          <tr><td class="num">08</td><td>plus line 12 depletion</td><td class="cite">p.52</td><td class="num r">0.00</td><td class="num r">199,820.00</td></tr>
+          <tr><td class="num">09</td><td>plus line 30 business use of home</td><td class="cite">p.52</td><td class="num r">4,200.00</td><td class="num r">204,020.00</td></tr>
+          <tr><td class="num">10</td><td>minus line 24b meals</td><td class="cite">p.52</td><td class="num r">(2,120.00)</td><td class="num r">201,900.00</td></tr>
+          <tr><td class="num">11</td><td>divided by 24 months</td><td class="cite"></td><td class="num r">&divide; 24</td><td class="num r">8,412.50</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <aside class="ws-side">
+      <div class="section-title"><span class="idx">02</span><h2>Sources read</h2></div>
+      <table class="side-table">
+        <tbody>
+          <tr><td>2024 Form 1040, Schedule C</td><td class="cite r">p.47</td></tr>
+          <tr><td>2025 Form 1040, Schedule C</td><td class="cite r">p.52</td></tr>
+          <tr><td>URLA, employment section</td><td class="cite r">p.1</td></tr>
+          <tr><td>Year to date paystub, co borrower</td><td class="cite r">p.27</td></tr>
+          <tr><td>W2, co borrower</td><td class="cite r">p.31</td></tr>
+          <tr><td>Bank statements, two months</td><td class="cite r">p.88 to p.94</td></tr>
+          <tr><td>Year to date profit and loss</td><td class="cite r">not in file</td></tr>
+        </tbody>
+      </table>
+      <div class="section-title"><span class="idx">03</span><h2>Notes to the underwriter</h2></div>
+      <ul class="notes">
+        <li>Line 13 depreciation was added back from Schedule C for both years. The AUS had it at zero, so the difference is shown beside the figure with the line that caused it.</li>
+        <li>Income is up 7.6% year on year, so the two year average applies. No decline, no downward trend adjustment.</li>
+        <li>A year to date profit and loss statement is not in the file. PTD 02 is drafted for it.</li>
+        <li>Nothing here is a decision. Change any figure and sign, or sign as prepared.</li>
+      </ul>
+    </aside>
+  </div>
+</main>
+<style>
+  .ws { flex: 1 1 auto; display: grid; grid-template-columns: 1fr 400px; min-height: 0; }
+  .ws-main { padding: 0 0 0 20px; border-right: 1px solid #CFCBC2; }
+  .ws-side { padding: 0 20px; }
+  .ws-table td:first-child, .ws-table th:first-child { padding-left: 0; }
+  .ws-table td.cite { padding-left: 0; width: 60px; }
+  .ws-table td.num { width: 120px; }
+  .ws-table tr.total td { border-bottom: 2px solid #161616; border-top: 1px solid #161616; font-weight: 600; font-variation-settings: 'wdth' 100, 'wght' 600; }
+  .ws-table tr.total td.num { font-weight: 400; }
+  .ws-foot { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid #CFCBC2; }
+  .ws-foot .cell { padding: 7px 16px 6px 0; border-right: 1px solid #CFCBC2; min-height: 100px; }
+  .ws-foot .cell + .cell { padding-left: 16px; }
+  .ws-foot .cell:last-child { border-right: 0; }
+  .ws-foot .lbl { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #6E6A62; font-variation-settings: 'wdth' 92, 'wght' 500; margin-bottom: 4px; }
+  .ws-foot .fig { font-family: 'Fragment Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 26px; line-height: 32px; font-variant-numeric: tabular-nums; }
+  .ws-foot .fig.big { font-size: 32px; line-height: 34px; }
+  .ws-foot .sub { font-size: 11px; line-height: 14px; color: #6E6A62; margin-top: 4px; }
+  .ws-foot .sub + .sub { margin-top: 2px; }
+  .side-table td:first-child { padding-left: 0; }
+  .side-table td:last-child { padding-right: 0; margin: 0; }
+  .side-table td.cite { font-size: 12px; margin: 0; }
+  .notes { list-style: none; padding: 10px 0; }
+  .notes li { padding: 6px 0 6px 18px; position: relative; line-height: 18px; color: #161616; }
+  .notes li::before { content: ''; position: absolute; left: 0; top: 7px; width: 5px; height: 5px; border: 1px solid #161616; }
+  .ar-table td:first-child, .ar-table th:first-child { padding-left: 0; width: 60px; }
+  .ar-table th, .ws-table th { height: 28px; }
+  .ar-table td.cite { padding-left: 0; width: 60px; }
+  .ar-table td.num.r { width: 140px; }
+  .ar-table tr:last-child td { border-bottom: 2px solid #161616; }
+  .head .chipwrap::before { content: '\00b7'; margin: 0 8px; }
+</style>
+
+<footer class="foot">
+  <span class="line">Prepared by Financing Bot. Decided and signed by the underwriter of record.</span>
+  <span>FHA and VA packages route only to an underwriter whose profile carries the DE or SAR designation entered by the lender.</span>
+  <span class="route">package v1 &middot; LN 2026090412</span>
+</footer>
+</body>
+</html>

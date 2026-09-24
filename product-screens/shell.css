@@ -1,0 +1,66 @@
+/* Financing Bot product shell. One shell, many bodies. Light paper body inside an ink shell. */
+@import url("../public/assets/fonts/fonts.css");
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  background: #F2F0EA;
+  color: #161616;
+  font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  font-variation-settings: 'wdth' 100, 'wght' 400;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 1000px;
+}
+.mono, .num, .chip, .cite, .idx, td.num, th.num { font-family: 'Fragment Mono', 'SF Mono', Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; font-feature-settings: 'tnum' 1, 'zero' 1; }
+.cite { color: #6E6A62; font-size: 12px; margin-left: 6px; white-space: nowrap; }
+.muted { color: #6E6A62; }
+.ac { color: #4FB89A; }
+
+/* Shell: header bar and tab row, ink */
+.shell { background: #161616; color: #E9E5DA; flex: 0 0 auto; }
+.bar { height: 48px; display: flex; align-items: center; padding: 0 20px; border-bottom: 1px solid #3A3D41; }
+.wordmark { text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; font-variation-settings: 'wdth' 88, 'wght' 600; letter-spacing: 0.01em; color: #E9E5DA; white-space: nowrap; }
+.wordmark svg { display: block; }
+.lender { margin-left: 24px; padding-left: 24px; border-left: 1px solid #3A3D41; font-family: 'Fragment Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 12px; color: #9A9C98; height: 20px; line-height: 20px; }
+.bar .date { margin-left: auto; font-family: 'Fragment Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 12px; color: #E9E5DA; }
+.bar .user { margin-left: 24px; padding-left: 24px; border-left: 1px solid #3A3D41; font-family: 'Fragment Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 12px; color: #9A9C98; height: 20px; line-height: 20px; }
+.tabs { height: 36px; display: flex; align-items: stretch; padding: 0 20px; border-bottom: 1px solid #3A3D41; }
+.tabs a { display: flex; align-items: center; padding: 0 14px; color: #9A9C98; text-decoration: none; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-variation-settings: 'wdth' 92, 'wght' 500; border-bottom: 1px solid transparent; margin-bottom: -1px; }
+.tabs a:first-child { padding-left: 0; }
+.tabs a.on { color: #E9E5DA; border-bottom-color: #E9E5DA; }
+.tabs .balance { margin-left: auto; display: flex; align-items: center; font-family: 'Fragment Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 12px; color: #9A9C98; }
+.tabs .balance b { font-weight: 400; color: #E9E5DA; margin: 0 4px; }
+
+/* Body */
+.body { flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
+.scroll { flex: 1 1 auto; min-height: 0; overflow: auto; }
+.head { display: flex; align-items: baseline; gap: 16px; padding: 12px 20px 8px; border-bottom: 1px solid #CFCBC2; }
+.head h1 { font-size: 15px; font-weight: 600; font-variation-settings: 'wdth' 92, 'wght' 600; line-height: 20px; }
+.head .meta { font-family: 'Fragment Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 12px; color: #6E6A62; }
+.head .meta span + span::before { content: '\00b7'; margin: 0 8px; }
+.head .right { margin-left: auto; display: flex; gap: 8px; }
+.btn { font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; font-variation-settings: 'wdth' 92, 'wght' 500; height: 28px; line-height: 26px; padding: 0 12px; border: 1px solid #161616; color: #161616; background: transparent; border-radius: 1px; }
+.btn.fill { background: #161616; color: #F2F0EA; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { height: 32px; padding: 0 12px; text-align: left; border-bottom: 1px solid #CFCBC2; white-space: nowrap; vertical-align: middle; }
+th { font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #6E6A62; font-weight: 500; font-variation-settings: 'wdth' 92, 'wght' 500; }
+th.r, td.r { text-align: right; }
+.chip { display: inline-block; font-size: 12px; line-height: 18px; padding: 0 6px; border: 1px solid #A9A59C; color: #161616; border-radius: 1px; white-space: nowrap; }
+tr.sel td { background: #E9E6DE; }
+
+/* Section blocks */
+.section { padding: 0 20px; }
+.section-title { display: flex; align-items: baseline; gap: 12px; height: 36px; border-bottom: 1px solid #CFCBC2; }
+.section-title h2 { font-size: 13px; font-weight: 600; font-variation-settings: 'wdth' 92, 'wght' 600; }
+.section-title .idx { font-size: 12px; color: #6E6A62; }
+.section-title .count { margin-left: auto; font-family: 'Fragment Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 12px; color: #6E6A62; }
+
+/* Footer line */
+.foot { flex: 0 0 auto; border-top: 1px solid #CFCBC2; padding: 0 20px; height: 40px; display: flex; align-items: center; gap: 24px; font-size: 12px; color: #6E6A62; }
+.foot .line { color: #161616; }
+.foot .route { margin-left: auto; font-family: 'Fragment Mono', 'SF Mono', Menlo, Consolas, monospace; font-size: 11px; }

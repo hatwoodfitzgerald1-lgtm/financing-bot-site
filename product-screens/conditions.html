@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1600">
+<title>Financing Bot: Conditions</title>
+<link rel="stylesheet" href="shell.css">
+</head>
+<body data-screen="conditions">
+<header class="shell">
+  <div class="bar">
+    <a class="wordmark" href="#">
+      <svg viewBox="0 0 32 24" width="24" height="18" fill="none" stroke="#E9E5DA" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M6 3v18"/><path d="M12 3v18"/><path d="M18 3v18"/><path d="M24 3v18"/><path d="M2 20L28 4"/></svg>
+      <span>Financing Bot</span>
+    </a>
+    <span class="lender">Sample Mortgage Co.</span>
+    <span class="date">Tue Sep 23, 2026 09:41</span>
+    <span class="user">J. Ortiz, DE</span>
+  </div>
+  <nav class="tabs">
+    <a href="#" data-tab="queue">Queue</a>
+    <a href="#" data-tab="files">Files</a>
+    <a href="#" data-tab="worksheets">Worksheets</a>
+    <a href="#" class="on" data-tab="conditions">Conditions</a>
+    <a href="#" data-tab="packages">Packages</a>
+    <a href="#" data-tab="account">Account</a>
+    <span class="balance">balance <b>412</b> files</span>
+  </nav>
+</header>
+
+<main class="body" data-state="ptd">
+  <div class="head">
+    <h1>Conditions</h1>
+    <div class="meta"><span>LN 2026090412</span><span>R.M., co borrower T.M.</span><span>Conv</span><span>118 pages</span><span>J. Ortiz, DE</span><span>3 conditions, 2 prior to doc, 1 prior to close</span></div>
+    <div class="right"><span class="btn">Copy list for LOS</span><span class="btn fill">Send to processing</span></div>
+  </div>
+
+  <div class="cond">
+    <div class="section blk" id="blk-ptd">
+      <div class="section-title">
+        <span class="idx">PTD</span>
+        <h2>Prior to doc</h2>
+        <span class="muted">a requirement that could change the approval if clearing it changes a figure</span>
+        <span class="count">2 conditions</span>
+      </div>
+      <table class="cond-table"><colgroup><col style="width:90px"><col style="width:600px"><col style="width:170px"><col><col style="width:230px"></colgroup>
+        <thead><tr><th style="padding-left:0">Index</th><th>Condition, in Sample Mortgage Co. wording</th><th>Cites</th><th>Raised by</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr class="row">
+            <td class="idx" style="padding-left:0">PTD 01</td>
+            <td class="text">Signed 1040 with all schedules for 2024 and 2025.</td>
+            <td class="cite" style="margin:0">p.47, p.52</td>
+            <td class="muted">worksheet 01, both years used for the two year average</td>
+            <td><span class="chip" data-chip="ptd01">drafted</span></td>
+          </tr>
+          <tr class="detail"><td></td><td colspan="4"><span class="lbl">library line</span> Signed {form} with all schedules for {years}. <span class="lbl">filled</span> form 1040, years 2024 and 2025 <span class="lbl">side</span> prior to doc, the figures on the worksheet come from these returns</td></tr>
+          <tr class="row">
+            <td class="idx" style="padding-left:0">PTD 02</td>
+            <td class="text">Year to date profit and loss statement for the business.</td>
+            <td class="cite" style="margin:0">Schedule C p.47</td>
+            <td class="muted">worksheet 02, year to date P and L not in file</td>
+            <td><span class="chip" data-chip="ptd02">drafted</span></td>
+          </tr>
+          <tr class="detail"><td></td><td colspan="4"><span class="lbl">library line</span> Year to date profit and loss statement for {business type}. <span class="lbl">filled</span> the business, Schedule C sole proprietorship <span class="lbl">side</span> prior to doc, a year to date figure can change the qualifying income</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section blk" id="blk-ptc">
+      <div class="section-title">
+        <span class="idx">PTC</span>
+        <h2>Prior to close</h2>
+        <span class="muted">a requirement that confirms the file as approved and cannot change the figures</span>
+        <span class="count">1 condition</span>
+      </div>
+      <table class="cond-table"><colgroup><col style="width:90px"><col style="width:600px"><col style="width:170px"><col><col style="width:230px"></colgroup>
+        <thead><tr><th style="padding-left:0">Index</th><th>Condition, in Sample Mortgage Co. wording</th><th>Cites</th><th>Raised by</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr class="row">
+            <td class="idx" style="padding-left:0">PTC 01</td>
+            <td class="text">Verbal verification of employment for the co borrower within 10 business days prior to the note date.</td>
+            <td class="cite" style="margin:0">URLA p.1, W2 p.31</td>
+            <td class="muted">co borrower T.M. wage income, employer on URLA and W2</td>
+            <td><span class="chip" data-chip="ptc01">drafted</span></td>
+          </tr>
+          <tr class="detail"><td></td><td colspan="4"><span class="lbl">library line</span> Verbal verification of employment for {borrower} within 10 business days prior to the note date. <span class="lbl">filled</span> the co borrower <span class="lbl">side</span> prior to close, confirms employment, changes no figure</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section blk" id="blk-log">
+      <div class="section-title">
+        <span class="idx">LOG</span>
+        <h2>Package events</h2>
+        <span class="count">LN 2026090412</span>
+      </div>
+      <table class="log-table">
+        <tbody>
+          <tr><td class="num" style="padding-left:0">Sep 22 17:42</td><td>118 pages received, indexed and numbered, duplicates folded</td><td class="muted r">upload</td></tr>
+          <tr><td class="num" style="padding-left:0">Sep 22 23:08</td><td>package delivered to the queue, 0 contradictions, 3 conditions drafted</td><td class="muted r">Financing Bot</td></tr>
+          <tr><td class="num" style="padding-left:0">Sep 23 09:41</td><td>package opened by the underwriter of record</td><td class="muted r">J. Ortiz, DE</td></tr>
+          <tr class="log-sign" hidden><td class="num" style="padding-left:0">Sep 23 09:42</td><td>PTC 01 signed off</td><td class="muted r">J. Ortiz, DE</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section blk" id="blk-paste">
+      <div class="section-title">
+        <span class="idx">LOS</span>
+        <h2>Paste text</h2>
+        <span class="muted">the list as it pastes into your LOS, one condition per line</span>
+        <span class="count">3 lines</span>
+      </div>
+      <table class="paste-table">
+        <tbody>
+          <tr><td class="num" style="padding-left:0">PTD 01</td><td class="mono">Signed 1040 with all schedules for 2024 and 2025. (p.47, p.52)</td></tr>
+          <tr><td class="num" style="padding-left:0">PTD 02</td><td class="mono">Year to date profit and loss statement for the business. (Schedule C p.47)</td></tr>
+          <tr><td class="num" style="padding-left:0">PTC 01</td><td class="mono">Verbal verification of employment for the co borrower within 10 business days prior to the note date. (URLA p.1, W2 p.31)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section blk" id="blk-pkg">
+      <div class="section-title">
+        <span class="idx">PKG</span>
+        <h2>Package contents</h2>
+        <span class="muted">PDF and CSV, addressed to J. Ortiz, DE, for review and signature</span>
+        <span class="count">delivered Sep 22 23:08</span>
+      </div>
+      <table class="pkg-table">
+        <tbody>
+          <tr><td class="num" style="padding-left:0">01</td><td>Page index, 118 pages named and numbered</td><td class="muted r">complete</td></tr>
+          <tr><td class="num" style="padding-left:0">02</td><td>Income worksheet, Form 1084, every figure cited</td><td class="muted r">complete</td></tr>
+          <tr><td class="num" style="padding-left:0">03</td><td>Assets, deposits sourced and seasoned across both statements</td><td class="muted r">complete</td></tr>
+          <tr><td class="num" style="padding-left:0">04</td><td>AUS findings reconciled line by line</td><td class="muted r">complete</td></tr>
+          <tr><td class="num" style="padding-left:0">05</td><td>Conditions, 2 prior to doc and 1 prior to close</td><td class="muted r">this list</td></tr>
+          <tr><td class="num" style="padding-left:0">06</td><td>Contradictions named with both pages</td><td class="muted r">none found</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="section blk" id="blk-sign">
+      <div class="section-title">
+        <span class="idx">SIGN</span>
+        <h2>Decision</h2>
+        <span class="muted">the software prepared the list; the underwriter of record decides and signs</span>
+        <span class="count">not yet signed</span>
+      </div>
+      <table class="pkg-table">
+        <tbody>
+          <tr><td class="num" style="padding-left:0">01</td><td>Underwriter of record</td><td class="muted r">J. Ortiz, DE</td></tr>
+          <tr><td class="num" style="padding-left:0">02</td><td>Designation, entered by the lender on the underwriter profile</td><td class="muted r">DE</td></tr>
+          <tr><td class="num" style="padding-left:0">03</td><td>Every edit, routing and signature event is logged with user, timestamp and the before and after values</td><td class="muted r">audit log</td></tr>
+          <tr><td class="num" style="padding-left:0">04</td><td>Nothing in this package is a decision until it is signed</td><td class="muted r">waiting</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cond-pad"></div>
+  </div>
+</main>
+<style>
+  .cond { flex: 1 1 auto; overflow: auto; height: 0; min-height: 0; }
+  .cond-pad { height: 600px; }
+  .blk { padding-bottom: 8px; }
+  .cond-table { table-layout: fixed; }
+  .cond-table td.idx { width: 90px; }
+  .cond-table td.text { white-space: normal; line-height: 16px; }
+  .cond-table td.cite { margin: 0; padding-left: 12px; }
+  .cond-table tr.detail td:last-child { white-space: normal; overflow: hidden; text-overflow: ellipsis; }
+  .cond-table tr.detail td { height: 28px; font-size: 12px; color: #6E6A62; font-family: 'Fragment Mono', 'SF Mono', Menlo, Consolas, monospace; }
+  .cond-table tr.detail .lbl { display: inline-block; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: #6E6A62; margin: 0 6px 0 14px; }
+  .cond-table tr.detail .lbl:first-child { margin-left: 0; }
+  .log-table td { color: #161616; }
+  .log-table td.num { color: #6E6A62; width: 130px; }
+  .section-title .muted { font-size: 12px; }
+  /* Two states from one file: the scrolled to block sits at the top of the body */
+</style>
+<script>
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var state = q.get('state');
+    var main = document.querySelector('main');
+    window.fbScrollTo = function (id) {
+      var c = document.querySelector('.cond');
+      c.scrollTop = document.getElementById(id).offsetTop - c.offsetTop;
+    };
+    if (state === 'ptc') {
+      main.dataset.state = 'ptc';
+      document.querySelector('[data-chip="ptc01"]').textContent = 'signed off by J. Ortiz, DE';
+      document.querySelector('.log-sign').hidden = false;
+      window.addEventListener('load', function () { window.fbScrollTo('blk-ptc'); });
+    }
+    window.fbScrollTo = function (id) {
+      var c = document.querySelector('.cond');
+      c.scrollTop = document.getElementById(id).offsetTop - c.offsetTop;
+    };
+    window.fbSignOff = function () {
+      document.querySelector('[data-chip="ptc01"]').textContent = 'signed off by J. Ortiz, DE';
+      document.querySelector('.log-sign').hidden = false;
+    };
+  })();
+</script>
+
+<footer class="foot">
+  <span class="line">Prepared by Financing Bot. Decided and signed by the underwriter of record.</span>
+  <span>FHA and VA packages route only to an underwriter whose profile carries the DE or SAR designation entered by the lender.</span>
+  <span class="route">package v1 &middot; LN 2026090412</span>
+</footer>
+</body>
+</html>
