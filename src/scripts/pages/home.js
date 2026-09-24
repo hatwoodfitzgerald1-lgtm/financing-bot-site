@@ -195,6 +195,9 @@ async function buildWall({ env, gsap, ScrollTrigger }) {
     const d = Math.max(0, (p - 0.94) / 0.06);
     dock.style.opacity = d; dock.style.visibility = d > 0 ? 'visible' : 'hidden'; dock.style.transform = `translate(-50%, -50%) scale(${1.02 - 0.02 * d})`;
     camera.zoom = 1.02 - 0.02 * d; camera.updateProjectionMatrix();
+    // the wall hands over to the product screen: the canvas and the fluorescent band fade out as the dock shot fades in, and are gone at the end of the scroll
+    const cv = renderer.domElement; cv.style.opacity = String(1 - d); cv.style.visibility = d >= 1 ? 'hidden' : 'visible';
+    band.style.opacity = String(parseFloat(band.style.opacity) * (1 - d));
   }
   function size() { const r = mount.getBoundingClientRect(); renderer.setSize(r.width, r.height, false); renderer.domElement.style.width = '100%'; renderer.domElement.style.height = '100%'; camera.aspect = r.width / r.height; camera.updateProjectionMatrix(); }
   size(); addEventListener('resize', size);
