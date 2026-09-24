@@ -75,43 +75,188 @@
     "link": "Order the Pilot at $0"
   },
   "inclusions": [
-    ["100 files, valid 12 months from the purchase date, a file deducted only when its package is delivered to your queue.", "500 files, valid 12 months from the purchase date, a file deducted only when its package is delivered to your queue.", "2,000 files per block, valid 12 months from the purchase date, a file deducted only when its package is delivered; blocks are bought in quantities of one or more at checkout."],
-    ["Full read and index of every page uploaded: URLA/1003, credit report, two years of paystubs and W2s, two years of returns with all schedules (1040 with Schedules A through E, K1s, 1065, 1120S and 1120 where present), two months of bank statements and anything else in the upload; each page named and numbered, duplicate pages folded, contradicting pages listed side by side with both citations.", "Full read and index of every page uploaded (URLA/1003, credit report, two years of paystubs and W2s, two years of returns with all schedules, two months of bank statements and anything else in the upload), each page named and numbered, duplicates folded, contradicting pages listed side by side with both citations.", "Full read and index of every page uploaded (URLA/1003, credit report, two years of paystubs and W2s, two years of returns with all schedules, two months of bank statements and anything else in the upload), each page named and numbered, duplicates folded, contradicting pages listed side by side with both citations."],
-    ["Income recalculated by its rule with the source beside each figure: wage income from the year to date paystub and the W2s, using the two year average where the rule calls for it and the lower figure when income is declining; self employed income on Form 1084 (Form 91 on a Freddie Mac file) with every add back tied to its line on the return (Schedule C line 13 depreciation, line 12 depletion, line 30 business use of home, line 24b meals subtracted); rental income from Schedule E; overtime, bonus and commission on a 24 month average with the trend shown.", "Income recalculated by its rule with the source beside each figure: paystub and W2 wage income with the two year average where the rule calls for it and the lower figure when declining; Form 1084 (or Form 91) self employed income with every add back tied to its line on the return; Schedule E rental income; overtime, bonus and commission on a 24 month average with the trend shown.", "Income recalculated by its rule with the source beside each figure: paystub and W2 wage income with the two year average where the rule calls for it and the lower figure when declining; Form 1084 (or Form 91) self employed income with every add back tied to its line on the return; Schedule E rental income; overtime, bonus and commission on a 24 month average with the trend shown."],
-    ["Assets sourced and seasoned: every deposit above the agency threshold (50% of qualifying monthly income on a conventional purchase, 1% of adjusted value on FHA) identified, sourced to a page or marked unsourced, seasoning checked across both statements, and the large deposit letter drafted for the borrower's signature.", "Assets sourced and seasoned against the agency threshold (50% of qualifying monthly income on a conventional purchase, 1% of adjusted value on FHA), with the large deposit letter drafted.", "Assets sourced and seasoned against the agency threshold (50% of qualifying monthly income on a conventional purchase, 1% of adjusted value on FHA), with the large deposit letter drafted."],
-    ["AUS findings reconciled: the DU or LPA findings matched line by line to the file, each finding tied to the page that answers it or listed as open, and the income and assets entered in the AUS set beside the recalculated figures with the difference shown.", "AUS findings reconciled line by line, each finding tied to its page or listed as open, AUS entered figures set beside the recalculated figures with the difference shown.", "AUS findings reconciled line by line, each finding tied to its page or listed as open, AUS entered figures set beside the recalculated figures with the difference shown."],
-    ["Conditions drafted in your wording from your condition library, split prior to doc and prior to close, each citing the page that raised it, delivered as a list you paste into your LOS.", "Conditions drafted in your wording, split prior to doc and prior to close, each citing the page that raised it, pasted into your LOS as a list.", "Conditions drafted in your wording, split prior to doc and prior to close, each citing the page that raised it, pasted into your LOS as a list."],
-    ["One decision ready package per file (PDF and CSV), every figure citing its page, addressed to the underwriter of record for review and signature; FHA and VA packages route only to an underwriter whose profile carries a DE or SAR designation entered by the lender.", "One decision ready package per file (PDF and CSV), addressed to the underwriter of record for review and signature; FHA and VA packages route only to an underwriter whose profile carries a DE or SAR designation.", "One decision ready package per file (PDF and CSV), addressed to the underwriter of record for review and signature; FHA and VA packages route only to an underwriter whose profile carries a DE or SAR designation."],
-    ["Referred up handling: a contradiction the software will not resolve is named with both pages and routed to the underwriter with no recommendation attached.", "Referred up handling: a contradiction named with both pages and routed to the underwriter with no recommendation.", "Referred up handling: a contradiction named with both pages and routed to the underwriter with no recommendation."],
-    ["The web app: the queue, the income worksheet and the condition list, with 5 user seats.", "The web app (queue, income worksheet, condition list) with 25 user seats.", "The web app (queue, income worksheet, condition list) with unlimited user seats and SAML single sign on."],
-    ["Secure upload by browser (PDF, up to 1,000 pages a file) or by SFTP credentials issued from the account page; encrypted in transit and at rest; access limited to the seats you name.", "Secure upload by browser (PDF, up to 1,000 pages a file) or SFTP; encrypted in transit and at rest.", "Secure upload by browser (PDF, up to 1,000 pages a file) or a dedicated SFTP endpoint; encrypted in transit and at rest."],
-    ["Condition library template (CSV) so you load your own condition wording yourself.", "Condition library loaded for you: one setup session in your first week, where your existing condition list is loaded in your wording; you can edit it afterwards.", "Condition library loaded for you by your implementation lead in the first week, in your wording, editable afterwards."],
-    ["Standard queue: a complete file returns the same business day.", "Standard queue: a complete file returns the same business day.", "Priority queue: Enterprise files return ahead of standard packs."],
-    ["Email support, answered the next business day.", "Email and phone support, answered the same business day.", "Email and phone support, answered the same business day, with the implementation lead as the first call."],
-    [null, "Monthly variance report: the recalculated figure beside the figure your underwriter signed, by income type and by underwriter, with the page cites.", "Monthly variance report (recalculated figure beside the signed figure, by income type and by underwriter) plus the quarterly review."],
-    [null, null, "Your credit policy encoded: overlays by product (minimum score, maximum DTI, reserves, LTV caps) loaded from your policy document; a file outside policy is flagged with the policy section cited; the flag is a note to the underwriter, not a decision."],
-    [null, null, "Model documentation pack for your own AI governance inventory: system description, data handling, validation results on your own files, change log, updated each quarter. It is the record Fannie Mae's Lender Letter on AI governance and Freddie Mac Guide Section 1302.8 ask a lender to hold on a third party tool. It documents the tool; it transfers no agency relief, which attaches to verified data and the agencies' own models."],
-    [null, null, "Audit log and annual review evidence: every read, calculation, edit, routing and signature event logged with user, timestamp and the before and after values, exportable as CSV for your annual model review and for QC."],
-    [null, null, "Named implementation lead: a person, named with a direct email and phone number in your activation email, who loads your policy and condition library, runs the first 30 days and holds a quarterly review with you."],
-    [null, null, "PO number captured at checkout and printed on the receipt."],
-    ["Packages and source pages kept in your account for 24 months from delivery, exportable at any time, deleted on request.", "Packages and source pages kept for 24 months from delivery, exportable at any time, deleted on request.", "Packages and source pages kept for 24 months from delivery, exportable at any time, deleted on request."]
+    [
+      "100 files, valid 12 months from the purchase date, a file deducted only when its package is delivered to your queue.",
+      "500 files, valid 12 months from the purchase date, a file deducted only when its package is delivered to your queue.",
+      "2,000 files per block, valid 12 months from the purchase date, a file deducted only when its package is delivered; blocks are bought in quantities of one or more at checkout."
+    ],
+    [
+      "Full read and index of every page uploaded: URLA/1003, credit report, two years of paystubs and W2s, two years of returns with all schedules (1040 with Schedules A through E, K1s, 1065, 1120S and 1120 where present), two months of bank statements and anything else in the upload; each page named and numbered, duplicate pages folded, contradicting pages listed side by side with both citations.",
+      "Full read and index of every page uploaded (URLA/1003, credit report, two years of paystubs and W2s, two years of returns with all schedules, two months of bank statements and anything else in the upload), each page named and numbered, duplicates folded, contradicting pages listed side by side with both citations.",
+      "Full read and index of every page uploaded (URLA/1003, credit report, two years of paystubs and W2s, two years of returns with all schedules, two months of bank statements and anything else in the upload), each page named and numbered, duplicates folded, contradicting pages listed side by side with both citations."
+    ],
+    [
+      "Income recalculated by its rule with the source beside each figure: wage income from the year to date paystub and the W2s, using the two year average where the rule calls for it and the lower figure when income is declining; self employed income on Form 1084 (Form 91 on a Freddie Mac file) with every add back tied to its line on the return (Schedule C line 13 depreciation, line 12 depletion, line 30 business use of home, line 24b meals subtracted); rental income from Schedule E; overtime, bonus and commission on a 24 month average with the trend shown.",
+      "Income recalculated by its rule with the source beside each figure: paystub and W2 wage income with the two year average where the rule calls for it and the lower figure when declining; Form 1084 (or Form 91) self employed income with every add back tied to its line on the return; Schedule E rental income; overtime, bonus and commission on a 24 month average with the trend shown.",
+      "Income recalculated by its rule with the source beside each figure: paystub and W2 wage income with the two year average where the rule calls for it and the lower figure when declining; Form 1084 (or Form 91) self employed income with every add back tied to its line on the return; Schedule E rental income; overtime, bonus and commission on a 24 month average with the trend shown."
+    ],
+    [
+      "Assets sourced and seasoned: every deposit above the agency threshold (50% of qualifying monthly income on a conventional purchase, 1% of adjusted value on FHA) identified, sourced to a page or marked unsourced, seasoning checked across both statements, and the large deposit letter drafted for the borrower's signature.",
+      "Assets sourced and seasoned against the agency threshold (50% of qualifying monthly income on a conventional purchase, 1% of adjusted value on FHA), with the large deposit letter drafted.",
+      "Assets sourced and seasoned against the agency threshold (50% of qualifying monthly income on a conventional purchase, 1% of adjusted value on FHA), with the large deposit letter drafted."
+    ],
+    [
+      "AUS findings reconciled: the DU or LPA findings matched line by line to the file, each finding tied to the page that answers it or listed as open, and the income and assets entered in the AUS set beside the recalculated figures with the difference shown.",
+      "AUS findings reconciled line by line, each finding tied to its page or listed as open, AUS entered figures set beside the recalculated figures with the difference shown.",
+      "AUS findings reconciled line by line, each finding tied to its page or listed as open, AUS entered figures set beside the recalculated figures with the difference shown."
+    ],
+    [
+      "Conditions drafted in your wording from your condition library, split prior to doc and prior to close, each citing the page that raised it, delivered as a list you paste into your LOS.",
+      "Conditions drafted in your wording, split prior to doc and prior to close, each citing the page that raised it, pasted into your LOS as a list.",
+      "Conditions drafted in your wording, split prior to doc and prior to close, each citing the page that raised it, pasted into your LOS as a list."
+    ],
+    [
+      "One decision ready package per file (PDF and CSV), every figure citing its page, addressed to the underwriter of record for review and signature; FHA and VA packages route only to an underwriter whose profile carries a DE or SAR designation entered by the lender.",
+      "One decision ready package per file (PDF and CSV), addressed to the underwriter of record for review and signature; FHA and VA packages route only to an underwriter whose profile carries a DE or SAR designation.",
+      "One decision ready package per file (PDF and CSV), addressed to the underwriter of record for review and signature; FHA and VA packages route only to an underwriter whose profile carries a DE or SAR designation."
+    ],
+    [
+      "Referred up handling: a contradiction the software will not resolve is named with both pages and routed to the underwriter with no recommendation attached.",
+      "Referred up handling: a contradiction named with both pages and routed to the underwriter with no recommendation.",
+      "Referred up handling: a contradiction named with both pages and routed to the underwriter with no recommendation."
+    ],
+    [
+      "The web app: the queue, the income worksheet and the condition list, with 5 user seats.",
+      "The web app (queue, income worksheet, condition list) with 25 user seats.",
+      "The web app (queue, income worksheet, condition list) with unlimited user seats and SAML single sign on."
+    ],
+    [
+      "Secure upload by browser (PDF, up to 1,000 pages a file) or by SFTP credentials issued from the account page; encrypted in transit and at rest; access limited to the seats you name.",
+      "Secure upload by browser (PDF, up to 1,000 pages a file) or SFTP; encrypted in transit and at rest.",
+      "Secure upload by browser (PDF, up to 1,000 pages a file) or a dedicated SFTP endpoint; encrypted in transit and at rest."
+    ],
+    [
+      "Condition library template (CSV) so you load your own condition wording yourself.",
+      "Condition library loaded for you: one setup session in your first week, where your existing condition list is loaded in your wording; you can edit it afterwards.",
+      "Condition library loaded for you by your implementation lead in the first week, in your wording, editable afterwards."
+    ],
+    [
+      "Standard queue: a complete file returns the same business day.",
+      "Standard queue: a complete file returns the same business day.",
+      "Priority queue: Enterprise files return ahead of standard packs."
+    ],
+    [
+      "Email support, answered the next business day.",
+      "Email and phone support, answered the same business day.",
+      "Email and phone support, answered the same business day, with the implementation lead as the first call."
+    ],
+    [
+      null,
+      "Monthly variance report: the recalculated figure beside the figure your underwriter signed, by income type and by underwriter, with the page cites.",
+      "Monthly variance report (recalculated figure beside the signed figure, by income type and by underwriter) plus the quarterly review."
+    ],
+    [
+      null,
+      null,
+      "Your credit policy encoded: overlays by product (minimum score, maximum DTI, reserves, LTV caps) loaded from your policy document; a file outside policy is flagged with the policy section cited; the flag is a note to the underwriter, not a decision."
+    ],
+    [
+      null,
+      null,
+      "Model documentation pack for your own AI governance inventory: system description, data handling, validation results on your own files, change log, updated each quarter. It is the record Fannie Mae's Lender Letter on AI governance and Freddie Mac Guide Section 1302.8 ask a lender to hold on a third party tool. It documents the tool; it transfers no agency relief, which attaches to verified data and the agencies' own models."
+    ],
+    [
+      null,
+      null,
+      "Audit log and annual review evidence: every read, calculation, edit, routing and signature event logged with user, timestamp and the before and after values, exportable as CSV for your annual model review and for QC."
+    ],
+    [
+      null,
+      null,
+      "Named implementation lead: a person, named with a direct email and phone number in your activation email, who loads your policy and condition library, runs the first 30 days and holds a quarterly review with you."
+    ],
+    [
+      null,
+      null,
+      "PO number captured at checkout and printed on the receipt."
+    ],
+    [
+      "Packages and source pages kept in your account for 24 months from delivery, exportable at any time, deleted on request.",
+      "Packages and source pages kept for 24 months from delivery, exportable at any time, deleted on request.",
+      "Packages and source pages kept for 24 months from delivery, exportable at any time, deleted on request."
+    ]
   ],
   "notIncluded": "not included",
   "packTerms": [
-    ["What counts as a file", "One loan application: one URLA/1003, every borrower on it, every document uploaded for it, processed to one package. Documents added to the same loan number within 90 days of its first upload (an updated paystub, a condition response, a new statement) are read into the same file with no new deduction. An upload the software cannot read, such as an unreadable scan or a password locked PDF, comes back with a page list and is not deducted. A file is deducted when its package is delivered to the queue, never at upload."],
-    ["Expiry", "Files are valid 12 months from the purchase date. Buy any pack before that date and the whole remaining balance takes the new pack's 12 month date. Expired files are removed from the balance; packages already delivered stay in the account for their 24 month retention."],
-    ["Refunds", "Unused files are refundable in full within 30 days of purchase, from the account page. Deducted files are not refundable. After 30 days, unused files stay on the account until they expire. The pilot has nothing to refund."],
-    ["Top ups and low balance", "Any pack can be bought at any time from this page or the account page, through the same checkout, and the new files add to the balance. At 10 percent of the most recent pack (10, 50 or 200 files) and again at zero, the account owner receives an email, and a text message if that number opted in through the Join Our SMS List block."],
-    ["Overage", "There is none. At zero, uploads are accepted and held in the queue; nothing is processed and nothing is charged until a pack is bought. No file is ever billed outside a pack."],
-    ["Auto reorder", "A switch on the checkout review step and on the account page, off by default. When on, the same pack is bought again when the balance reaches zero, on the card or bank account on file, with a receipt emailed the same minute. It can be turned off from the account page at any time and the next reorder does not run. It is the only recurring charge that can exist, and only the buyer can switch it on."],
-    ["Payment", "Visa, Mastercard, American Express, Discover or ACH debit, chosen at checkout. A card posts the file balance immediately. ACH posts the balance when the debit settles, usually within three business days, while the account, seats and condition library activate right away. Sales tax is added as its own row in states that tax prewritten software, calculated from the billing address."],
-    ["Guest checkout", "No account exists before purchase. Checkout collects the lender's legal name, NMLS company ID, account owner name, work email, an optional mobile number that carries no SMS consent, billing address, an optional PO number, the payment method, and one agreement checkbox linking the Terms of Service and the Privacy Policy. The account is created from those fields after payment. A returning buyer may sign in to skip the account and billing sections, and is never required to."]
+    [
+      "What counts as a file",
+      "One loan application: one URLA/1003, every borrower on it, every document uploaded for it, processed to one package. Documents added to the same loan number within 90 days of its first upload (an updated paystub, a condition response, a new statement) are read into the same file with no new deduction. An upload the software cannot read, such as an unreadable scan or a password locked PDF, comes back with a page list and is not deducted. A file is deducted when its package is delivered to the queue, never at upload."
+    ],
+    [
+      "Expiry",
+      "Files are valid 12 months from the purchase date. Buy any pack before that date and the whole remaining balance takes the new pack's 12 month date. Expired files are removed from the balance; packages already delivered stay in the account for their 24 month retention."
+    ],
+    [
+      "Refunds",
+      "Unused files are refundable in full within 30 days of purchase, from the account page. Deducted files are not refundable. After 30 days, unused files stay on the account until they expire. The pilot has nothing to refund."
+    ],
+    [
+      "Top ups and low balance",
+      "Any pack can be bought at any time from this page or the account page, through the same checkout, and the new files add to the balance. At 10 percent of the most recent pack (10, 50 or 200 files) and again at zero, the account owner receives an email, and a text message if that number opted in through the Join Our SMS List block."
+    ],
+    [
+      "Overage",
+      "There is none. At zero, uploads are accepted and held in the queue; nothing is processed and nothing is charged until a pack is bought. No file is ever billed outside a pack."
+    ],
+    [
+      "Auto reorder",
+      "A switch on the checkout review step and on the account page, off by default. When on, the same pack is bought again when the balance reaches zero, on the card or bank account on file, with a receipt emailed the same minute. It can be turned off from the account page at any time and the next reorder does not run. It is the only recurring charge that can exist, and only the buyer can switch it on."
+    ],
+    [
+      "Payment",
+      "Visa, Mastercard, American Express, Discover or ACH debit, chosen at checkout. A card posts the file balance immediately. ACH posts the balance when the debit settles, usually within three business days, while the account, seats and condition library activate right away. Sales tax is added as its own row in states that tax prewritten software, calculated from the billing address."
+    ],
+    [
+      "Guest checkout",
+      "No account exists before purchase. Checkout collects the lender's legal name, NMLS company ID, account owner name, work email, an optional mobile number that carries no SMS consent, billing address, an optional PO number, the payment method, and one agreement checkbox linking the Terms of Service and the Privacy Policy. The account is created from those fields after payment. A returning buyer may sign in to skip the account and billing sections, and is never required to."
+    ]
   ],
   "disclaimer": "Financing Bot prepares, calculates and documents. It does not approve, decline or decide any loan. Every decision is made and signed by the lender's named underwriter, who on FHA and VA loans personally holds a DE or SAR designation. The lender keeps its representations and warranties and provides the specific principal reasons for any adverse action that Regulation B requires. Any agency relief attaches to verified data and the agencies' own models, not to this software.",
   "packageFooter": "Prepared by Financing Bot. Decided and signed by the underwriter of record.",
-  "primaryButton": { "label": "Buy a file pack", "price": "from $2,400", "href": "/pricing#ledger" },
+  "primaryButton": {
+    "label": "Buy a file pack",
+    "price": "from $2,400",
+    "href": "/pricing#ledger"
+  },
   "taxNote": "proposed, replace with the tax engine's rates before launch",
   "taxRates": {
-    "AL": 4.0, "AZ": 5.6, "AR": 6.5, "CT": 6.35, "DC": 6.0, "HI": 4.0, "ID": 6.0, "IN": 7.0, "KY": 6.0, "LA": 4.45, "ME": 5.5, "MA": 6.25, "MI": 6.0, "MN": 6.875, "MS": 7.0, "NE": 5.5, "NJ": 6.625, "NM": 5.125, "NY": 4.0, "NC": 4.75, "OH": 5.75, "PA": 6.0, "RI": 7.0, "SD": 4.5, "TN": 7.0, "TX": 6.25, "UT": 4.85, "VT": 6.0, "WA": 6.5, "WV": 6.0, "WI": 5.0, "WY": 4.0
-  }
+    "AL": 4.0,
+    "AZ": 5.6,
+    "AR": 6.5,
+    "CT": 6.35,
+    "DC": 6.0,
+    "HI": 4.0,
+    "ID": 6.0,
+    "IN": 7.0,
+    "KY": 6.0,
+    "LA": 4.45,
+    "ME": 5.5,
+    "MA": 6.25,
+    "MI": 6.0,
+    "MN": 6.875,
+    "MS": 7.0,
+    "NE": 5.5,
+    "NJ": 6.625,
+    "NM": 5.125,
+    "NY": 4.0,
+    "NC": 4.75,
+    "OH": 5.75,
+    "PA": 6.0,
+    "RI": 7.0,
+    "SD": 4.5,
+    "TN": 7.0,
+    "TX": 6.25,
+    "UT": 4.85,
+    "VT": 6.0,
+    "WA": 6.5,
+    "WV": 6.0,
+    "WI": 5.0,
+    "WY": 4.0
+  },
+  "inEveryPack": "Every page of the upload read and indexed. Income recalculated by its rule (paystubs and W2s, Form 1084 or Form 91 with each add back tied to its line, Schedule E, a 24 month average for overtime, bonus and commission). Every large deposit sourced to a page or marked unsourced, with the letter drafted. The DU or LPA findings reconciled line by line. Conditions drafted in your wording, split prior to doc and prior to close, each citing its page. One decision ready package per file, PDF and CSV, addressed to the underwriter of record; FHA and VA packages route only to a DE or SAR. A contradiction the software cannot resolve is referred up with both pages and no recommendation. The web app, secure upload by browser or SFTP, and 24 months of retention.",
+  "onlyHere": [
+    "Condition library template (CSV) so you load your own wording.",
+    "Condition library loaded for you in a setup session in your first week. Monthly variance report: the recalculated figure beside the one your underwriter signed, by income type and by underwriter.",
+    "Priority queue ahead of standard packs. Your credit policy encoded and cited when a file sits outside it. Model documentation pack for your AI governance inventory, updated each quarter. Audit log of every read, edit, routing and signature, exportable for QC. A named implementation lead with a direct line. PO number on the receipt."
+  ]
 }

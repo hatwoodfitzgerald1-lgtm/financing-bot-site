@@ -1,23 +1,128 @@
 {
   "rules": [
-    { "trigger": "w2", "side": "PTD", "text": "Year to date paystub dated within 30 days of the application and W2s for 2024 and 2025.", "cite": "cites paystub p.27, W2 p.31", "chip": "drafted" },
-    { "trigger": "w2", "side": "PTC", "text": "Verbal verification of employment within 10 business days prior to the note date.", "cite": "cites URLA p.1", "chip": "drafted" },
-    { "trigger": "se", "side": "PTD", "text": "Signed 1040 with all schedules for 2024 and 2025.", "cite": "cites the return pages p.47, p.52", "chip": "drafted" },
-    { "trigger": "se", "side": "PTD", "text": "Year to date profit and loss statement for the business.", "cite": "cites Schedule C p.47", "chip": "drafted" },
-    { "trigger": "se", "side": "PTC", "text": "Verification of the existence of the business within 120 calendar days prior to the note date, by third party listing or CPA letter.", "cite": "cites URLA p.1", "chip": "drafted" },
-    { "trigger": "rental", "side": "PTD", "text": "Schedule E for 2024 and 2025 with the current lease for each property.", "cite": "cites Schedule E p.61", "chip": "drafted" },
-    { "trigger": "rental-fha", "side": "PTD", "text": "Reserves after closing verified on the statement, as HUD Handbook 4000.1 asks when rental income qualifies the file.", "cite": "cites bank statement p.88", "chip": "drafted" },
-    { "trigger": "obc", "side": "PTD", "text": "Written verification of employment showing overtime, bonus and commission by year for 2024 and 2025 and year to date.", "cite": "cites the VOE page", "chip": "drafted" },
-    { "trigger": "deposit", "side": "PTD", "text": "Large deposit letter of explanation with the source page.", "cite": "cites bank statement p.88", "chip": "drafted" },
-    { "trigger": "finding", "side": "PTC", "text": "Resolve open finding line 4 against the file page.", "cite": "cites the findings page", "chip": "drafted" },
-    { "trigger": "fha", "side": "PTC", "text": "FHA case number assigned and printed in the file.", "cite": "cites the case assignment page", "chip": "drafted" },
-    { "trigger": "va", "side": "PTD", "text": "Certificate of Eligibility in the file.", "cite": "cites the COE page", "chip": "drafted" },
-    { "trigger": "routing", "side": "routing", "text": "Package routes only to an underwriter of record with a DE or SAR designation. Enter one on the account page.", "cite": "no cite", "chip": "routing" }
+    {
+      "trigger": "w2",
+      "side": "PTD",
+      "text": "Year to date paystub dated within 30 days of the application and W2s for 2024 and 2025.",
+      "cite": "cites paystub p.27, W2 p.31",
+      "chip": "drafted",
+      "key": "wages"
+    },
+    {
+      "trigger": "w2",
+      "side": "PTC",
+      "text": "Verbal verification of employment within 10 business days prior to the note date.",
+      "cite": "cites URLA p.1",
+      "chip": "drafted",
+      "key": "employment"
+    },
+    {
+      "trigger": "se",
+      "side": "PTD",
+      "text": "Signed 1040 with all schedules for 2024 and 2025.",
+      "cite": "cites the return pages p.47, p.52",
+      "chip": "drafted",
+      "key": "tax returns"
+    },
+    {
+      "trigger": "se",
+      "side": "PTD",
+      "text": "Year to date profit and loss statement for the business.",
+      "cite": "cites Schedule C p.47",
+      "chip": "drafted",
+      "key": "profit and loss"
+    },
+    {
+      "trigger": "se",
+      "side": "PTC",
+      "text": "Verification of the existence of the business within 120 calendar days prior to the note date, by third party listing or CPA letter.",
+      "cite": "cites URLA p.1",
+      "chip": "drafted",
+      "key": "the business"
+    },
+    {
+      "trigger": "rental",
+      "side": "PTD",
+      "text": "Schedule E for 2024 and 2025 with the current lease for each property.",
+      "cite": "cites Schedule E p.61",
+      "chip": "drafted",
+      "key": "rental"
+    },
+    {
+      "trigger": "rental-fha",
+      "side": "PTD",
+      "text": "Reserves after closing verified on the statement, as HUD Handbook 4000.1 asks when rental income qualifies the file.",
+      "cite": "cites bank statement p.88",
+      "chip": "drafted",
+      "key": "reserves"
+    },
+    {
+      "trigger": "obc",
+      "side": "PTD",
+      "text": "Written verification of employment showing overtime, bonus and commission by year for 2024 and 2025 and year to date.",
+      "cite": "cites the VOE page",
+      "chip": "drafted",
+      "key": "variable pay"
+    },
+    {
+      "trigger": "deposit",
+      "side": "PTD",
+      "text": "Large deposit letter of explanation with the source page.",
+      "cite": "cites bank statement p.88",
+      "chip": "drafted",
+      "key": "the deposit"
+    },
+    {
+      "trigger": "finding",
+      "side": "PTC",
+      "text": "Resolve open finding line 4 against the file page.",
+      "cite": "cites the findings page",
+      "chip": "drafted",
+      "key": "open finding"
+    },
+    {
+      "trigger": "fha",
+      "side": "PTC",
+      "text": "FHA case number assigned and printed in the file.",
+      "cite": "cites the case assignment page",
+      "chip": "drafted",
+      "key": "case number"
+    },
+    {
+      "trigger": "va",
+      "side": "PTD",
+      "text": "Certificate of Eligibility in the file.",
+      "cite": "cites the COE page",
+      "chip": "drafted",
+      "key": "eligibility"
+    },
+    {
+      "trigger": "routing",
+      "side": "routing",
+      "text": "Package routes only to an underwriter of record with a DE or SAR designation. Enter one on the account page.",
+      "cite": "no cite",
+      "chip": "routing"
+    }
   ],
   "packs": {
-    "under500": { "sentence": "At {volume} files a month, the 100 File Pack covers the first week or two of your queue, which is where most lenders start.", "button": "Buy the 100 File Pack", "price": "$2,400.00", "href": "/pricing?pack=100#ledger" },
-    "500to2000": { "sentence": "At {volume} files a month, the 500 File Pack covers a month with your condition library loaded for you and a variance report at the end of it.", "button": "Buy the 500 File Pack", "price": "$11,000.00", "href": "/pricing?pack=500#ledger" },
-    "above2000": { "sentence": "At {volume} files a month you are past the volume the Enterprise Block is priced for, with your credit policy encoded and the documentation pack your governance inventory asks for.", "button": "Buy the Enterprise Block", "price": "$36,000.00", "href": "/pricing?pack=enterprise#ledger" }
+    "under500": {
+      "sentence": "At {volume} files a month, the 100 File Pack covers the first week or two of your queue, which is where most lenders start.",
+      "button": "Buy the 100 File Pack",
+      "price": "$2,400.00",
+      "href": "/pricing?pack=100#ledger"
+    },
+    "500to2000": {
+      "sentence": "At {volume} files a month, the 500 File Pack covers a month with your condition library loaded for you and a variance report at the end of it.",
+      "button": "Buy the 500 File Pack",
+      "price": "$11,000.00",
+      "href": "/pricing?pack=500#ledger"
+    },
+    "above2000": {
+      "sentence": "At {volume} files a month you are past the volume the Enterprise Block is priced for, with your credit policy encoded and the documentation pack your governance inventory asks for.",
+      "button": "Buy the Enterprise Block",
+      "price": "$36,000.00",
+      "href": "/pricing?pack=enterprise#ledger"
+    }
   },
   "strings": {
     "empty": "No scenario yet. Pick a product to start.",
