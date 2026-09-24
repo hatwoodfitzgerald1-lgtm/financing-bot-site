@@ -1,0 +1,85 @@
+---
+// The Ledger layout: head, the visible 12 column grid, the ruled cell nav, the
+// page, the footer with the SMS block, the loader mount on Home.
+import '../styles/site.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Loader from '../components/Loader.astro';
+import seo from '../data/seo.json';
+
+interface Props {
+  route: string;          // canonical path, e.g. "/pricing"
+  page: string;           // page module key, e.g. "pricing"
+  hover: string;          // the page's text hover treatment
+  footerIndex: string;    // the row index the footer continues from
+  loader?: boolean;
+  noindex?: boolean;
+  scene?: string;         // scene key for the page (used by scripts)
+  status?: number;
+}
+const { route, page, hover, footerIndex, loader = false, noindex = false, scene = '' } = Astro.props;
+const meta = (seo as Record<string, { title: string; description: string }>)[route] || seo['/404'];
+const site = 'https://financingbot.com';
+const canonical = site + (route === '/404' ? '' : route);
+const og = site + '/assets/brand/B-01-og.png';
+const activeNav = route.startsWith('/blog') ? '/blog' : route;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{meta.title}</title>
+  <meta name="description" content={meta.description} />
+  {noindex ? <meta name="robots" content="noindex" /> : <meta name="robots" content="index, follow" />}
+  <link rel="canonical" href={canonical} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Financing Bot" />
+  <meta property="og:title" content={meta.title} />
+  <meta property="og:description" content={meta.description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={og} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={meta.title} />
+  <meta name="twitter:description" content={meta.description} />
+  <meta name="twitter:image" content={og} />
+  <meta name="theme-color" content="#1A1B1D" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="alternate icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preload" href="/assets/fonts/archivo-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/fragment-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <meta name="view-transition" content="same-origin" />
+</head>
+<body data-page={page} data-hover={hover} data-route={route} data-scene={scene}>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="grid-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  {loader && <Loader />}
+  <Nav active={activeNav} />
+  <div class="menu-panel" id="menu-panel" aria-label="Menu">
+    <a href="/product">How it works</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/drafter">Condition drafter</a>
+    <a href="/about">About</a>
+    <a href="/blog">Blog</a>
+    <a href="/contact">Contact</a>
+    <a href="/cart">Cart</a>
+  </div>
+  <main id="main">
+    <slot />
+  </main>
+  <Footer index={footerIndex} />
+  <div class="dialog" id="pilot-dialog" role="dialog" aria-modal="true" aria-labelledby="pilot-dialog-t" hidden>
+    <div class="box">
+      <p id="pilot-dialog-t">The pilot is its own $0 order. Replace the cart with the Pilot Order?</p>
+      <div class="flex"><button class="btn-line" type="button" data-act="replace"><span>Replace</span></button><button class="btn-line" type="button" data-act="keep"><span>Keep my cart</span></button></div>
+    </div>
+  </div>
+  <script>
+    import '../scripts/main.js';
+  </script>
+</body>
+</html>
