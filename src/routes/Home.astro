@@ -28,16 +28,16 @@ const worksheet = [
           <a class="link hv" href="/product">See how it works</a>
         </div>
         <div class="clear-cap" id="clear-cap" aria-live="polite">
-          <p class="cap-line m" id="clear-text" data-text="Sixty in the queue. Sixty returned to the underwriter of record, every figure beside its page."></p>
-          <p class="cap-foot m ash">sample queue. 36 / 21 / 3 is the 60, 35, 5 split we hold as a QA target, not a result we promise.</p>
+          <p class="cap-line m" id="clear-text" data-text="The queue that came in at five went back before the morning shift, each file with its pages named."></p>
+          <p class="cap-foot m ash">a sample night on the floor, not a promise of any turnaround.</p>
         </div>
       </div>
       <div class="wall-col" id="wall-col">
         <div class="scene wall" id="wall" data-scene="wall">
-          <img class="poster" src="/assets/posters/W-01.webp" width="1600" height="1000" alt="The half cleared Overnight Queue wall, square on: sixty loan rows, the upper rows cleared with a status chip and an income figure beside its page cite." loading="eager" fetchpriority="low" decoding="async" />
+          <img class="poster" src="/assets/posters/W-01.webp" width="1600" height="1000" alt="The half cleared Overnight Queue wall, square on: the loan rows of one night, the upper rows cleared with a status chip and an income figure beside its page cite." loading="eager" fetchpriority="low" decoding="async" />
           <div class="plate m" id="queue-plate"><span id="queue-count">60</span> in queue</div>
           <div class="rm-cap m" id="wall-rm-cap" hidden>
-            <p>Sixty in the queue. Sixty returned to the underwriter of record, every figure beside its page.</p>
+            <p>The queue that came in at five went back before the morning shift, each file with its pages named.</p>
             <p class="ash">This wall is a picture of one night's sample queue; scroll for the real screens.</p>
           </div>
           <img class="dock" id="dock-shot" src="/assets/product/P-01-queue.webp" width="3200" height="2072" alt="" aria-hidden="true" loading="lazy" decoding="async" />
@@ -62,27 +62,27 @@ const worksheet = [
             </li>
           ))}
         </ol>
-        <p class="pk-cap m" id="pk-cap" data-text="Sixty in the queue. Sixty returned to the underwriter of record, every figure beside its page."></p>
+        <p class="pk-cap m" id="pk-cap" data-text="The queue that came in at five went back before the morning shift, each file with its pages named."></p>
       </div>
     </div>
     <!-- Reduced motion: the row clearing as a static table -->
     <table class="ledger rm-table" id="wall-rm-table" hidden>
-      <caption class="sr-only">The sample queue wall, sixty rows, as a table</caption>
+      <caption class="sr-only">The sample queue wall, one night of rows, as a table</caption>
       <thead><tr><th>index</th><th>loan</th><th>borrower</th><th>product</th><th>pages</th><th>underwriter of record</th><th>status</th><th>income</th></tr></thead>
       <tbody>{wallRows.map((r) => (<tr><td class="m">{r.index}</td><td class="m">{r.ln}</td><td class="m">{r.borrower}</td><td>{r.product}</td><td class="m">{r.pages}</td><td>{r.underwriter}</td><td><span class="chip">{r.status}</span></td><td class="m">{r.income}</td></tr>))}</tbody>
     </table>
   </section>
 
-  <!-- 0002 Sixty files in the queue: split sticky spec sheet -->
-  <Row index="0002" id="queue" class="queue-row" label="Sixty files in the queue">
+  <!-- 0002 The queue overnight: split sticky spec sheet -->
+  <Row index="0002" id="queue" class="queue-row" label="The queue overnight">
     <div class="g">
       <div class="c1-5 queue-copy">
         <p class="sr-only">Financing Bot reads a mortgage loan file and hands the underwriter a decision ready package in which every figure cites its page.</p>
-        <h2 class="hv">Sixty files in the queue, each one returned with its pages named</h2>
+        <h2 class="hv">A queue goes in at five. Packages come back before the morning shift.</h2>
         <div class="qrows">
-          <div class="qrow" data-reveal="count"><div class="qidx m"><span class="cnt drum" data-drum="01">00</span></div><h3>What came in</h3><p>Sixty uploads landed after five o'clock: URLA and credit, two years of paystubs and W2s, two years of returns with every schedule, two months of statements, and whatever else the processor dropped in the folder. Each page was named and numbered, duplicates were folded into one, and a password locked PDF on one file was sent back with a page list and no deduction.</p></div>
-          <div class="qrow" data-reveal="count"><div class="qidx m"><span class="cnt drum" data-drum="02">00</span></div><h3>What was found</h3><p>Three files carried a page that disagreed with another page. In each the two pages are listed side by side with both cites, and that is all that was done to them. Nothing was picked. The other fifty seven reconciled to their DU or LPA findings line by line, with each finding tied to the page that answers it or listed as open.</p></div>
-          <div class="qrow" data-reveal="count"><div class="qidx m"><span class="cnt drum" data-drum="03">00</span></div><h3>What went back</h3><p>Every file is in your queue with a status chip and a returned time. The sample queue in this screen shows 36 decision ready, 21 with conditions out and 3 referred up, which is the 60, 35, 5 split we hold as a QA target. Your queue will show whatever your files produce.</p></div>
+          <div class="qrow" data-reveal="rise"><div class="qidx m">17:00</div><h3>What came in</h3><p>The processors' folders landed after the close of business: URLA and credit, paystubs and W2s, tax returns with every schedule, bank statements, and whatever else was dropped in. Each page was named and numbered, duplicates were folded into one, and a password locked PDF was sent straight back with a page list and no deduction.</p></div>
+          <div class="qrow" data-reveal="rise"><div class="qidx m">overnight</div><h3>What was found</h3><p>Where a page disagreed with another page, the two are listed side by side with both cites, and that is all that was done to them. Nothing was picked. Every other file reconciled to its DU or LPA findings line by line, each finding tied to the page that answers it or listed as open, and its income recalculated by the rule that applies to it.</p></div>
+          <div class="qrow" data-reveal="rise"><div class="qidx m">07:00</div><h3>What went back</h3><p>By the morning shift every file is in the queue with a status chip and a returned time: decision ready, conditions out, or referred up with both pages and no recommendation. The screen beside this is a sample night. Your queue will show whatever your files produce.</p></div>
         </div>
         <ul class="chip-lines m" id="chip-lines" aria-label="What each status chip means">
           <li data-chip="reading"><span class="chip">reading</span> still being indexed; nothing has been deducted yet</li>
@@ -93,7 +93,7 @@ const worksheet = [
       </div>
       <div class="queue-media" id="queue-media">
         <div class="sticky">
-          <div class="shot"><img src="/assets/product/P-01-queue.webp" srcset="/assets/product/P-01-queue@1x.webp 1600w, /assets/product/P-01-queue.webp 3200w" sizes="(max-width: 899px) 100vw, 50vw" width="3200" height="2072" alt="The Financing Bot queue for Sample Mortgage Co.: sixty loan files listed by loan number, borrower initials, product, pages, contradictions, underwriter of record, a lowercase status chip and the returned time." loading="lazy" decoding="async" /></div>
+          <div class="shot"><img src="/assets/product/P-01-queue.webp" srcset="/assets/product/P-01-queue@1x.webp 1600w, /assets/product/P-01-queue.webp 3200w" sizes="(max-width: 899px) 100vw, 50vw" width="3200" height="2072" alt="The Financing Bot queue for Sample Mortgage Co.: one night of loan files listed by loan number, borrower initials, product, pages, contradictions, underwriter of record, a lowercase status chip and the returned time." loading="lazy" decoding="async" /></div>
           <div class="live-chips" role="group" aria-label="Live status chips">
             <button type="button" class="chip" data-chip="reading">reading</button>
             <button type="button" class="chip" data-chip="decision ready">decision ready</button>
@@ -139,12 +139,14 @@ const worksheet = [
   <Row index="0004" id="conditions" label="Conditions drafted in your wording">
     <div class="g">
       <div class="c1-7"><h2 class="hv">Conditions drafted in your wording, prior to doc and prior to close</h2>
-      <p class="lede mt">These three rows came out of the same file, in Sample Mortgage Co.'s own condition wording, with the page that raised each one at the end of the line. They paste into the LOS as they stand.</p></div>
+      <p class="lede mt">One file's condition list, in Sample Mortgage Co.'s own condition wording, with the page that raised each row at the end of the line. It pastes into the LOS as it stands.</p></div>
     </div>
-    <div class="g mt2 cond-index" data-reveal="slide-index">
-      <div class="c1-12 idx-row"><span class="num sm">PTD 01</span><div class="txt"><span>Signed 1040 with all schedules for 2024 and 2025.</span><span class="m ash">cites p.47, p.52</span><span class="chip">drafted</span></div></div>
-      <div class="c1-12 idx-row"><span class="num sm">PTD 02</span><div class="txt"><span>Year to date profit and loss statement for the business.</span><span class="m ash">cites Schedule C p.47</span><span class="chip">drafted</span></div></div>
-      <div class="c1-12 idx-row"><span class="num sm">PTC 01</span><div class="txt"><span>Verbal verification of employment for the co borrower within 10 business days prior to the note date.</span><span class="m ash">cites URLA p.1, W2 p.31</span><span class="chip">drafted</span></div></div>
+    <div class="g mt2 cond-index" data-reveal="rise">
+      <div class="c1-12 cond-group"><span class="stage m">prior to doc</span></div>
+      <div class="c1-12 idx-row"><span class="key m">tax returns</span><div class="txt"><span>Signed 1040 with all schedules for 2024 and 2025.</span><span class="m ash">cites p.47, p.52</span><span class="chip">drafted</span></div></div>
+      <div class="c1-12 idx-row"><span class="key m">profit and loss</span><div class="txt"><span>Year to date profit and loss statement for the business.</span><span class="m ash">cites Schedule C p.47</span><span class="chip">drafted</span></div></div>
+      <div class="c1-12 cond-group"><span class="stage m">prior to close</span></div>
+      <div class="c1-12 idx-row"><span class="key m">employment</span><div class="txt"><span>Verbal verification of employment for the co borrower within 10 business days prior to the note date.</span><span class="m ash">cites URLA p.1, W2 p.31</span><span class="chip">drafted</span></div></div>
     </div>
     <div class="g mt2"><p class="c1-7">Your library, your words. The software fills in the cite, the year and the borrower, and puts each row on the side of the line the rule puts it on. A library line too vague to draft against is left alone and named.</p></div>
   </Row>
@@ -188,7 +190,7 @@ const worksheet = [
 
   <!-- 0007 Three prepaid packs: ticker stats bar spanning 12 columns -->
   <Row index="0007" id="packs" label="Three prepaid packs">
-    <div class="g"><h2 class="c1-9 hv">Three prepaid packs, one rate each, nothing that renews on its own</h2></div>
+    <div class="g"><h2 class="c1-9 hv">Prepaid packs at one rate each, and nothing that renews on its own</h2></div>
     <div class="ticker mt2" data-reveal="count">
       <div class="tk"><span class="num cnt"><span class="drum" data-drum="$24.00">$00.00</span></span><span class="lab">a file</span><span class="m ash">100 File Pack</span></div>
       <div class="tk"><span class="num cnt"><span class="drum" data-drum="$22.00">$00.00</span></span><span class="lab">a file</span><span class="m ash">500 File Pack</span></div>
@@ -211,7 +213,7 @@ const worksheet = [
       <div class="over g" style="align-content:center">
         <div class="c1-6 inset">
           <h2 class="hv">Founded in 2026, for the shop where the underwriter is the constraint</h2>
-          <p class="mt">Three figures on the desk that year: production expense of $11,898 a loan, income and employment at 27.24 percent of critical defects, and two agency governance rules that now ask for a human signature on every decision and a record on every tool. The About page is the note on why those three add up to this product.</p>
+          <p class="mt">What was on the desk that year: production expense of $11,898 a loan, income and employment as the largest category of critical defect, and agency governance rules that now ask for a human signature on every decision and a record on every tool. The About page is the note on why that adds up to this product.</p>
           <a class="link hv" href="/about">Read the About page</a>
         </div>
       </div>
@@ -293,10 +295,10 @@ body[data-page="home"] {
   .queue-row .g { align-items: start; }
   .queue-copy h2 { max-width: 20ch; }
   .qrows { margin-top: 40px; }
-  .qrow { border-top: var(--hair) solid var(--rule); padding: 20px 0 28px; min-height: 42vh; display: grid; grid-template-columns: 72px 1fr; gap: 0 16px; align-content: start; }
+  .qrow { border-top: var(--hair) solid var(--rule); padding: 20px 0 28px; min-height: 42vh; display: grid; grid-template-columns: 96px 1fr; gap: 0 16px; align-content: start; }
   .qrow h3 { grid-column: 2; margin-bottom: 8px; }
   .qrow p { grid-column: 2; }
-  .qidx { font-size: 32px; grid-row: 1 / span 2; color: var(--ash); }
+  .qidx { font-size: 13px; letter-spacing: 0.04em; grid-row: 1 / span 2; color: var(--ash); padding-top: 6px; }
   .chip-lines { list-style: none; padding: 0; margin: 24px 0 0; font-size: 12px; }
   .chip-lines li { padding: 8px 0; border-top: var(--hair) solid var(--rule); color: var(--ash); transition: color var(--fast) var(--ra), background var(--fast) var(--cr); display: flex; gap: 10px; align-items: baseline; }
   .chip-lines li.lit { color: var(--paper); }
@@ -316,6 +318,9 @@ body[data-page="home"] {
   .recalc-quote .rq-fig { font-size: clamp(56px, 6vw, 80px); line-height: 1; color: var(--verdigris); }
   .recalc-quote .rq-cite { margin-top: 8px; font-size: 13px; }
   /* 0004 */
+  .cond-index .cond-group { padding: 22px 0 8px; }
+  .cond-index .cond-group .stage { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--paper); }
+  .cond-index .key { font-size: 13px; color: var(--ash); padding-top: 4px; }
   .cond-index .idx-row { display: grid; grid-template-columns: minmax(180px, 3fr) 9fr; gap: 24px; align-items: end; padding: 24px 0; border-bottom: var(--hair) solid var(--rule); }
   .cond-index .idx-row:first-child { border-top: var(--hair) solid var(--rule); }
   .cond-index .txt { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; font-size: clamp(16px, 1.25vw, 20px); padding-bottom: 10px; }
