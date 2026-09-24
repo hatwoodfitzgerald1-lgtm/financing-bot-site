@@ -19,7 +19,14 @@
       "queue": "standard, same business day",
       "support": "email, next business day",
       "button": "Buy the 100 File Pack",
-      "blocks": false
+      "blocks": false,
+      "forLine": "For a shop that wants to see the work on its own files first.",
+      "differs": [
+        "Condition library template, a CSV you fill in your own wording",
+        "Standard queue: a complete file returns the same business day",
+        "Email support, answered the next business day",
+        "Five seats in the web app"
+      ]
     },
     {
       "sku": "pack-500",
@@ -39,7 +46,15 @@
       "queue": "standard, same business day",
       "support": "email and phone, same business day",
       "button": "Buy the 500 File Pack",
-      "blocks": false
+      "blocks": false,
+      "forLine": "For a shop that runs a queue most nights.",
+      "differs": [
+        "Everything in the 100 File Pack, plus:",
+        "Condition library loaded for you in a setup session in your first week",
+        "Monthly variance report: the recalculated figure beside the one your underwriter signed, by income type and by underwriter",
+        "Phone support as well as email, answered the same business day",
+        "Twenty five seats in the web app"
+      ]
     },
     {
       "sku": "enterprise-block",
@@ -59,7 +74,17 @@
       "queue": "priority, ahead of standard packs",
       "support": "email and phone, same business day, implementation lead first",
       "button": "Buy the Enterprise Block",
-      "blocks": true
+      "blocks": true,
+      "forLine": "For a shop with a credit policy to encode and an audit to pass.",
+      "differs": [
+        "Everything in the 500 File Pack, plus:",
+        "Priority queue, ahead of the standard packs",
+        "Your credit policy encoded, and cited when a file sits outside it",
+        "Model documentation pack for your AI governance inventory, updated each quarter",
+        "Audit log of every read, edit, routing and signature, exportable for QC",
+        "A named implementation lead with a direct line, and your PO number on the receipt",
+        "Unlimited seats with SAML single sign on"
+      ]
     }
   ],
   "pilot": {
@@ -258,5 +283,39 @@
     "Condition library template (CSV) so you load your own wording.",
     "Condition library loaded for you in a setup session in your first week. Monthly variance report: the recalculated figure beside the one your underwriter signed, by income type and by underwriter.",
     "Priority queue ahead of standard packs. Your credit policy encoded and cited when a file sits outside it. Model documentation pack for your AI governance inventory, updated each quarter. Audit log of every read, edit, routing and signature, exportable for QC. A named implementation lead with a direct line. PO number on the receipt."
+  ],
+  "inEveryPackItems": [
+    [
+      "Every page read and indexed",
+      "URLA, credit, paystubs, W2s, returns with every schedule, bank statements; duplicates folded, contradictions listed side by side"
+    ],
+    [
+      "Income recalculated by its rule",
+      "Wages, Form 1084 or Form 91 with each add back tied to its line, Schedule E, a 24 month average for overtime, bonus and commission"
+    ],
+    [
+      "Deposits sourced and seasoned",
+      "Every large deposit tied to a page or marked unsourced, with the letter drafted for signature"
+    ],
+    [
+      "AUS findings reconciled",
+      "DU or LPA findings matched line by line, each tied to its page or listed as open"
+    ],
+    [
+      "Conditions in your wording",
+      "Split prior to doc and prior to close, each citing the page that raised it, pasted into your LOS"
+    ],
+    [
+      "One package per file",
+      "PDF and CSV, every figure citing its page, addressed to the underwriter of record; FHA and VA route only to a DE or SAR"
+    ],
+    [
+      "Referred up, never guessed",
+      "A contradiction the software cannot resolve goes to the underwriter with both pages and no recommendation"
+    ],
+    [
+      "The web app and secure upload",
+      "Queue, worksheet and condition list; upload by browser or SFTP; packages kept 24 months, exportable, deleted on request"
+    ]
   ]
 }
