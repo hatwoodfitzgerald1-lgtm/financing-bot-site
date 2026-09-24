@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#E9E5DA" stroke-width="1.25" stroke-linecap="square" stroke-linejoin="miter" role="img" aria-label="Queue: three ruled rows with an index cell at the left of each">
+<title>Queue: three ruled rows with an index cell at the left of each</title>
+<style>
+  .d { animation: fb-draw 0.4s cubic-bezier(0.8, 0.02, 0.18, 1) forwards; }
+  .r { animation-timing-function: cubic-bezier(0.34, 0.9, 0.2, 1); animation-duration: 0.14s; }
+  @keyframes fb-draw { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) { .d { animation: none; stroke-dashoffset: 0; } }
+</style><style>
+  .m { transform-box: fill-box; transform-origin: center; }
+  svg:hover .tab { animation: fb-tab 0.14s cubic-bezier(0.34, 0.9, 0.2, 1); }
+  @keyframes fb-tab { 50% { transform: translate(1px, -1px); } }
+  svg:hover .row { animation: fb-row 0.14s cubic-bezier(0.34, 0.9, 0.2, 1); }
+  @keyframes fb-row { from { transform: translateX(-3px); opacity: 0; } }
+  svg:hover .total { stroke-dasharray: 18; animation: fb-draw18 0.4s cubic-bezier(0.8, 0.02, 0.18, 1); }
+  @keyframes fb-draw18 { from { stroke-dashoffset: 18; } to { stroke-dashoffset: 0; } }
+  .check { transition: fill 0.14s cubic-bezier(0.34, 0.9, 0.2, 1); }
+  svg:hover .check { fill: #E9E5DA; }
+  .bl, .br { transition: transform 0.14s cubic-bezier(0.34, 0.9, 0.2, 1); }
+  svg:hover .bl { transform: translateX(1px); }
+  svg:hover .br { transform: translateX(-1px); }
+  svg:hover .sig { stroke-dasharray: 40; animation: fb-draw40 0.4s cubic-bezier(0.8, 0.02, 0.18, 1); }
+  @keyframes fb-draw40 { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+  svg:hover .arrow { animation: fb-drop 0.14s cubic-bezier(0.34, 0.9, 0.2, 1); }
+  @keyframes fb-drop { 50% { transform: translateY(2px); } }
+  svg:hover .drum { animation: fb-roll 0.14s cubic-bezier(0.34, 0.9, 0.2, 1); }
+  @keyframes fb-roll { from { transform: translateY(3px); opacity: 0; } }
+  svg.open .menu2 { opacity: 0; }
+  svg.open .menu3 { transform: translateY(-6px); }
+  .menu2, .menu3 { transition: opacity 0.14s cubic-bezier(0.34, 0.9, 0.2, 1), transform 0.14s cubic-bezier(0.34, 0.9, 0.2, 1); }
+  @media (prefers-reduced-motion: reduce) { svg:hover .m { animation: none; } }
+</style>
+<rect class="d" stroke-dasharray="16" stroke-dashoffset="16" x="3" y="4" width="4" height="4"/><line class="d" stroke-dasharray="11" stroke-dashoffset="11" style="animation-delay:0.05s" x1="10" y1="6" x2="21" y2="6"/>
+<rect class="d" stroke-dasharray="16" stroke-dashoffset="16" style="animation-delay:0.1s" x="3" y="10" width="4" height="4"/><line class="d" stroke-dasharray="11" stroke-dashoffset="11" style="animation-delay:0.15s" x1="10" y1="12" x2="21" y2="12"/>
+<g class="m row"><rect class="d" stroke-dasharray="16" stroke-dashoffset="16" style="animation-delay:0.2s" x="3" y="16" width="4" height="4"/><line class="d" stroke-dasharray="11" stroke-dashoffset="11" style="animation-delay:0.25s" x1="10" y1="18" x2="21" y2="18"/></g>
+</svg>

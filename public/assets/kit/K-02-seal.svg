@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" fill="none" stroke="#E9E5DA" stroke-width="1.25" stroke-linecap="square" stroke-linejoin="miter" role="img" aria-label="Prepared, calculated, documented. Decided by the underwriter of record.">
+<title>Prepared, calculated, documented. Decided by the underwriter of record.</title>
+<style>
+  .d { animation: fb-draw 0.4s cubic-bezier(0.8, 0.02, 0.18, 1) forwards; }
+  .r { animation-timing-function: cubic-bezier(0.34, 0.9, 0.2, 1); animation-duration: 0.14s; }
+  @keyframes fb-draw { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) { .d { animation: none; stroke-dashoffset: 0; } }
+</style>
+<rect class="d" stroke-dasharray="368" stroke-dashoffset="368" x="2" y="2" width="92" height="92"/>
+<rect class="d" stroke-dasharray="336" stroke-dashoffset="336" style="animation-delay:0.1s" x="6" y="6" width="84" height="84"/>
+<g font-family="'Fragment Mono', 'SF Mono', Menlo, monospace" font-size="5.2" fill="#E9E5DA" stroke="none" letter-spacing="0.6">
+  <text x="48" y="15.5" text-anchor="middle">PREPARED</text>
+  <text x="48" y="87" text-anchor="middle" font-size="3.6" letter-spacing="0" textLength="80" lengthAdjust="spacingAndGlyphs">DECIDED BY THE UNDERWRITER OF RECORD</text>
+  <text transform="translate(15 48) rotate(-90)" text-anchor="middle">CALCULATED</text>
+  <text transform="translate(81 48) rotate(90)" text-anchor="middle">DOCUMENTED</text>
+</g>
+<line class="d" stroke-dasharray="56" stroke-dashoffset="56" style="animation-delay:0.2s" x1="20" y1="22" x2="76" y2="22"/>
+<line class="d" stroke-dasharray="56" stroke-dashoffset="56" style="animation-delay:0.2s" x1="20" y1="74" x2="76" y2="74"/>
+<g transform="translate(32 34)">
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.3s" d="M6 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.36s" d="M12 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.42s" d="M18 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.48s" d="M24 3v18"/>
+<path class="d" stroke-dasharray="30.5" stroke-dashoffset="30.5" style="animation-delay:0.7s" d="M2 20L28 4"/>
+</g>
+<rect class="d" stroke-dasharray="74" stroke-dashoffset="74" style="animation-delay:0.5s" x="34" y="60" width="28" height="9"/>
+<text x="48" y="66.6" text-anchor="middle" font-family="'Fragment Mono', 'SF Mono', Menlo, monospace" font-size="4.6" fill="#E9E5DA" stroke="none" >LN 2026</text>
+</svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 24" width="1200" height="24" fill="none" stroke="#E9E5DA" stroke-width="1.25" stroke-linecap="square" stroke-linejoin="miter" role="img" aria-label="The tally rule: a hairline interrupted at each grid column by a tally group">
+<title>The tally rule: a hairline interrupted at each grid column by a tally group</title>
+<style>
+  .d { animation: fb-draw 0.4s cubic-bezier(0.8, 0.02, 0.18, 1) forwards; }
+  .r { animation-timing-function: cubic-bezier(0.34, 0.9, 0.2, 1); animation-duration: 0.14s; }
+  @keyframes fb-draw { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) { .d { animation: none; stroke-dashoffset: 0; } }
+</style>
+<line class="d" stroke-dasharray="82.0" stroke-dashoffset="82.0" style="animation-delay:0.05s" x1="0.0" y1="12" x2="82.0" y2="12"/>
+<g transform="translate(84.0 0)"><path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.05s" d="M6 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.09s" d="M12 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.13s" d="M18 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.16999999999999998s" d="M24 3v18"/>
+<path class="d" stroke-dasharray="30.5" stroke-dashoffset="30.5" style="animation-delay:0.25s" d="M2 20L28 4"/></g>
+<line class="d" stroke-dasharray="64.0" stroke-dashoffset="64.0" style="animation-delay:0.1s" x1="118.0" y1="12" x2="182.0" y2="12"/>
+<g transform="translate(184.0 0)"><path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.1s" d="M6 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.14s" d="M12 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.18s" d="M18 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.22s" d="M24 3v18"/>
+<path class="d" stroke-dasharray="30.5" stroke-dashoffset="30.5" style="animation-delay:0.30000000000000004s" d="M2 20L28 4"/></g>
+<line class="d" stroke-dasharray="64.0" stroke-dashoffset="64.0" style="animation-delay:0.15s" x1="218.0" y1="12" x2="282.0" y2="12"/>
+<g transform="translate(284.0 0)"><path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.15000000000000002s" d="M6 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.19000000000000003s" d="M12 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.23000000000000004s" d="M18 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.27s" d="M24 3v18"/>
+<path class="d" stroke-dasharray="30.5" stroke-dashoffset="30.5" style="animation-delay:0.35000000000000003s" d="M2 20L28 4"/></g>
+<line class="d" stroke-dasharray="64.0" stroke-dashoffset="64.0" style="animation-delay:0.2s" x1="318.0" y1="12" x2="382.0" y2="12"/>
+<g transform="translate(384.0 0)"><path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.2s" d="M6 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.24000000000000002s" d="M12 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.28s" d="M18 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.32s" d="M24 3v18"/>
+<path class="d" stroke-dasharray="30.5" stroke-dashoffset="30.5" style="animation-delay:0.4s" d="M2 20L28 4"/></g>
+<line class="d" stroke-dasharray="64.0" stroke-dashoffset="64.0" style="animation-delay:0.25s" x1="418.0" y1="12" x2="482.0" y2="12"/>
+<g transform="translate(484.0 0)"><path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.25s" d="M6 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.29s" d="M12 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.33s" d="M18 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.37s" d="M24 3v18"/>
+<path class="d" stroke-dasharray="30.5" stroke-dashoffset="30.5" style="animation-delay:0.45s" d="M2 20L28 4"/></g>
+<line class="d" stroke-dasharray="64.0" stroke-dashoffset="64.0" style="animation-delay:0.3s" x1="518.0" y1="12" x2="582.0" y2="12"/>
+<g transform="translate(584.0 0)"><path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.30000000000000004s" d="M6 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.34s" d="M12 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.38000000000000006s" d="M18 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.42000000000000004s" d="M24 3v18"/>
+<path class="d" stroke-dasharray="30.5" stroke-dashoffset="30.5" style="animation-delay:0.5s" d="M2 20L28 4"/></g>
+<line class="d" stroke-dasharray="64.0" stroke-dashoffset="64.0" style="animation-delay:0.35s" x1="618.0" y1="12" x2="682.0" y2="12"/>
+<g transform="translate(684.0 0)"><path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.35000000000000003s" d="M6 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.39s" d="M12 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.43000000000000005s" d="M18 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.47000000000000003s" d="M24 3v18"/>
+<path class="d" stroke-dasharray="30.5" stroke-dashoffset="30.5" style="animation-delay:0.55s" d="M2 20L28 4"/></g>
+<line class="d" stroke-dasharray="64.0" stroke-dashoffset="64.0" style="animation-delay:0.4s" x1="718.0" y1="12" x2="782.0" y2="12"/>
+<g transform="translate(784.0 0)"><path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.4s" d="M6 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.44s" d="M12 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.48000000000000004s" d="M18 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.52s" d="M24 3v18"/>
+<path class="d" stroke-dasharray="30.5" stroke-dashoffset="30.5" style="animation-delay:0.6000000000000001s" d="M2 20L28 4"/></g>
+<line class="d" stroke-dasharray="64.0" stroke-dashoffset="64.0" style="animation-delay:0.45s" x1="818.0" y1="12" x2="882.0" y2="12"/>
+<g transform="translate(884.0 0)"><path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.45s" d="M6 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.49s" d="M12 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.53s" d="M18 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.5700000000000001s" d="M24 3v18"/>
+<path class="d" stroke-dasharray="30.5" stroke-dashoffset="30.5" style="animation-delay:0.65s" d="M2 20L28 4"/></g>
+<line class="d" stroke-dasharray="64.0" stroke-dashoffset="64.0" style="animation-delay:0.5s" x1="918.0" y1="12" x2="982.0" y2="12"/>
+<g transform="translate(984.0 0)"><path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.5s" d="M6 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.54s" d="M12 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.58s" d="M18 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.62s" d="M24 3v18"/>
+<path class="d" stroke-dasharray="30.5" stroke-dashoffset="30.5" style="animation-delay:0.7s" d="M2 20L28 4"/></g>
+<line class="d" stroke-dasharray="64.0" stroke-dashoffset="64.0" style="animation-delay:0.55s" x1="1018.0" y1="12" x2="1082.0" y2="12"/>
+<g transform="translate(1084.0 0)"><path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.55s" d="M6 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.5900000000000001s" d="M12 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.63s" d="M18 3v18"/>
+<path class="d r" stroke-dasharray="18" stroke-dashoffset="18" style="animation-delay:0.67s" d="M24 3v18"/>
+<path class="d" stroke-dasharray="30.5" stroke-dashoffset="30.5" style="animation-delay:0.75s" d="M2 20L28 4"/></g>
+<line class="d" stroke-dasharray="82.0" stroke-dashoffset="82.0" style="animation-delay:0.6s" x1="1118.0" y1="12" x2="1200" y2="12"/>
+</svg>

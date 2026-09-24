@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 24" width="1200" height="24" fill="none" stroke="#E9E5DA" stroke-width="1.25" stroke-linecap="square" stroke-linejoin="miter" role="img" aria-label="The indexed rule: a full width hairline with the section row index in a cell at the margin">
+<title>The indexed rule: a full width hairline with the section row index in a cell at the margin</title>
+<style>
+  .d { animation: fb-draw 0.4s cubic-bezier(0.8, 0.02, 0.18, 1) forwards; }
+  .r { animation-timing-function: cubic-bezier(0.34, 0.9, 0.2, 1); animation-duration: 0.14s; }
+  @keyframes fb-draw { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) { .d { animation: none; stroke-dashoffset: 0; } }
+</style>
+<line class="d" stroke-dasharray="1200" stroke-dashoffset="1200" x1="0" y1="12" x2="1200" y2="12"/>
+<rect x="0" y="4" width="44" height="16" fill="#1A1B1D" stroke="#E9E5DA"/>
+<text x="22" y="15.6" text-anchor="middle" font-family="'Fragment Mono', 'SF Mono', Menlo, monospace" font-size="8" fill="#E9E5DA" stroke="none" >0003</text>
+</svg>
