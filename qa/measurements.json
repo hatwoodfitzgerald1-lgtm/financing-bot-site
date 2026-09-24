@@ -1,29 +1,29 @@
 {
- "measured_at": "2026-09-24T14:05:12",
+ "measured_at": "2026-09-24T15:25:00",
  "base": "http://127.0.0.1:4321",
  "headless": "Chromium via Playwright, swiftshader GL (software), sandbox CPU; treat timings as upper bounds",
  "js": {
-  "first_paint_gzip_bytes": 59613,
+  "first_paint_gzip_bytes": 59636,
   "first_paint_files": {
-   "Ledger.astro_astro_type_script_index_0_lang.zKe0LPHP.js": 59613
+   "Ledger.astro_astro_type_script_index_0_lang.CLnH_yAN.js": 59636
   },
   "lazy_modules_gzip_bytes": {
    "about.Clrwk-De.js": 470,
-   "blog.BGXeLO21.js": 473,
-   "cartPage.C5a13rNI.js": 1143,
-   "checkout.BuFxQaU0.js": 3606,
-   "confirmation.B4Q6UTM8.js": 865,
-   "drafter.Co-09X4M.js": 2800,
-   "home.Dg71-zG7.js": 5775,
-   "loader.KwzxYmoS.js": 808,
-   "pricing.CTa75sZR.js": 857,
-   "product.DlOmGU-I.js": 1322,
+   "blog.BfUP6VBd.js": 472,
+   "cartPage.BBOG2t1w.js": 1142,
+   "checkout.WCvbalz3.js": 3605,
+   "confirmation.CuCXH4Hq.js": 864,
+   "drafter.Da6a-AOf.js": 2799,
+   "home.iA99qony.js": 5966,
+   "loader.DfI8EpTp.js": 821,
+   "pricing.Bd0zrjfa.js": 857,
+   "product.j5Mvemt6.js": 1321,
    "scenes.DUojNCZi.js": 7126,
    "three-loader.DLXK2ZOA.js": 438
   },
   "css_gzip_bytes": {
-   "NotFound.BLlvkZjG.css": 8516,
-   "_..C4I5tygN.css": 7368
+   "NotFound.C5Zl7s29.css": 8579,
+   "_..BuvFMer3.css": 7912
   },
   "three_r128_gzip_bytes_lazy_after_h1": 148739,
   "budget_gzip_bytes": 358400,
@@ -31,32 +31,32 @@
  },
  "vitals": {
   "/": {
-   "lcp_ms": 256,
+   "lcp_ms": 208,
    "lcp_element": "H1#h1",
    "cls": 0,
-   "ttfb": 152,
-   "domContentLoaded": 317,
-   "load": 318,
+   "ttfb": 60,
+   "domContentLoaded": 302,
+   "load": 303,
    "lcp_pass": true,
    "cls_pass": true
   },
   "/pricing": {
-   "lcp_ms": 332,
+   "lcp_ms": 308,
    "lcp_element": "P",
-   "cls": 0.0061,
-   "ttfb": 184,
-   "domContentLoaded": 374,
-   "load": 374,
+   "cls": 0.0059,
+   "ttfb": 151,
+   "domContentLoaded": 340,
+   "load": 341,
    "lcp_pass": true,
    "cls_pass": true
   },
   "/product": {
-   "lcp_ms": 484,
+   "lcp_ms": 280,
    "lcp_element": "VIDEO#v02",
    "cls": 0.0021,
-   "ttfb": 142,
-   "domContentLoaded": 326,
-   "load": 326,
+   "ttfb": 102,
+   "domContentLoaded": 276,
+   "load": 277,
    "lcp_pass": true,
    "cls_pass": true
   }
@@ -70,19 +70,19 @@
   },
   "scroll_length_vh": 1.5,
   "length_pass": true,
-  "avg_fps": 24,
-  "seconds": 6.520799999998882,
+  "avg_fps": 26,
+  "seconds": 6.1685,
   "fps_pass_55": false,
   "note": "fps sampled under software GL in the sandbox; the render loop is capped at DPR 1.5 with sixty basic material planes, re-measure on the live site with a GPU"
  },
  "three_lazy": {
   "script": "http://127.0.0.1:4321/assets/vendor/three.min.js",
-  "three_start_ms": 330,
+  "three_start_ms": 347,
   "lcp_ms": null
  },
  "inp_ms": {
-  "drafter_interaction": 69,
-  "checkout_interaction": 71,
+  "drafter_interaction": 57,
+  "checkout_interaction": 77,
   "pass_200": true
  },
  "full_page_rule": {
