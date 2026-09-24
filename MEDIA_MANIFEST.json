@@ -1,0 +1,786 @@
+{
+ "brand": "Financing Bot",
+ "domain": "financingbot.com",
+ "built": "2026-09-24",
+ "note": "Every asset is self hosted under /public/assets; nothing is hotlinked. The grade \"graphite night, screen verdigris\" is applied by CSS in the build to V-01 and the photographs only.",
+ "count": 106,
+ "missing": [
+  "/assets/photo/PH-01.webp",
+  "/assets/photo/PH-01-1280.webp",
+  "/assets/photo/PH-01.jpg",
+  "/assets/photo/PH-02.webp",
+  "/assets/photo/PH-02-1280.webp",
+  "/assets/photo/PH-02.jpg",
+  "/assets/photo/PH-03.webp",
+  "/assets/photo/PH-03-1280.webp",
+  "/assets/photo/PH-03.jpg",
+  "/assets/photo/PH-04.webp",
+  "/assets/photo/PH-04-1280.webp",
+  "/assets/photo/PH-04.jpg",
+  "/assets/photo/PH-05.webp",
+  "/assets/photo/PH-05-1280.webp",
+  "/assets/photo/PH-05.jpg",
+  "/assets/photo/PH-06.webp",
+  "/assets/photo/PH-06-1280.webp",
+  "/assets/photo/PH-06.jpg",
+  "/assets/photo/PH-07.webp",
+  "/assets/photo/PH-07-1280.webp",
+  "/assets/photo/PH-07.jpg",
+  "/assets/photo/PH-08.webp",
+  "/assets/photo/PH-08-1280.webp",
+  "/assets/photo/PH-08.jpg",
+  "/assets/photo/PH-09.webp",
+  "/assets/photo/PH-09-1280.webp",
+  "/assets/photo/PH-09.jpg",
+  "/assets/photo/PH-10.webp",
+  "/assets/photo/PH-10-1280.webp",
+  "/assets/photo/PH-10.jpg",
+  "/assets/photo/PH-11.webp",
+  "/assets/photo/PH-11-1280.webp",
+  "/assets/photo/PH-11.jpg"
+ ],
+ "assets": [
+  {
+   "filename": "/favicon.svg",
+   "exists": true,
+   "source": "built in house (brand kit L-03, creative-asset-engine)",
+   "license": "in house",
+   "usage": "every route, head"
+  },
+  {
+   "filename": "/favicon.ico",
+   "exists": true,
+   "source": "built in house (brand kit L-03, creative-asset-engine)",
+   "license": "in house",
+   "usage": "every route, head"
+  },
+  {
+   "filename": "/favicon-32.png",
+   "exists": true,
+   "source": "built in house (brand kit L-03, creative-asset-engine)",
+   "license": "in house",
+   "usage": "every route, head"
+  },
+  {
+   "filename": "/apple-touch-icon.png",
+   "exists": true,
+   "source": "built in house (brand kit L-03, creative-asset-engine)",
+   "license": "in house",
+   "usage": "every route, head"
+  },
+  {
+   "filename": "/icon-512.png",
+   "exists": true,
+   "source": "built in house (brand kit L-03, creative-asset-engine)",
+   "license": "in house",
+   "usage": "every route, head"
+  },
+  {
+   "filename": "/assets/brand/B-01-og.png",
+   "exists": true,
+   "source": "built in house (B-01, rendered from HTML with the self hosted fonts)",
+   "license": "in house",
+   "usage": "og:image and twitter:image on every route"
+  },
+  {
+   "filename": "/assets/brand/financing-bot-primary.svg",
+   "exists": true,
+   "source": "built in house (L-01 and L-02 lockups)",
+   "license": "in house",
+   "usage": "wordmark and seal lockup references; the header and footer wordmark is inline SVG built from L-01"
+  },
+  {
+   "filename": "/assets/brand/financing-bot-reversed.svg",
+   "exists": true,
+   "source": "built in house (L-01 and L-02 lockups)",
+   "license": "in house",
+   "usage": "wordmark and seal lockup references; the header and footer wordmark is inline SVG built from L-01"
+  },
+  {
+   "filename": "/assets/brand/financing-bot-icon.svg",
+   "exists": true,
+   "source": "built in house (L-01 and L-02 lockups)",
+   "license": "in house",
+   "usage": "wordmark and seal lockup references; the header and footer wordmark is inline SVG built from L-01"
+  },
+  {
+   "filename": "/assets/brand/financing-bot-icon-reversed.svg",
+   "exists": true,
+   "source": "built in house (L-01 and L-02 lockups)",
+   "license": "in house",
+   "usage": "wordmark and seal lockup references; the header and footer wordmark is inline SVG built from L-01"
+  },
+  {
+   "filename": "/assets/brand/financing-bot-stacked.svg",
+   "exists": true,
+   "source": "built in house (L-01 and L-02 lockups)",
+   "license": "in house",
+   "usage": "wordmark and seal lockup references; the header and footer wordmark is inline SVG built from L-01"
+  },
+  {
+   "filename": "/assets/brand/financing-bot-stacked-ink.svg",
+   "exists": true,
+   "source": "built in house (L-01 and L-02 lockups)",
+   "license": "in house",
+   "usage": "wordmark and seal lockup references; the header and footer wordmark is inline SVG built from L-01"
+  },
+  {
+   "filename": "/assets/fonts/archivo-latin-standard-normal.woff2",
+   "exists": true,
+   "source": "@fontsource-variable/archivo 5.3.0 (Archivo by Omnibus Type)",
+   "license": "SIL Open Font License 1.1 (LICENSE-Archivo.txt)",
+   "usage": "every route, preloaded (F-01)"
+  },
+  {
+   "filename": "/assets/fonts/archivo-latin-standard-italic.woff2",
+   "exists": true,
+   "source": "@fontsource-variable/archivo 5.3.0",
+   "license": "SIL Open Font License 1.1",
+   "usage": "italic axis, available on every route"
+  },
+  {
+   "filename": "/assets/fonts/fragment-mono-latin-400-normal.woff2",
+   "exists": true,
+   "source": "@fontsource/fragment-mono 5.3.0 (Fragment Mono by Wei Huang)",
+   "license": "SIL Open Font License 1.1 (LICENSE-FragmentMono.txt)",
+   "usage": "every route, preloaded (F-02)"
+  },
+  {
+   "filename": "/assets/fonts/fonts.css",
+   "exists": true,
+   "source": "built in house",
+   "license": "in house",
+   "usage": "the product screen sources (product-screens/shell.css)"
+  },
+  {
+   "filename": "/assets/vendor/three.min.js",
+   "exists": true,
+   "source": "three@0.128.0 (r128) from npm, the same file cdnjs serves at /ajax/libs/three.js/r128/three.min.js",
+   "license": "MIT",
+   "usage": "local fallback for the 3D scenes when cdnjs is unreachable; cdnjs is tried first in production"
+  },
+  {
+   "filename": "/assets/kit/K-01-tally.svg",
+   "exists": true,
+   "source": "built in house (brand graphic kit, creative-asset-engine)",
+   "license": "in house",
+   "usage": "row index column, loader, dividers, empty cart, footer (inline copies in the build)"
+  },
+  {
+   "filename": "/assets/kit/K-02-seal.svg",
+   "exists": true,
+   "source": "built in house (brand graphic kit, creative-asset-engine)",
+   "license": "in house",
+   "usage": "/about, /order-confirmation, package screen footers, site footer (inline copy in the build)"
+  },
+  {
+   "filename": "/assets/kit/K-03-divider-indexed-rule.svg",
+   "exists": true,
+   "source": "built in house (brand graphic kit, creative-asset-engine)",
+   "license": "in house",
+   "usage": "default divider on every page (the CSS rule and .row-idx cell reproduce it)"
+  },
+  {
+   "filename": "/assets/kit/K-04-divider-tally-rule.svg",
+   "exists": true,
+   "source": "built in house (brand graphic kit, creative-asset-engine)",
+   "license": "in house",
+   "usage": "before any section that counts"
+  },
+  {
+   "filename": "/assets/kit/K-05-divider-page-count-ruler.svg",
+   "exists": true,
+   "source": "built in house (brand graphic kit, creative-asset-engine)",
+   "license": "in house",
+   "usage": "/product and the /blog rail (the generative canvas version is built in code)"
+  },
+  {
+   "filename": "/assets/kit/K-06-icon-file.svg",
+   "exists": true,
+   "source": "built in house (brand graphic kit, creative-asset-engine)",
+   "license": "in house",
+   "usage": "core icon"
+  },
+  {
+   "filename": "/assets/kit/K-07-icon-queue.svg",
+   "exists": true,
+   "source": "built in house (brand graphic kit, creative-asset-engine)",
+   "license": "in house",
+   "usage": "core icon"
+  },
+  {
+   "filename": "/assets/kit/K-08-icon-worksheet.svg",
+   "exists": true,
+   "source": "built in house (brand graphic kit, creative-asset-engine)",
+   "license": "in house",
+   "usage": "core icon"
+  },
+  {
+   "filename": "/assets/kit/K-09-icon-conditions.svg",
+   "exists": true,
+   "source": "built in house (brand graphic kit, creative-asset-engine)",
+   "license": "in house",
+   "usage": "core icon"
+  },
+  {
+   "filename": "/assets/kit/K-10-icon-cite.svg",
+   "exists": true,
+   "source": "built in house (brand graphic kit, creative-asset-engine)",
+   "license": "in house",
+   "usage": "core icon"
+  },
+  {
+   "filename": "/assets/kit/K-11-icon-signature.svg",
+   "exists": true,
+   "source": "built in house (brand graphic kit, creative-asset-engine)",
+   "license": "in house",
+   "usage": "core icon"
+  },
+  {
+   "filename": "/assets/kit/K-12-icon-upload.svg",
+   "exists": true,
+   "source": "built in house (brand graphic kit, creative-asset-engine)",
+   "license": "in house",
+   "usage": "core icon"
+  },
+  {
+   "filename": "/assets/kit/K-13-icon-balance.svg",
+   "exists": true,
+   "source": "built in house (brand graphic kit, creative-asset-engine)",
+   "license": "in house",
+   "usage": "core icon"
+  },
+  {
+   "filename": "/assets/kit/K-14-icon-cart.svg",
+   "exists": true,
+   "source": "built in house (brand graphic kit, creative-asset-engine)",
+   "license": "in house",
+   "usage": "header cart cell (inline)"
+  },
+  {
+   "filename": "/assets/kit/K-15-icon-menu.svg",
+   "exists": true,
+   "source": "built in house (brand graphic kit, creative-asset-engine)",
+   "license": "in house",
+   "usage": "header menu cell (inline)"
+  },
+  {
+   "filename": "/assets/kit/K-B1-two-year-average.svg",
+   "exists": true,
+   "source": "built in house (brand graphic kit, creative-asset-engine)",
+   "license": "in house",
+   "usage": "/blog/form-1084-add-backs after Why 24 and not 12 (inline)"
+  },
+  {
+   "filename": "/assets/kit/K-B2-seasoning-two-statements.svg",
+   "exists": true,
+   "source": "built in house (brand graphic kit, creative-asset-engine)",
+   "license": "in house",
+   "usage": "/blog/large-deposit-letter after Seasoning across two statements (inline)"
+  },
+  {
+   "filename": "/assets/kit/K-B3-the-split.svg",
+   "exists": true,
+   "source": "built in house (brand graphic kit, creative-asset-engine)",
+   "license": "in house",
+   "usage": "/blog/prior-to-doc-prior-to-close after The line between doc and close (inline)"
+  },
+  {
+   "filename": "/assets/kit/K-B4-inventory-row.svg",
+   "exists": true,
+   "source": "built in house (brand graphic kit, creative-asset-engine)",
+   "license": "in house",
+   "usage": "/blog/ai-governance-file after The inventory (inline)"
+  },
+  {
+   "filename": "/assets/product/P-01-queue.png",
+   "exists": true,
+   "source": "built in house (screenshot of product-screens HTML at 1600x1000 at 2x, framed in the window chrome)",
+   "license": "in house",
+   "usage": "Home section 0002 pinned media and the wall dock, /product chapter 0002 hold frame and V-02 poster stand in, reduced motion stand in for V-02"
+  },
+  {
+   "filename": "/assets/product/P-01-queue.webp",
+   "exists": true,
+   "source": "built in house (screenshot of product-screens HTML at 1600x1000 at 2x, framed in the window chrome)",
+   "license": "in house",
+   "usage": "Home section 0002 pinned media and the wall dock, /product chapter 0002 hold frame and V-02 poster stand in, reduced motion stand in for V-02"
+  },
+  {
+   "filename": "/assets/product/P-01-queue@1x.webp",
+   "exists": true,
+   "source": "built in house (screenshot of product-screens HTML at 1600x1000 at 2x, framed in the window chrome)",
+   "license": "in house",
+   "usage": "Home section 0002 pinned media and the wall dock, /product chapter 0002 hold frame and V-02 poster stand in, reduced motion stand in for V-02"
+  },
+  {
+   "filename": "/assets/product/P-02-worksheet.png",
+   "exists": true,
+   "source": "built in house (screenshot of product-screens HTML at 1600x1000 at 2x, framed in the window chrome)",
+   "license": "in house",
+   "usage": "/product chapter 0003 beneath the set piece, inline figure in /blog/form-1084-add-backs"
+  },
+  {
+   "filename": "/assets/product/P-02-worksheet.webp",
+   "exists": true,
+   "source": "built in house (screenshot of product-screens HTML at 1600x1000 at 2x, framed in the window chrome)",
+   "license": "in house",
+   "usage": "/product chapter 0003 beneath the set piece, inline figure in /blog/form-1084-add-backs"
+  },
+  {
+   "filename": "/assets/product/P-02-worksheet@1x.webp",
+   "exists": true,
+   "source": "built in house (screenshot of product-screens HTML at 1600x1000 at 2x, framed in the window chrome)",
+   "license": "in house",
+   "usage": "/product chapter 0003 beneath the set piece, inline figure in /blog/form-1084-add-backs"
+  },
+  {
+   "filename": "/assets/product/P-03a-conditions-ptd.png",
+   "exists": true,
+   "source": "built in house (screenshot of product-screens HTML at 1600x1000 at 2x, framed in the window chrome)",
+   "license": "in house",
+   "usage": "/product chapter 0004 accordion (Prior to doc), inline figure in /blog/prior-to-doc-prior-to-close"
+  },
+  {
+   "filename": "/assets/product/P-03a-conditions-ptd.webp",
+   "exists": true,
+   "source": "built in house (screenshot of product-screens HTML at 1600x1000 at 2x, framed in the window chrome)",
+   "license": "in house",
+   "usage": "/product chapter 0004 accordion (Prior to doc), inline figure in /blog/prior-to-doc-prior-to-close"
+  },
+  {
+   "filename": "/assets/product/P-03a-conditions-ptd@1x.webp",
+   "exists": true,
+   "source": "built in house (screenshot of product-screens HTML at 1600x1000 at 2x, framed in the window chrome)",
+   "license": "in house",
+   "usage": "/product chapter 0004 accordion (Prior to doc), inline figure in /blog/prior-to-doc-prior-to-close"
+  },
+  {
+   "filename": "/assets/product/P-03b-conditions-ptc.png",
+   "exists": true,
+   "source": "built in house (screenshot of product-screens HTML at 1600x1000 at 2x, framed in the window chrome)",
+   "license": "in house",
+   "usage": "/product chapter 0004 accordion (Prior to close)"
+  },
+  {
+   "filename": "/assets/product/P-03b-conditions-ptc.webp",
+   "exists": true,
+   "source": "built in house (screenshot of product-screens HTML at 1600x1000 at 2x, framed in the window chrome)",
+   "license": "in house",
+   "usage": "/product chapter 0004 accordion (Prior to close)"
+  },
+  {
+   "filename": "/assets/product/P-03b-conditions-ptc@1x.webp",
+   "exists": true,
+   "source": "built in house (screenshot of product-screens HTML at 1600x1000 at 2x, framed in the window chrome)",
+   "license": "in house",
+   "usage": "/product chapter 0004 accordion (Prior to close)"
+  },
+  {
+   "filename": "/assets/video/V-02-product-in-motion.mp4",
+   "exists": true,
+   "source": "built in house (screen recorded from the three HTML bodies with Playwright, 7 s, ungraded; cropped to the window frame at 1920 by 1242, the 3200 by 2072 ratio of the product screens)",
+   "license": "in house",
+   "usage": "/product chapter 0002, plays once when the chapter pins"
+  },
+  {
+   "filename": "/assets/video/V-02-product-in-motion-720.mp4",
+   "exists": true,
+   "source": "built in house (screen recorded from the three HTML bodies with Playwright, 7 s, ungraded; cropped to the window frame at 1920 by 1242, the 3200 by 2072 ratio of the product screens)",
+   "license": "in house",
+   "usage": "the mobile encode of V-02"
+  },
+  {
+   "filename": "/assets/video/V-02-product-in-motion.webm",
+   "exists": true,
+   "source": "built in house (screen recorded from the three HTML bodies with Playwright, 7 s, ungraded; cropped to the window frame at 1920 by 1242, the 3200 by 2072 ratio of the product screens)",
+   "license": "in house",
+   "usage": "VP9 encode of V-02"
+  },
+  {
+   "filename": "/assets/video/V-02-poster.webp",
+   "exists": true,
+   "source": "built in house (screen recorded from the three HTML bodies with Playwright, 7 s, ungraded; cropped to the window frame at 1920 by 1242, the 3200 by 2072 ratio of the product screens)",
+   "license": "in house",
+   "usage": "poster of V-02"
+  },
+  {
+   "filename": "/assets/video/V-02-poster.jpg",
+   "exists": true,
+   "source": "built in house (screen recorded from the three HTML bodies with Playwright, 7 s, ungraded; cropped to the window frame at 1920 by 1242, the 3200 by 2072 ratio of the product screens)",
+   "license": "in house",
+   "usage": "poster of V-02, JPEG fallback"
+  },
+  {
+   "filename": "/assets/video/V-01-overnight-shift.mp4",
+   "exists": true,
+   "source": "Higgsfield generated clips V-01a to V-01d (jobs in assets/video/jobs.json), joined by scripts/ingest_media.sh",
+   "license": "generated for Financing Bot (Higgsfield terms), in house edit",
+   "usage": "Home section 0006 band and the /about band, full grade (PROVISIONAL: built from clip 1 alone until clips 2 to 4 arrive)"
+  },
+  {
+   "filename": "/assets/video/V-01-overnight-shift-720.mp4",
+   "exists": true,
+   "source": "Higgsfield generated clips V-01a to V-01d (jobs in assets/video/jobs.json), joined by scripts/ingest_media.sh",
+   "license": "generated for Financing Bot (Higgsfield terms), in house edit",
+   "usage": "mobile encode of V-01"
+  },
+  {
+   "filename": "/assets/video/V-01-overnight-shift.webm",
+   "exists": true,
+   "source": "Higgsfield generated clips V-01a to V-01d (jobs in assets/video/jobs.json), joined by scripts/ingest_media.sh",
+   "license": "generated for Financing Bot (Higgsfield terms), in house edit",
+   "usage": "VP9 encode of V-01"
+  },
+  {
+   "filename": "/assets/video/V-01-poster.webp",
+   "exists": true,
+   "source": "Higgsfield generated clips V-01a to V-01d (jobs in assets/video/jobs.json), joined by scripts/ingest_media.sh",
+   "license": "generated for Financing Bot (Higgsfield terms), in house edit",
+   "usage": "poster of V-01, shown under reduced motion"
+  },
+  {
+   "filename": "/assets/video/V-01-poster.jpg",
+   "exists": true,
+   "source": "Higgsfield generated clips V-01a to V-01d (jobs in assets/video/jobs.json), joined by scripts/ingest_media.sh",
+   "license": "generated for Financing Bot (Higgsfield terms), in house edit",
+   "usage": "poster of V-01, JPEG fallback"
+  },
+  {
+   "filename": "/assets/photo/PH-01.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Home, full bleed About teaser band, grade full; crop 21:9 at 2560x1097"
+  },
+  {
+   "filename": "/assets/photo/PH-01-1280.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Home, full bleed About teaser band, grade full; crop 21:9 at 2560x1097"
+  },
+  {
+   "filename": "/assets/photo/PH-01.jpg",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Home, full bleed About teaser band, grade full; crop 21:9 at 2560x1097"
+  },
+  {
+   "filename": "/assets/photo/PH-02.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Pricing, band between the pilot row and the pack terms, grade light; crop 21:9"
+  },
+  {
+   "filename": "/assets/photo/PH-02-1280.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Pricing, band between the pilot row and the pack terms, grade light; crop 21:9"
+  },
+  {
+   "filename": "/assets/photo/PH-02.jpg",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Pricing, band between the pilot row and the pack terms, grade light; crop 21:9"
+  },
+  {
+   "filename": "/assets/photo/PH-03.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Product, background of the button band, grade light; crop 21:9"
+  },
+  {
+   "filename": "/assets/photo/PH-03-1280.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Product, background of the button band, grade light; crop 21:9"
+  },
+  {
+   "filename": "/assets/photo/PH-03.jpg",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Product, background of the button band, grade light; crop 21:9"
+  },
+  {
+   "filename": "/assets/photo/PH-04.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "About, band between the spreads and the manifesto wall, grade full; crop 21:9"
+  },
+  {
+   "filename": "/assets/photo/PH-04-1280.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "About, band between the spreads and the manifesto wall, grade full; crop 21:9"
+  },
+  {
+   "filename": "/assets/photo/PH-04.jpg",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "About, band between the spreads and the manifesto wall, grade full; crop 21:9"
+  },
+  {
+   "filename": "/assets/photo/PH-05.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Blog index, band under the ruler rail, grade full; crop 21:9"
+  },
+  {
+   "filename": "/assets/photo/PH-05-1280.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Blog index, band under the ruler rail, grade full; crop 21:9"
+  },
+  {
+   "filename": "/assets/photo/PH-05.jpg",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Blog index, band under the ruler rail, grade full; crop 21:9"
+  },
+  {
+   "filename": "/assets/photo/PH-06.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Post 1 hero band, grade light; crop 2:1 at 2560x1280"
+  },
+  {
+   "filename": "/assets/photo/PH-06-1280.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Post 1 hero band, grade light; crop 2:1 at 2560x1280"
+  },
+  {
+   "filename": "/assets/photo/PH-06.jpg",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Post 1 hero band, grade light; crop 2:1 at 2560x1280"
+  },
+  {
+   "filename": "/assets/photo/PH-07.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Post 2 hero band, grade light; crop 2:1"
+  },
+  {
+   "filename": "/assets/photo/PH-07-1280.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Post 2 hero band, grade light; crop 2:1"
+  },
+  {
+   "filename": "/assets/photo/PH-07.jpg",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Post 2 hero band, grade light; crop 2:1"
+  },
+  {
+   "filename": "/assets/photo/PH-08.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Post 3 hero band, grade light; crop 2:1"
+  },
+  {
+   "filename": "/assets/photo/PH-08-1280.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Post 3 hero band, grade light; crop 2:1"
+  },
+  {
+   "filename": "/assets/photo/PH-08.jpg",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Post 3 hero band, grade light; crop 2:1"
+  },
+  {
+   "filename": "/assets/photo/PH-09.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Post 4 hero band, grade light; crop 2:1"
+  },
+  {
+   "filename": "/assets/photo/PH-09-1280.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Post 4 hero band, grade light; crop 2:1"
+  },
+  {
+   "filename": "/assets/photo/PH-09.jpg",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Post 4 hero band, grade light; crop 2:1"
+  },
+  {
+   "filename": "/assets/photo/PH-10.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Drafter, band between the result and The pack that fits, grade light; crop 21:9"
+  },
+  {
+   "filename": "/assets/photo/PH-10-1280.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Drafter, band between the result and The pack that fits, grade light; crop 21:9"
+  },
+  {
+   "filename": "/assets/photo/PH-10.jpg",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Drafter, band between the result and The pack that fits, grade light; crop 21:9"
+  },
+  {
+   "filename": "/assets/photo/PH-11.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Contact, band behind the address plate, grade full; crop 21:9"
+  },
+  {
+   "filename": "/assets/photo/PH-11-1280.webp",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Contact, band behind the address plate, grade full; crop 21:9"
+  },
+  {
+   "filename": "/assets/photo/PH-11.jpg",
+   "exists": false,
+   "source": "Higgsfield generated photograph (assets/photo_requests.jsonl), cropped by scripts/ingest_media.sh; PENDING until the file is dropped in assets/incoming",
+   "license": "generated for Financing Bot (Higgsfield terms)",
+   "usage": "Contact, band behind the address plate, grade full; crop 21:9"
+  },
+  {
+   "filename": "/assets/posters/W-01.webp",
+   "exists": true,
+   "source": "built in house (captured from the built scene with scripts/qa/posters.py)",
+   "license": "in house",
+   "usage": "reduced motion poster for scene W-01"
+  },
+  {
+   "filename": "/assets/posters/W-02.webp",
+   "exists": true,
+   "source": "built in house (captured from the built scene with scripts/qa/posters.py)",
+   "license": "in house",
+   "usage": "reduced motion poster for scene W-02"
+  },
+  {
+   "filename": "/assets/posters/W-03.webp",
+   "exists": true,
+   "source": "built in house (captured from the built scene with scripts/qa/posters.py)",
+   "license": "in house",
+   "usage": "reduced motion poster for scene W-03"
+  },
+  {
+   "filename": "/assets/posters/W-04.webp",
+   "exists": true,
+   "source": "built in house (captured from the built scene with scripts/qa/posters.py)",
+   "license": "in house",
+   "usage": "reduced motion poster for scene W-04"
+  },
+  {
+   "filename": "/assets/posters/W-05.webp",
+   "exists": true,
+   "source": "built in house (captured from the built scene with scripts/qa/posters.py)",
+   "license": "in house",
+   "usage": "reduced motion poster for scene W-05"
+  },
+  {
+   "filename": "/assets/posters/W-06.webp",
+   "exists": true,
+   "source": "built in house (captured from the built scene with scripts/qa/posters.py)",
+   "license": "in house",
+   "usage": "reduced motion poster for scene W-06"
+  },
+  {
+   "filename": "/assets/posters/W-07.webp",
+   "exists": true,
+   "source": "built in house (captured from the built scene with scripts/qa/posters.py)",
+   "license": "in house",
+   "usage": "reduced motion poster for scene W-07"
+  },
+  {
+   "filename": "/assets/posters/W-08.webp",
+   "exists": true,
+   "source": "built in house (captured from the built scene with scripts/qa/posters.py)",
+   "license": "in house",
+   "usage": "reduced motion poster for scene W-08"
+  },
+  {
+   "filename": "/assets/posters/W-09.webp",
+   "exists": true,
+   "source": "built in house (captured from the built scene with scripts/qa/posters.py)",
+   "license": "in house",
+   "usage": "reduced motion poster for scene W-09"
+  },
+  {
+   "filename": "/assets/posters/W-10.webp",
+   "exists": true,
+   "source": "built in house (captured from the built scene with scripts/qa/posters.py)",
+   "license": "in house",
+   "usage": "reduced motion poster for scene W-10"
+  },
+  {
+   "filename": "/assets/posters/W-11.webp",
+   "exists": true,
+   "source": "built in house (captured from the built scene with scripts/qa/posters.py)",
+   "license": "in house",
+   "usage": "reduced motion poster for scene W-11"
+  },
+  {
+   "filename": "/assets/posters/W-12.webp",
+   "exists": true,
+   "source": "built in house (captured from the built scene with scripts/qa/posters.py)",
+   "license": "in house",
+   "usage": "reduced motion poster for scene W-12"
+  },
+  {
+   "filename": "/assets/posters/W-13.webp",
+   "exists": true,
+   "source": "built in house (captured from the built scene with scripts/qa/posters.py)",
+   "license": "in house",
+   "usage": "reduced motion poster for scene W-13"
+  },
+  {
+   "filename": "/assets/posters/W-14.webp",
+   "exists": true,
+   "source": "built in house (captured from the built scene with scripts/qa/posters.py)",
+   "license": "in house",
+   "usage": "reduced motion poster for scene W-14"
+  },
+  {
+   "filename": "/assets/posters/W-15.webp",
+   "exists": true,
+   "source": "built in house (captured from the built scene with scripts/qa/posters.py)",
+   "license": "in house",
+   "usage": "reduced motion poster for scene W-15"
+  }
+ ]
+}
