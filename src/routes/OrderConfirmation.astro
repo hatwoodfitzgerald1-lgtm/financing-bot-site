@@ -1,0 +1,70 @@
+---
+import Ledger from '../layouts/Ledger.astro';
+import Row from '../components/Row.astro';
+import Seal from '../components/Seal.astro';
+---
+<Ledger route="/order-confirmation" page="confirmation" hover="counter" footerIndex="0004" scene="seal">
+  <Row index="0001" id="placed" class="ch0" label="Order placed" reveal="mask-rows">
+    <div class="g">
+      <div class="c1-6" id="oc-main">
+        <h1 class="hv"><span class="ln"><span>Order placed</span></span></h1>
+        <div class="order-no m mt2" id="order-no"><span class="drum" id="order-drum" data-drum="order 00000">order 00000</span></div>
+        <p class="lede mt" id="oc-line">The receipt is on its way to <span class="m" id="oc-email"></span>. Below is what happens next, in the order it happens.</p>
+        <div id="oc-empty" hidden><p class="lede">No order on this device. The pricing ledger is at <a href="/pricing">/pricing</a>.</p></div>
+      </div>
+      <div class="oc-scene">
+        <div class="scene" id="seal-scene" data-scene="seal" data-poster="W-14">
+          <img class="poster" src="/assets/posters/W-14.webp" width="1600" height="1000" alt="A still of the /order-confirmation seal scene: the square package seal resting on the package slab." loading="lazy" decoding="async" />
+          <div class="s2d seal-2d"><div class="seal-wrap"><Seal size={160} /></div></div>
+        </div>
+      </div>
+    </div>
+  </Row>
+  <Row index="0002" id="next" label="What happens next" reveal="stagger-rows">
+    <div class="g">
+      <div class="c1-8">
+        <ol class="ruled next-paid" id="next-paid" hidden>
+          <li class="srow"><span><b>Receipt.</b> Emailed within a minute, from [BUSINESS NAME] doing business as Financing Bot, showing the pack, file count, rate, tax, total, payment method, the validity date and the PO number if you entered one.</span></li>
+          <li class="srow"><span><b>Activation.</b> An email within 10 minutes with a set password link for the account owner. Seat invitations are sent from the account page.</span></li>
+          <li class="srow"><span><b>Upload.</b> Open at once, by browser or with SFTP credentials from the account page. On an ACH order the balance posts when the debit settles, and uploads wait in the queue until then.</span></li>
+          <li class="srow"><span><b>Underwriter profiles.</b> Enter each underwriter of record with any DE or SAR designation before the first FHA or VA file goes up; without one, those files hold in the queue.</span></li>
+          <li class="srow"><span><b>Condition library.</b> The CSV template is on the account page for the 100 File Pack. The 500 File Pack and the Enterprise Block book a setup session from the activation email.</span></li>
+          <li class="srow" id="next-ent" hidden><span><b>Enterprise only.</b> Your implementation lead emails within one business day with the 30 day plan: credit policy intake, condition library, first files, variance review at day 30. Your implementation lead is named in your activation email.</span></li>
+        </ol>
+        <ol class="ruled next-pilot" id="next-pilot" hidden>
+          <li class="srow"><span>Receipt at $0.00, emailed within a minute, with the same order number format as a paid pack.</span></li>
+          <li class="srow"><span>Activation email within 10 minutes with a set password link and 2 seats.</span></li>
+          <li class="srow"><span><b>Upload.</b> 60 days from today to upload 50 funded files, marked "pilot, funded loan" so nothing in them touches a live decision.</span></li>
+          <li class="srow"><span><b>Underwriter profile.</b> Enter the underwriter whose signed figures the report will be compared against.</span></li>
+          <li class="srow"><span>The variance and defect report, within 5 business days of the fiftieth file: our recalculated income, sourced assets and drafted conditions beside what your underwriter signed on each loan, with the page cites and the defects either side missed.</span></li>
+          <li class="srow"><span>Then the balance reads zero and the account waits. No card was collected, nothing renews, and buying a pack is a separate purchase from the account page.</span></li>
+        </ol>
+        <table class="ledger mt2" id="oc-table" hidden><caption class="sr-only">The order</caption><thead><tr><th>pack</th><th>files</th><th class="r">line total</th></tr></thead><tbody id="oc-lines"></tbody><tfoot><tr><td colspan="2" class="ash">sales tax</td><td class="m r" id="oc-tax"></td></tr><tr><td colspan="2">total</td><td class="m r" id="oc-total"></td></tr><tr><td colspan="2" class="ash">payment method</td><td class="m r" id="oc-method"></td></tr><tr><td colspan="2" class="ash">files valid to</td><td class="m r" id="oc-valid"></td></tr></tfoot></table>
+      </div>
+    </div>
+  </Row>
+  <Row index="0003" id="seal-row" flush label="The seal" reveal="rise">
+    <div class="slab seal-slab">
+      <div class="g"><div class="c1-12 seal-line"><div class="seal-wrap"><Seal /></div><p class="m small">prepared, calculated, documented. decided by the underwriter of record.</p></div></div>
+    </div>
+    <div class="g mt2"><div class="c1-8" id="last-link" hidden><button type="button" class="link" id="set-pass" aria-expanded="false" aria-controls="pass-panel">Set the account password now</button><div class="slab pass-panel" id="pass-panel" hidden><p>The activation email carries the set password link. It arrives within 10 minutes at <span class="m" id="pass-email"></span>.</p></div></div></div>
+  </Row>
+</Ledger>
+
+<style is:global>
+  .ch0 { border-top: 0; padding-top: clamp(48px, 8vh, 96px); }
+  .order-no { font-size: clamp(40px, 5vw, 64px); line-height: 1; }
+  .oc-scene { grid-column: 7 / -1; margin-right: calc(-1 * var(--gutter)); position: relative; min-height: 320px; }
+  .oc-scene .scene { position: absolute; inset: 0; }
+  .seal-2d { display: grid; place-items: center; height: 100%; }
+  @media (max-width: 899px) { .oc-scene { grid-column: 1 / -1; margin-inline: calc(-1 * var(--gutter)); min-height: 220px; } }
+  ol.ruled { list-style: none; margin: 0; padding: 0; counter-reset: r; border-top: var(--hair) solid var(--rule); }
+  ol.ruled li { display: grid; grid-template-columns: 48px 1fr; gap: 12px; padding: 14px 0; border-bottom: var(--hair) solid var(--rule); font-size: 15px; line-height: 1.55; }
+  ol.ruled li::before { counter-increment: r; content: counter(r, decimal-leading-zero); font-family: var(--mono); color: var(--ash); font-size: 14px; }
+  ol.ruled li b { font-weight: 600; }
+  .seal-slab { padding: 32px 0; }
+  .seal-line { display: flex; gap: 24px; align-items: center; }
+  .pass-panel { padding: 16px; margin-top: 12px; }
+  .pass-panel[hidden] { display: none; }
+  #set-pass { background: transparent; border: 0; padding: 0; cursor: pointer; font-size: 16px; }
+</style>

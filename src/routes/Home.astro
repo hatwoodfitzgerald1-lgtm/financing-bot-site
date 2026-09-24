@@ -1,0 +1,352 @@
+---
+import Ledger from '../layouts/Ledger.astro';
+import Row from '../components/Row.astro';
+import PaperButton from '../components/PaperButton.astro';
+import Tally from '../components/Tally.astro';
+import SmsBlock from '../components/SmsBlock.astro';
+import { wallRows } from '../data/wallRows.js';
+import offering from '../data/offering.json';
+const pocket = wallRows.slice(0, 12);
+const worksheet = [
+  ['Schedule C line 31 net profit', '84,600.00', 'p.47', '92,150.00', 'p.52'],
+  ['line 13 depreciation', '9,850.00', 'p.47', '10,400.00', 'p.52'],
+  ['line 12 depletion', '0.00', 'p.47', '0.00', 'p.52'],
+  ['line 30 business use of home', '4,200.00', 'p.47', '4,200.00', 'p.52'],
+  ['line 24b meals (subtracted)', '1,380.00', 'p.47', '2,120.00', 'p.52'],
+  ['amortization', '0.00', 'p.47', '0.00', 'p.52'],
+];
+---
+<Ledger route="/" page="home" hover="carriage" footerIndex="0010" loader={true} scene="wall">
+  <!-- 0001 Hero: the Operations Ledger Grid with the Overnight Queue wall in the grid at the right -->
+  <section class="row flush hero" id="hero" aria-label="Financing Bot">
+    <span class="row-idx" aria-hidden="true">0001</span>
+    <div class="g hero-g">
+      <div class="c1-6 hero-copy">
+        <div class="h1-mask" aria-hidden="false"><h1 class="hv" id="h1">Read, recalculated<br />and cited. Your<br />underwriter decides.</h1><i class="cover c1" aria-hidden="true"></i><i class="cover c2" aria-hidden="true"></i><i class="cover c3" aria-hidden="true"></i></div>
+        <p class="lede audience">For underwriting managers at independent mortgage banks closing 200 to 5,000 loans a month, where the underwriter is the constraint.</p>
+        <div class="flex cta">
+          <PaperButton label={offering.primaryButton.label} price={offering.primaryButton.price} href={offering.primaryButton.href} id="hero-cta" />
+          <a class="link hv" href="/product">See how it works</a>
+        </div>
+        <div class="clear-cap" id="clear-cap" aria-live="polite">
+          <p class="cap-line m" id="clear-text" data-text="Sixty in the queue. Sixty returned to the underwriter of record, every figure beside its page."></p>
+          <p class="cap-foot m ash">sample queue. 36 / 21 / 3 is the 60, 35, 5 split we hold as a QA target, not a result we promise.</p>
+        </div>
+      </div>
+      <div class="wall-col" id="wall-col">
+        <div class="scene wall" id="wall" data-scene="wall">
+          <img class="poster" src="/assets/posters/W-01.webp" width="1600" height="1000" alt="The half cleared Overnight Queue wall, square on: sixty loan rows, the upper rows cleared with a status chip and an income figure beside its page cite." loading="eager" fetchpriority="low" decoding="async" />
+          <div class="plate m" id="queue-plate"><span id="queue-count">60</span> in queue</div>
+          <div class="rm-cap m" id="wall-rm-cap" hidden>
+            <p>Sixty in the queue. Sixty returned to the underwriter of record, every figure beside its page.</p>
+            <p class="ash">This wall is a picture of one night's sample queue; scroll for the real screens.</p>
+          </div>
+          <img class="dock" id="dock-shot" src="/assets/product/P-01-queue.webp" width="3200" height="2072" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        </div>
+      </div>
+      <!-- The pocket queue: the mobile hero moment, twelve DOM rows in the ledger grammar -->
+      <div class="pocket c1-12" id="pocket" aria-label="The pocket queue">
+        <div class="pk-head m"><span id="pk-count">12</span> in queue</div>
+        <ol class="pk-rows">
+          {pocket.map((r) => (
+            <li class="pk-row" data-idx={r.index} data-status={r.status} data-income={r.income}>
+              <button type="button" class="pk-btn" aria-expanded="false">
+                <span class="pk-i m">{r.index}</span>
+                <span class="pk-ln m">{r.ln}</span>
+                <span class="pk-b m">{r.borrower}</span>
+                <span class="pk-p">{r.product}</span>
+                <span class="pk-uw">{r.underwriter}</span>
+                <span class="chip pk-chip">reading</span>
+                <span class="pk-inc m">reading<i class="cur"></i></span>
+              </button>
+              <div class="pk-arith m ash" hidden>{r.arithmetic}</div>
+            </li>
+          ))}
+        </ol>
+        <p class="pk-cap m" id="pk-cap" data-text="Sixty in the queue. Sixty returned to the underwriter of record, every figure beside its page."></p>
+      </div>
+    </div>
+    <!-- Reduced motion: the row clearing as a static table -->
+    <table class="ledger rm-table" id="wall-rm-table" hidden>
+      <caption class="sr-only">The sample queue wall, sixty rows, as a table</caption>
+      <thead><tr><th>index</th><th>loan</th><th>borrower</th><th>product</th><th>pages</th><th>underwriter of record</th><th>status</th><th>income</th></tr></thead>
+      <tbody>{wallRows.map((r) => (<tr><td class="m">{r.index}</td><td class="m">{r.ln}</td><td class="m">{r.borrower}</td><td>{r.product}</td><td class="m">{r.pages}</td><td>{r.underwriter}</td><td><span class="chip">{r.status}</span></td><td class="m">{r.income}</td></tr>))}</tbody>
+    </table>
+  </section>
+
+  <!-- 0002 Sixty files in the queue: split sticky spec sheet -->
+  <Row index="0002" id="queue" class="queue-row" label="Sixty files in the queue">
+    <div class="g">
+      <div class="c1-5 queue-copy">
+        <p class="sr-only">Financing Bot reads a mortgage loan file and hands the underwriter a decision ready package in which every figure cites its page.</p>
+        <h2 class="hv">Sixty files in the queue, each one returned with its pages named</h2>
+        <div class="qrows">
+          <div class="qrow" data-reveal="count"><div class="qidx m"><span class="cnt drum" data-drum="01">00</span></div><h3>What came in</h3><p>Sixty uploads landed after five o'clock: URLA and credit, two years of paystubs and W2s, two years of returns with every schedule, two months of statements, and whatever else the processor dropped in the folder. Each page was named and numbered, duplicates were folded into one, and a password locked PDF on one file was sent back with a page list and no deduction.</p></div>
+          <div class="qrow" data-reveal="count"><div class="qidx m"><span class="cnt drum" data-drum="02">00</span></div><h3>What was found</h3><p>Three files carried a page that disagreed with another page. In each the two pages are listed side by side with both cites, and that is all that was done to them. Nothing was picked. The other fifty seven reconciled to their DU or LPA findings line by line, with each finding tied to the page that answers it or listed as open.</p></div>
+          <div class="qrow" data-reveal="count"><div class="qidx m"><span class="cnt drum" data-drum="03">00</span></div><h3>What went back</h3><p>Every file is in your queue with a status chip and a returned time. The sample queue in this screen shows 36 decision ready, 21 with conditions out and 3 referred up, which is the 60, 35, 5 split we hold as a QA target. Your queue will show whatever your files produce.</p></div>
+        </div>
+        <ul class="chip-lines m" id="chip-lines" aria-label="What each status chip means">
+          <li data-chip="reading"><span class="chip">reading</span> still being indexed; nothing has been deducted yet</li>
+          <li data-chip="decision ready"><span class="chip">decision ready</span> package delivered, every figure cited, addressed to the underwriter of record</li>
+          <li data-chip="conditions out"><span class="chip">conditions out</span> package delivered with the drafted conditions listed for processing</li>
+          <li data-chip="referred up"><span class="chip">referred up</span> a contradiction named with both pages, routed to the underwriter, no recommendation attached</li>
+        </ul>
+      </div>
+      <div class="queue-media" id="queue-media">
+        <div class="sticky">
+          <div class="shot"><img src="/assets/product/P-01-queue.webp" srcset="/assets/product/P-01-queue@1x.webp 1600w, /assets/product/P-01-queue.webp 3200w" sizes="(max-width: 899px) 100vw, 50vw" width="3200" height="2072" alt="The Financing Bot queue for Sample Mortgage Co.: sixty loan files listed by loan number, borrower initials, product, pages, contradictions, underwriter of record, a lowercase status chip and the returned time." loading="lazy" decoding="async" /></div>
+          <div class="live-chips" role="group" aria-label="Live status chips">
+            <button type="button" class="chip" data-chip="reading">reading</button>
+            <button type="button" class="chip" data-chip="decision ready">decision ready</button>
+            <button type="button" class="chip" data-chip="conditions out">conditions out</button>
+            <button type="button" class="chip" data-chip="referred up">referred up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Row>
+
+  <!-- 0003 Income recalculated by its rule: the worksheet table spanning 12 columns -->
+  <Row index="0003" id="worksheet" label="Income recalculated by its rule">
+    <div class="g">
+      <div class="c1-7"><h2 class="hv">Income recalculated by its rule, the page beside each figure</h2>
+      <p class="lede mt">This is the Form 1084 worksheet for the self employed borrower on LN 2026090412, exactly as it sits in the package. Read down the 2024 column, then the 2025 column, then the foot. The only figures in color are the two that were recalculated and sourced.</p></div>
+    </div>
+    <div class="ws-wrap">
+      <table class="ledger ws" data-reveal="draw-table" id="ws-table">
+        <thead><tr><th>Form 1084 line</th><th class="r">2024</th><th>cite</th><th class="r">2025</th><th>cite</th></tr></thead>
+        <tbody>
+          {worksheet.map((w, i) => (<tr style={`--i:${i}`}><td>{w[0]}</td><td class="m r">{w[1]}</td><td class="m ash">{w[2]}</td><td class="m r">{w[3]}</td><td class="m ash">{w[4]}</td></tr>))}
+          <tr class="tot" style="--i:6"><td>year total</td><td class="m r">97,270.00</td><td></td><td class="m r">104,630.00</td><td></td></tr>
+          <tr style="--i:7"><td>trend</td><td colspan="4" class="m ash">2025 up 7.6% on 2024, two year average applies</td></tr>
+          <tr style="--i:8"><td>24 month total</td><td colspan="4" class="m vd">201,900.00</td></tr>
+          <tr style="--i:9"><td>monthly qualifying income</td><td colspan="4" class="m vd">$8,412.50</td></tr>
+          <tr style="--i:10"><td>formula</td><td colspan="4" class="m ash">(97,270.00 + 104,630.00) ÷ 24</td></tr>
+          <tr style="--i:11"><td>AUS entered</td><td colspan="4" class="m ash">$7,568.75</td></tr>
+          <tr style="--i:12"><td>difference</td><td colspan="4" class="m ash">+$843.75, line 13 depreciation for both years ÷ 24</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="g mt2">
+      <div class="c1-6 recalc-quote" data-reveal="rise">
+        <div class="rq-fig m" id="rq-fig"><span class="drum" data-drum="$8,412.50">$0,000.00</span></div>
+        <div class="rq-cite m ash">recalculated, sourced p.47, p.52</div>
+      </div>
+      <p class="c7-12 small" style="align-self:end">Line 13 was added back from Schedule C for both years. The AUS had it at zero, so the difference is shown beside the figure with the line that caused it.</p>
+    </div>
+  </Row>
+
+  <!-- 0004 Conditions drafted in your wording: oversized numeral index -->
+  <Row index="0004" id="conditions" label="Conditions drafted in your wording">
+    <div class="g">
+      <div class="c1-7"><h2 class="hv">Conditions drafted in your wording, prior to doc and prior to close</h2>
+      <p class="lede mt">These three rows came out of the same file, in Sample Mortgage Co.'s own condition wording, with the page that raised each one at the end of the line. They paste into the LOS as they stand.</p></div>
+    </div>
+    <div class="g mt2 cond-index" data-reveal="slide-index">
+      <div class="c1-12 idx-row"><span class="num sm">PTD 01</span><div class="txt"><span>Signed 1040 with all schedules for 2024 and 2025.</span><span class="m ash">cites p.47, p.52</span><span class="chip">drafted</span></div></div>
+      <div class="c1-12 idx-row"><span class="num sm">PTD 02</span><div class="txt"><span>Year to date profit and loss statement for the business.</span><span class="m ash">cites Schedule C p.47</span><span class="chip">drafted</span></div></div>
+      <div class="c1-12 idx-row"><span class="num sm">PTC 01</span><div class="txt"><span>Verbal verification of employment for the co borrower within 10 business days prior to the note date.</span><span class="m ash">cites URLA p.1, W2 p.31</span><span class="chip">drafted</span></div></div>
+    </div>
+    <div class="g mt2"><p class="c1-7">Your library, your words. The software fills in the cite, the year and the borrower, and puts each row on the side of the line the rule puts it on. A library line too vague to draft against is left alone and named.</p></div>
+  </Row>
+
+  <!-- 0005 What the software prepares, and what it never decides: checkerboard spanning 12 columns -->
+  <Row index="0005" id="prepares" label="What the software prepares, and what it never decides">
+    <div class="g"><h2 class="c1-8 hv">What the software prepares, and what it never decides</h2></div>
+    <div class="checker mt2" data-reveal="checker">
+      <div class="ck-head"><div class="ck-h yes">Prepares</div><div class="ck-h">Never decides</div></div>
+      <div class="ck-body">
+        <div class="yes"><span>Indexes every page and folds the duplicates</span></div><div class="no"><span>Whether the loan is approved</span></div>
+        <div class="yes"><span>Recalculates every income figure by its rule</span></div><div class="no"><span>Whether the loan is declined</span></div>
+        <div class="yes"><span>Sources every deposit over the threshold, or marks it unsourced</span></div><div class="no"><span>Which of two contradicting pages is true</span></div>
+        <div class="yes"><span>Reconciles the DU or LPA findings to the page that answers each</span></div><div class="no"><span>Whether a letter of explanation is good enough</span></div>
+        <div class="yes"><span>Drafts the conditions in your library's wording</span></div><div class="no"><span>Whether a file outside your credit policy proceeds</span></div>
+        <div class="yes"><span>Drafts the large deposit letter for the borrower's signature</span></div><div class="no"><span>What the adverse action reasons are</span></div>
+        <div class="yes"><span>Names a contradiction with both pages and sends it up</span></div><div class="no"><span>Who the underwriter of record is</span></div>
+        <div class="yes"><span>Records who changed what, and who signed</span></div><div class="no"><span>Whether to run the DU or LPA findings again on the recalculated figure</span></div>
+      </div>
+    </div>
+    <div class="g mt2"><p class="c1-7">The right hand column is the product. Everything in it stays with a person whose name is on the package.</p></div>
+  </Row>
+
+  <!-- 0006 Where the work happens: the 12 second loop under the grade, full bleed -->
+  <Row index="0006" id="floor" flush label="Where the work happens" reveal="card-up">
+    <div class="band rv grade-full vband">
+      <video id="v01" muted loop playsinline preload="metadata" poster="/assets/video/V-01-poster.webp" width="1920" height="1080" aria-label="An underwriting operations floor at night: monitors coming on, a printer tray filling, a queue clearing on a screen, a stapled package under a task lamp.">
+        <source src="/assets/video/V-01-overnight-shift.webm" type="video/webm" media="(min-width: 900px)" />
+        <source src="/assets/video/V-01-overnight-shift.mp4" type="video/mp4" media="(min-width: 900px)" />
+        <source src="/assets/video/V-01-overnight-shift-720.mp4" type="video/mp4" />
+      </video>
+      <div class="over g">
+        <div class="c1-5 inset">
+          <h2 class="hv">Where the work happens</h2>
+          <p class="mt">An operations floor at two in the morning. Monitors coming on one by one with rows on them, a printer filling its tray, a package pushed to the edge of a desk under a lamp. No one is in the room, and that is the point of the picture: the queue is worked overnight so the one lit desk in the morning belongs to the person who decides.</p>
+        </div>
+      </div>
+      <div class="caption">12 second loop. Monitors, printer, screen, package. No people.</div>
+    </div>
+  </Row>
+
+  <!-- 0007 Three prepaid packs: ticker stats bar spanning 12 columns -->
+  <Row index="0007" id="packs" label="Three prepaid packs">
+    <div class="g"><h2 class="c1-9 hv">Three prepaid packs, one rate each, nothing that renews on its own</h2></div>
+    <div class="ticker mt2" data-reveal="count">
+      <div class="tk"><span class="num cnt"><span class="drum" data-drum="$24.00">$00.00</span></span><span class="lab">a file</span><span class="m ash">100 File Pack</span></div>
+      <div class="tk"><span class="num cnt"><span class="drum" data-drum="$22.00">$00.00</span></span><span class="lab">a file</span><span class="m ash">500 File Pack</span></div>
+      <div class="tk"><span class="num cnt"><span class="drum" data-drum="$18.00">$00.00</span></span><span class="lab">a file</span><span class="m ash">Enterprise Block</span></div>
+    </div>
+    <div class="g mt2">
+      <p class="c1-6">Pick the pack, pay by card or ACH debit, and upload. Files are valid twelve months and come off the balance only when a package lands in your queue. Auto reorder exists, and it is off until the buyer switches it on.</p>
+      <div class="c7-12" style="justify-self:start"><PaperButton label={offering.primaryButton.label} price={offering.primaryButton.price} href={offering.primaryButton.href} /></div>
+    </div>
+  </Row>
+
+  <!-- 0008 About teaser: PH-01 band under the full grade -->
+  <Row index="0008" id="about-teaser" flush label="About Financing Bot" reveal="wipe">
+    <div class="band r21 grade-full">
+      <picture>
+        <source media="(max-width: 899px)" srcset="/assets/photo/PH-01-1280.webp" type="image/webp" />
+        <source srcset="/assets/photo/PH-01.webp" type="image/webp" />
+        <img src="/assets/photo/PH-01.jpg" width="2560" height="1097" alt="The empty underwriting operations floor at night, seen from the doorway, the aisle receding with a few monitors lit." loading="lazy" decoding="async" />
+      </picture>
+      <div class="over g" style="align-content:center">
+        <div class="c1-6 inset">
+          <h2 class="hv">Founded in 2026, for the shop where the underwriter is the constraint</h2>
+          <p class="mt">Three figures on the desk that year: production expense of $11,898 a loan, income and employment at 27.24 percent of critical defects, and two agency governance rules that now ask for a human signature on every decision and a record on every tool. The About page is the note on why those three add up to this product.</p>
+          <a class="link hv" href="/about">Read the About page</a>
+        </div>
+      </div>
+    </div>
+  </Row>
+
+  <!-- 0009 Join Our SMS List -->
+  <Row index="0009" id="sms" label="Join Our SMS List">
+    <div class="g">
+      <div class="c1-5"><SmsBlock level="h2" id="sms-home" /></div>
+      <div class="c7-12 sms-tally" data-reveal="rise"><Tally size={160} /></div>
+    </div>
+  </Row>
+</Ledger>
+
+<style is:global>
+  .hero { min-height: calc(100vh - var(--nav-h)); border-top: 0; overflow: visible; }
+  .hero-g { min-height: calc(100vh - var(--nav-h)); align-content: start; }
+  .hero-copy { padding-top: clamp(64px, 14vh, 132px); padding-bottom: 48px; position: relative; z-index: 3; padding-right: 24px; }
+  .hero-copy h1 { max-width: 20ch; }
+  /* the H1 lines rise from behind the grid's row rules one row at a time: three covers, one per line, retract upward after the loader split; the H1 itself is one text block so it is the LCP element */
+  .h1-mask { position: relative; width: fit-content; }
+  .h1-mask .cover { position: absolute; left: -4px; right: -4px; height: 34%; background: var(--graphite); border-bottom: var(--hair) solid var(--rule); transform-origin: top; transform: scaleY(1); }
+  .h1-mask .c1 { top: 0; } .h1-mask .c2 { top: 33%; } .h1-mask .c3 { top: 66%; }
+  body.loaded .h1-mask .cover { animation: uncover var(--base) var(--cr) forwards; }
+  body.loaded .h1-mask .c2 { animation-delay: 0.07s; } body.loaded .h1-mask .c3 { animation-delay: 0.14s; }
+  @keyframes uncover { to { transform: scaleY(0); } }
+  @media (prefers-reduced-motion: reduce) { .h1-mask .cover { display: none; } }
+  html.rm .h1-mask .cover { display: none; }
+  .audience { margin-top: 24px; max-width: 42ch; color: rgba(233,229,218,0.8); }
+  .cta { margin-top: 40px; }
+  .clear-cap { margin-top: 40px; max-width: 46ch; min-height: 72px; }
+  .cap-line { font-size: 15px; line-height: 1.5; min-height: 1.5em; }
+  .cap-line::after { content: ''; display: inline-block; width: 0.55em; height: 1em; background: var(--paper); vertical-align: -0.15em; margin-left: 2px; opacity: 0; }
+  .cap-line.typing::after { opacity: 1; animation: blink 1.2s steps(2) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .cap-foot { font-size: 12px; margin-top: 8px; opacity: 0; transition: opacity var(--base) var(--cr); }
+  .clear-cap.done .cap-foot { opacity: 1; }
+  .wall-col { grid-column: 7 / -1; margin-right: calc(-1 * var(--gutter)); position: relative; min-height: calc(100vh - var(--nav-h)); }
+  .wall { position: absolute; inset: 0; }
+  .wall .fluor { position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--paper); box-shadow: 0 0 24px 6px rgba(233,229,218,0.35); opacity: 0; z-index: 2; pointer-events: none; }
+  .wall .plate { position: absolute; top: 20px; right: var(--gutter); z-index: 3; font-size: 13px; color: var(--paper); background: var(--graphite); border: var(--hair) solid var(--paper); padding: 6px 10px; }
+  .wall .rm-cap { position: absolute; left: 16px; right: 16px; bottom: 16px; z-index: 3; font-size: 13px; background: rgba(26,27,29,0.85); padding: 12px; }
+  .wall .rm-cap p { margin-bottom: 6px; }
+  .wall .dock { position: absolute; left: 50%; top: 50%; width: 92%; transform: translate(-50%, -50%) scale(1.02); opacity: 0; pointer-events: none; z-index: 2; }
+  .rm-table { display: none; margin: 0 var(--gutter) 48px; width: auto; }
+  .rm-table[hidden] { display: none; }
+  .rm-table:not([hidden]) { display: table; }
+  @media (max-width: 899px) { .rm-table:not([hidden]) { display: none; } }
+  /* The pocket queue */
+  .pocket { display: none; grid-column: 1 / -1; margin-top: 8px; border-top: var(--hair) solid var(--rule); }
+  .pk-head { font-size: 13px; padding: 10px 0; color: var(--paper); border-bottom: var(--hair) solid var(--rule); }
+  .pk-rows { list-style: none; margin: 0; padding: 0; }
+  .pk-row { border-bottom: var(--hair) solid var(--rule); }
+  .pk-btn { display: grid; grid-template-columns: 38px 1fr auto; grid-template-areas: "i ln chip" "i b inc" "i uw inc"; gap: 2px 10px; align-items: center; width: 100%; text-align: left; background: transparent; border: 0; padding: 10px 0; color: var(--paper); cursor: pointer; }
+  .pk-i { grid-area: i; color: var(--ash); font-size: 12px; }
+  .pk-ln { grid-area: ln; font-size: 13px; }
+  .pk-b { grid-area: b; font-size: 12px; color: var(--ash); }
+  .pk-p { display: none; }
+  .pk-uw { grid-area: uw; font-size: 12px; color: var(--ash); }
+  .pk-chip { grid-area: chip; justify-self: end; }
+  .pk-inc { grid-area: inc; justify-self: end; font-size: 12px; color: var(--ash); }
+  .pk-inc .cur { display: inline-block; width: 0.55em; height: 1em; background: var(--ash); vertical-align: -0.15em; margin-left: 3px; animation: blink 1.2s steps(2) infinite; }
+  .pk-row.clear .pk-inc { color: var(--verdigris); }
+  .pk-row.clear .pk-inc .cur { display: none; }
+  .pk-row.clear .pk-chip { color: var(--paper); border-color: var(--paper); }
+  .pk-row { transition: opacity var(--base) var(--cr), transform var(--base) var(--cr); }
+  .pk-row.clear { animation: settle var(--base) var(--cr); }
+  @keyframes settle { from { transform: scale(1.02); } to { transform: none; } }
+  .pk-arith { padding: 0 0 12px 48px; font-size: 12px; }
+  .pk-cap { padding: 16px 0 24px; font-size: 14px; min-height: 1.5em; }
+  @media (max-width: 899px), (pointer: coarse) {
+    .hero-g { min-height: 0; }
+    .hero-copy { padding-top: 32px; padding-bottom: 24px; }
+    .wall-col { display: none; }
+    .pocket { display: block; }
+    .clear-cap { display: none; }
+  }
+  /* 0002 */
+  .queue-row .g { align-items: start; }
+  .queue-copy h2 { max-width: 20ch; }
+  .qrows { margin-top: 40px; }
+  .qrow { border-top: var(--hair) solid var(--rule); padding: 20px 0 28px; min-height: 42vh; display: grid; grid-template-columns: 72px 1fr; gap: 0 16px; align-content: start; }
+  .qrow h3 { grid-column: 2; margin-bottom: 8px; }
+  .qrow p { grid-column: 2; }
+  .qidx { font-size: 32px; grid-row: 1 / span 2; color: var(--ash); }
+  .chip-lines { list-style: none; padding: 0; margin: 24px 0 0; font-size: 12px; }
+  .chip-lines li { padding: 8px 0; border-top: var(--hair) solid var(--rule); color: var(--ash); transition: color var(--fast) var(--ra), background var(--fast) var(--cr); display: flex; gap: 10px; align-items: baseline; }
+  .chip-lines li.lit { color: var(--paper); }
+  .chip-lines li.lit .chip { color: var(--paper); border-color: var(--paper); }
+  .queue-media { grid-column: 7 / -1; margin-right: calc(-1 * var(--gutter)); align-self: stretch; }
+  .queue-media .sticky { position: sticky; top: calc(var(--nav-h) + 16px); }
+  .live-chips { display: flex; gap: 8px; flex-wrap: wrap; padding: 12px 0 0 12px; }
+  .live-chips .chip { background: transparent; cursor: pointer; }
+  .live-chips .chip:hover, .live-chips .chip:focus-visible, .live-chips .chip.lit { color: var(--paper); border-color: var(--paper); }
+  @media (max-width: 899px) { .queue-media { grid-column: 1 / -1; margin-inline: calc(-1 * var(--gutter)); order: -1; } .queue-media .sticky { position: static; } .qrow { min-height: 0; } }
+  /* 0003 */
+  .ws-wrap { margin-top: 40px; overflow-x: auto; }
+  .ws { min-width: 640px; }
+  .ws th:first-child, .ws td:first-child { padding-left: var(--gutter); position: sticky; left: 0; background: var(--graphite); }
+  .ws td:last-child, .ws th:last-child { padding-right: var(--gutter); }
+  .ws .tot td { border-bottom-width: 2px; }
+  .recalc-quote .rq-fig { font-size: clamp(56px, 6vw, 80px); line-height: 1; color: var(--verdigris); }
+  .recalc-quote .rq-cite { margin-top: 8px; font-size: 13px; }
+  /* 0004 */
+  .cond-index .idx-row { display: grid; grid-template-columns: minmax(180px, 3fr) 9fr; gap: 24px; align-items: end; padding: 24px 0; border-bottom: var(--hair) solid var(--rule); }
+  .cond-index .idx-row:first-child { border-top: var(--hair) solid var(--rule); }
+  .cond-index .txt { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; font-size: clamp(16px, 1.25vw, 20px); padding-bottom: 10px; }
+  .cond-index .txt .m { font-size: 13px; }
+  @media (max-width: 899px) { .cond-index .idx-row { grid-template-columns: 1fr; gap: 8px; } }
+  /* 0005 */
+  .checker { width: 100vw; border-top: var(--hair) solid var(--rule); }
+  .ck-head, .ck-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .ck-h { padding: 14px var(--gutter); font-family: var(--mono); font-size: 13px; border-bottom: var(--hair) solid var(--rule); color: var(--ash); }
+  .ck-h.yes { color: var(--ink); }
+  .ck-body > div { padding: 16px var(--gutter); border-bottom: var(--hair) solid var(--rule); font-size: clamp(15px, 1.15vw, 18px); }
+  .ck-body > .yes { border-right: var(--hair) solid var(--rule); }
+  .ck-body > .no { color: var(--ash); }
+  .checker .yes::before { transition-delay: calc(var(--n, 0) * 0.05s); }
+  @media (max-width: 599px) { .ck-head, .ck-body { grid-template-columns: 1fr; } .ck-body > .yes { border-right: 0; } }
+  /* 0006 */
+  .vband .inset { background: var(--graphite); border: var(--hair) solid var(--rule); padding: 24px; margin: 0 0 56px; font-size: 15px; }
+  .vband .inset h2 { font-size: clamp(22px, 2vw, 30px); }
+  /* 0007 */
+  .ticker { width: 100vw; display: grid; grid-template-columns: repeat(3, 1fr); border-top: var(--hair) solid var(--rule); border-bottom: var(--hair) solid var(--rule); }
+  .tk { padding: 28px var(--gutter); border-right: var(--hair) solid var(--rule); display: grid; gap: 8px; }
+  .tk:last-child { border-right: 0; }
+  .tk .lab { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @media (max-width: 899px) { .ticker { grid-template-columns: 1fr; } .tk { border-right: 0; border-bottom: var(--hair) solid var(--rule); } }
+  /* 0008 */
+  #about-teaser .inset { background: rgba(26,27,29,0.82); padding: 28px; border: var(--hair) solid var(--rule); margin-left: var(--gutter); }
+  #about-teaser .inset .link { margin-top: 16px; }
+  @media (max-width: 899px) { #about-teaser .band { aspect-ratio: auto; min-height: 520px; } #about-teaser .inset { margin: 24px var(--gutter); } }
+  .sms-tally { display: flex; align-items: center; justify-content: center; color: var(--paper); }
+  .sms-tally .tally { width: 160px; height: 120px; }
+  @media (max-width: 899px) { .sms-tally { display: none; } }
+</style>

@@ -1,0 +1,156 @@
+---
+import Ledger from '../layouts/Ledger.astro';
+import Row from '../components/Row.astro';
+import PaperButton from '../components/PaperButton.astro';
+import Seal from '../components/Seal.astro';
+import offering from '../data/offering.json';
+const stations = [
+  ['upload', 'upload tray: where the file arrives, by browser or SFTP'],
+  ['wall', 'queue wall: sixty rows, worked overnight'],
+  ['worksheet', 'worksheet desk: Form 1084, every line with its page'],
+  ['printer', 'printer: the package, PDF and CSV'],
+  ['shelf', 'records shelf: 24 months of packages and source pages'],
+  ['lit', 'the lit desk: the underwriter of record. This is where deciding happens.'],
+];
+---
+<Ledger route="/about" page="about" hover="tally" footerIndex="0007" scene="plan">
+  <!-- 0001 Hero with the floor plan at the right -->
+  <section class="row flush ah" id="about-head" aria-label="About Financing Bot">
+    <span class="row-idx" aria-hidden="true">0001</span>
+    <div class="g ah-g">
+      <div class="c1-6 ah-copy in" data-reveal="mask-rows">
+        <h1 class="hv"><span class="ln"><span>The morning note:</span></span><span class="ln"><span>why this was built,</span></span><span class="ln"><span>and who signs</span></span></h1>
+        <div class="prose mt2">
+          <p>You're reading the note we'd leave on your desk. It says what the product is for, what it will never do, and how it came to be bought on a card instead of on a call. Start at the top and read down.</p>
+          <p>Financing Bot was founded in 2026 for one reader: the underwriter of record at an independent mortgage bank closing 200 to 5,000 loans a month. That is the shop where the pipeline waits on two or three people, where a file arrives on Tuesday and is opened on Thursday, and where the part of the job that takes longest is not the decision. It is the assembly. Naming the pages. Working the income by its rule. Sourcing the deposits, matching the AUS findings to the file, writing the conditions. All of it has a form, a line or a rule behind it, and none of it is judgment. That is the work this software was built to take off the desk before you sit down at it.</p>
+        </div>
+      </div>
+      <div class="ah-scene">
+        <div class="scene" id="plan" data-scene="plan" data-poster="W-04">
+          <img class="poster" src="/assets/posters/W-04.webp" width="1600" height="1000" alt="A still of the /about floor plan scene: the operations floor as hairline outlines seen from above, every station lit and the one lit desk at the end." loading="lazy" decoding="async" />
+          <svg class="s2d plan-2d" viewBox="0 0 600 380" aria-hidden="true" fill="none" stroke="#E9E5DA" stroke-width="1.25">
+            <rect x="20" y="20" width="560" height="340" opacity="0.5"/>
+            <g class="st" data-st="upload"><rect x="40" y="40" width="80" height="40"/><text x="80" y="66" font-size="9" fill="#E9E5DA" stroke="none" text-anchor="middle" font-family="'Fragment Mono',monospace">upload</text></g>
+            <g class="st" data-st="wall"><rect x="140" y="40" width="300" height="24"/><text x="290" y="56" font-size="9" fill="#E9E5DA" stroke="none" text-anchor="middle" font-family="'Fragment Mono',monospace">queue wall</text></g>
+            <g class="st" data-st="worksheet"><rect x="60" y="130" width="100" height="56"/><rect x="200" y="130" width="100" height="56"/><rect x="340" y="130" width="100" height="56"/><text x="250" y="162" font-size="9" fill="#E9E5DA" stroke="none" text-anchor="middle" font-family="'Fragment Mono',monospace">worksheet desks</text></g>
+            <g class="st" data-st="printer"><rect x="470" y="130" width="70" height="40"/><text x="505" y="155" font-size="9" fill="#E9E5DA" stroke="none" text-anchor="middle" font-family="'Fragment Mono',monospace">printer</text></g>
+            <g class="st" data-st="shelf"><rect x="40" y="300" width="320" height="30"/><text x="200" y="320" font-size="9" fill="#E9E5DA" stroke="none" text-anchor="middle" font-family="'Fragment Mono',monospace">records shelf</text></g>
+            <g class="st lit" data-st="lit"><rect x="440" y="250" width="110" height="70"/><text x="495" y="290" font-size="9" fill="#E9E5DA" stroke="none" text-anchor="middle" font-family="'Fragment Mono',monospace">the lit desk</text></g>
+          </svg>
+          <div class="station-cap m" id="station-cap" aria-live="polite">hover or tap a station</div>
+          <div class="station-btns" role="group" aria-label="Floor plan stations">
+            {stations.map(([k, cap]) => <button type="button" class="chip" data-st={k} data-cap={cap}>{k === 'lit' ? 'the lit desk' : k}</button>)}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 0002 Three figures on the desk in 2026: alternating spreads with drums -->
+  <Row index="0002" id="figures" label="Three figures on the desk in 2026">
+    <div class="g"><h2 class="c1-8 hv">Three figures on the desk in 2026</h2></div>
+    <div class="spread g mt2" data-reveal="count">
+      <div class="c1-5 num-block"><span class="ri">0002 a</span><span class="num cnt"><span class="drum" data-drum="$11,898">$00,000</span></span><span class="lab">a loan</span><span class="arith">MBA Q1 2026, total production expense</span><div class="num-block mt"><span class="num sm cnt"><span class="drum" data-drum="$727">$000</span></span><span class="lab">a loan</span><span class="arith">MBA Q1 2026, net production income</span></div></div>
+      <p class="c7-12 prose">Cost first. The Mortgage Bankers Association's Quarterly Mortgage Bankers Performance Report for the first quarter of 2026 put total loan production expense at $11,898 a loan against $727 a loan of net production income, and close to $800 of that expense arrived in a single quarter. A shop clearing 400 files a month carries that figure 400 times over.</p>
+    </div>
+    <div class="spread g mt2 alt" data-reveal="count">
+      <p class="c1-6 prose">Then the defects. ACES Quality Management's Mortgage QC Industry Trends Report for the third quarter of 2025 put income and employment at 27.24 percent of critical defects, the largest category and up 47.6 percent on the quarter before. Look at what fills that category: an average taken across the wrong years, an add back with no line on the return behind it, a paystub and a W2 that name different employers and were never laid side by side. Those are assembly errors. They happen when a file reaches you without its pages named.</p>
+      <div class="c8-12 num-block"><span class="ri">0002 b</span><span class="num cnt"><span class="drum" data-drum="27.24%">00.00%</span></span><span class="lab">of critical defects</span><span class="arith">ACES Q3 2025, income and employment share of critical defects</span></div>
+    </div>
+    <div class="spread g mt2" data-reveal="count">
+      <div class="c1-5 num-block"><span class="ri">0002 c</span><span class="num sm cnt"><span class="drum" data-drum="Aug 6, 2026">Aug 0, 0000</span></span><span class="lab">compliance date</span><span class="arith">Fannie Mae Lender Letter LL-2026-04, compliance date</span><div class="num-block mt"><span class="num sm cnt"><span class="drum" data-drum="Mar 3, 2026">Mar 0, 0000</span></span><span class="lab">effective date</span><span class="arith">Freddie Mac Guide Section 1302.8, effective date</span></div></div>
+      <p class="c7-12 prose">Then the agencies. Fannie Mae's Lender Letter LL-2026-04 set out a governance framework for artificial intelligence and machine learning in origination and servicing, with a compliance date of August 6, 2026. Freddie Mac's Seller/Servicer Guide Section 1302.8 took effect on March 3, 2026 and asks for an inventory of every AI tool in the shop, a vendor's included, with named roles, monitoring and an audit record behind each one. Put the two together and the door is narrow: a lender can bring in a tool only if a human signature stays on every decision and the vendor can hand over the documentation the inventory asks for. This product was built to fit through that door, not around it.</p>
+    </div>
+  </Row>
+
+  <div class="band r21 grade-full" data-reveal="wipe">
+    <picture>
+      <source media="(max-width: 899px)" srcset="/assets/photo/PH-04-1280.webp" type="image/webp" />
+      <source srcset="/assets/photo/PH-04.webp" type="image/webp" />
+      <img src="/assets/photo/PH-04.jpg" width="2560" height="1097" alt="A records shelf of binders with plain spine labels under the strip light." loading="lazy" decoding="async" />
+    </picture>
+  </div>
+
+  <!-- 0003 The line it will not cross: manifesto type wall spanning 12 columns -->
+  <Row index="0003" id="line" label="The line it will not cross" reveal="lines">
+    <div class="g"><h2 class="c1-8 hv">The line it will not cross</h2></div>
+    <div class="wall-type mt2">
+      <div class="stmt">It reads every page and numbers it.</div>
+      <div class="stmt">It recalculates every figure and prints the page beside it.</div>
+      <div class="stmt">It drafts the conditions in your wording.</div>
+      <div class="stmt">It does not approve.</div>
+      <div class="stmt">It does not decline.</div>
+      <div class="stmt">It does not recommend.</div>
+      <div class="stmt">You decide, and you sign.</div>
+    </div>
+    <div class="g mt2"><p class="c2-8 prose">The package is addressed to you by name. On an FHA or VA file it is addressed only to an underwriter whose profile carries the DE or SAR designation your account owner entered, because on those loans the person signing has to hold it personally. You change what you disagree with; the worksheet keeps your figure beside the recalculated one and records who signed and when. When two pages contradict each other and no rule resolves it, the file is referred up with both pages listed and nothing attached that could be read as a lean. A referred up file is not a failure. It is the file reaching you sooner, with its problem already named.</p></div>
+  </Row>
+
+  <!-- 0004 Bought on a card, not on a call -->
+  <Row index="0004" id="card" label="Bought on a card, not on a call" reveal="rise">
+    <div class="g">
+      <h2 class="c1-5 hv">Bought on a card, not on a call</h2>
+      <p class="c7-12 prose">There is no sales cycle because there is nothing to negotiate. A file pack is a price on a page: 100 files at $24.00, 500 at $22.00, or an Enterprise Block of 2,000 at $18.00, paid by card or ACH debit through a guest checkout, valid twelve months, a file deducted only when its package lands in your queue. Nothing renews unless the buyer switches auto reorder on, and it is off until they do. If you'd rather see the work on your own paper first, a $0 Pilot Order of 50 already funded files goes through the same checkout with no card collected, ends in a variance report, and then the account simply waits.</p>
+    </div>
+  </Row>
+
+  <!-- 0005 The name, the company, the address: spec table spanning 12 columns -->
+  <Row index="0005" id="entity" label="The name, the company, the address" reveal="stagger-rows">
+    <div class="g"><h2 class="c1-8 hv">The name, the company, the address</h2>
+    <p class="c1-7 prose mt2">The name is two words, written as two words, and it says what the thing is: a bot that prepares the financing file. Its customers are licensed lenders; it sells nothing to borrowers. The company is [BUSINESS NAME], doing business as Financing Bot, at [Physical Address]. Support is <a href="mailto:support@financingbot.com">support@financingbot.com</a> and the phone is [PHONE NUMBER]. The seal on every package names the four things that happened to the file and the one person who decided.</p></div>
+    <div class="kv entity mt2">
+      <div class="srow">entity</div><div class="srow">[BUSINESS NAME], doing business as Financing Bot</div>
+      <div class="srow">address</div><div class="srow">[Physical Address]</div>
+      <div class="srow">phone</div><div class="srow">[PHONE NUMBER]</div>
+      <div class="srow">support</div><div class="srow"><a href="mailto:support@financingbot.com">support@financingbot.com</a></div>
+      <div class="srow">founded</div><div class="srow">2026</div>
+      <div class="srow">sells to</div><div class="srow">licensed mortgage lenders (NMLS company ID required at checkout)</div>
+      <div class="srow">sells</div><div class="srow">prepaid file packs, digital delivery, nothing shipped</div>
+    </div>
+  </Row>
+
+  <!-- The overnight shift band: V-01 under the full grade -->
+  <div class="band rv grade-full" data-reveal="wipe">
+    <video muted loop playsinline preload="metadata" poster="/assets/video/V-01-poster.webp" width="1920" height="1080" data-v01 aria-label="An underwriting operations floor at night: monitors coming on, a printer tray filling, a queue clearing on a screen, a stapled package under a task lamp.">
+      <source src="/assets/video/V-01-overnight-shift.webm" type="video/webm" media="(min-width: 900px)" />
+      <source src="/assets/video/V-01-overnight-shift.mp4" type="video/mp4" media="(min-width: 900px)" />
+      <source src="/assets/video/V-01-overnight-shift-720.mp4" type="video/mp4" />
+    </video>
+    <div class="caption">the overnight shift. 12 second loop, no people.</div>
+  </div>
+
+  <!-- 0006 Closing: the line, the button, the seal, the disclaimer -->
+  <Row index="0006" id="closing" label="Closing" reveal="rise">
+    <div class="g">
+      <div class="c1-6"><p class="lede">The ledger is on the pricing page. The three packs are three columns of it.</p><div class="mt"><PaperButton label={offering.primaryButton.label} price={offering.primaryButton.price} href={offering.primaryButton.href} /></div></div>
+      <div class="c8-12"><div class="seal-wrap"><Seal size={160} /></div></div>
+      <p class="c1-8 small ash mt2">{offering.disclaimer}</p>
+    </div>
+  </Row>
+</Ledger>
+
+<style is:global>
+  .ah { border-top: 0; overflow: hidden; }
+  .ah-g { align-items: start; }
+  .ah-copy { position: relative; z-index: 2; padding: clamp(56px, 10vh, 120px) 24px clamp(40px, 6vh, 80px) 0; }
+  .ah-scene { grid-column: 7 / -1; margin-right: calc(-1 * var(--gutter)); position: relative; min-height: 560px; align-self: stretch; }
+  .ah-scene .scene { position: absolute; inset: 0; }
+  .plan-2d { display: none; padding: 16px; width: 100%; height: 100%; }
+  .plan-2d .st { opacity: 0.35; transition: opacity var(--base) var(--cr); }
+  .plan-2d .st.in, .plan-2d .st.lit.in { opacity: 1; }
+  .scene.is-2d .plan-2d { display: block; }
+  .station-cap { position: absolute; left: 16px; bottom: 64px; right: 16px; z-index: 2; font-size: 12px; color: var(--paper); background: rgba(26,27,29,0.85); padding: 6px 8px; }
+  .station-btns { position: absolute; left: 16px; right: 16px; bottom: 16px; z-index: 2; display: flex; gap: 6px; flex-wrap: wrap; }
+  .station-btns .chip { background: transparent; cursor: pointer; }
+  .station-btns .chip:hover, .station-btns .chip:focus-visible, .station-btns .chip.on { color: var(--paper); border-color: var(--paper); }
+  @media (max-width: 899px) { .ah-scene { grid-column: 1 / -1; margin-inline: calc(-1 * var(--gutter)); min-height: 380px; } }
+  .spread { align-items: start; padding-top: 24px; border-top: var(--hair) solid var(--rule); }
+  .spread .num-block .num { color: var(--paper); }
+  .wall-type { width: 100vw; border-top: var(--hair) solid var(--rule); }
+  .stmt { padding: 18px var(--gutter); border-bottom: var(--hair) solid var(--rule); font-family: var(--sans); font-stretch: 88%; font-weight: 600; font-size: clamp(28px, 3.6vw, 56px); line-height: 1.1; letter-spacing: -0.01em; }
+  .stmt:nth-child(n+4) { color: var(--ash); }
+  .stmt:last-child { color: var(--paper); }
+  .entity { width: 100vw; margin-top: 32px; }
+  .entity > div { padding-inline: var(--gutter); font-size: 15px; }
+  .entity > div:nth-child(odd) { padding-left: var(--gutter); }
+</style>

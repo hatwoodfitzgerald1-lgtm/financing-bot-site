@@ -1,0 +1,69 @@
+---
+import Post from '../components/Post.astro';
+import Kit from '../components/Kit.astro';
+---
+<Post route="/blog/ai-governance-file" page="post4" n="04" title="The governance file a lender now keeps on every AI tool" standfirst="Lender Letter LL-2026-04 and Guide Section 1302.8 in plain terms: what the inventory lists, who owns each row, what gets validated on your own files, and what a vendor has to hand you." tag="governance" ph="PH-09" phAlt="A policy binder open on a desk with a log printout beside it." scene="spool" poster="W-09" posterAlt="A still of the post 4 audit spool scene: logged events, read, calculation, edit and signature, printed along a spool receding in depth." sceneText="the audit spool: read, calculation, edit, routing and signature events printing along a spool in depth" footerIndex="0004" button={{ label: 'Buy the Enterprise Block', price: '$36,000.00', add: 'enterprise-block' }} link={{ label: 'Or order the Pilot at $0', href: '/cart?pilot=1', pilot: true }}>
+  <div slot="s2d" class="spool-2d m" aria-hidden="true">
+    <div>02:14:07 read LN 2026090412 p.1 to p.118</div>
+    <div>02:14:31 calculation Form 1084 line 13 add back, p.47</div>
+    <div>02:15:02 routing package to J. Ortiz, DE</div>
+    <div>09:12:40 edit line 24b, 1,380.00 kept, by J. Ortiz</div>
+    <div>09:14:05 signature J. Ortiz, DE</div>
+  </div>
+
+  <p>Somewhere in your shop there is a binder, or a folder on a shared drive, that did not exist in 2025. It lists every piece of software that reads, scores or drafts anything on a loan, and both agencies now expect to be able to ask for it. This note is about what goes in it, section by section, and what a vendor has to give you so that its row is complete.</p>
+
+  <ol class="ruled toc" data-reveal="stagger-rows" aria-label="What the governance inventory asks for">
+    <li class="srow"><a class="hv" href="#say">What the two documents say</a></li>
+    <li class="srow"><a class="hv" href="#inventory">The inventory</a></li>
+    <li class="srow"><a class="hv" href="#roles">Roles and escalation</a></li>
+    <li class="srow"><a class="hv" href="#validation">Validation on your own files</a></li>
+    <li class="srow"><a class="hv" href="#monitoring">Monitoring and the audit log</a></li>
+  </ol>
+
+  <h2 class="hv" id="say">What the two documents say</h2>
+  <p>Freddie Mac added Section 1302.8 to the Single Family Seller/Servicer Guide with effect from March 3, 2026. In plain terms it asks each Seller/Servicer for an auditable governance program for artificial intelligence and machine learning: an enterprise wide inventory of AI and ML tools that includes third party vendor solutions, documented roles and escalation paths, risk controls for performance, security and bias, a monitoring and audit cadence, and alignment to a recognized framework such as NIST or ISO 27001.</p>
+  <p>Fannie Mae's Lender Letter LL-2026-04 set out its own governance framework for AI and ML in origination and servicing, with a compliance date of August 6, 2026. The two are written differently and land in the same place. Know what you are running. Know who owns it. Prove it works on your loans. Watch it. Keep the record.</p>
+
+  <h2 class="hv" id="inventory">The inventory</h2>
+  <p>One row per tool. The vendor, the product, the version, the date it went live. What it touches: which documents it reads, which figures it calculates, which loans it runs on (every conventional file, FHA only, above a certain loan amount). Whether its output reaches a person before it reaches anything else.</p>
+  <p>Financing Bot's row, for example, reads: reads the uploaded loan file, recalculates income, sources deposits, reconciles AUS findings, drafts conditions, delivers a package to a named underwriter, decides nothing.</p>
+  <p>Most shops find the inventory has more rows than they expected. The OCR inside the document system counts. The fraud score inside the LOS counts. If a vendor cannot tell you whether a feature uses a model, that row stays open until they can, and an open row is itself a finding worth having on paper.</p>
+  <figure class="kitfig" data-reveal="draw-svg"><Kit id="K-B4" /><figcaption>one ledger row of the governance inventory: vendor, product, version, live date, what it touches, who reviews, who escalates</figcaption></figure>
+
+  <h2 class="hv" id="roles">Roles and escalation</h2>
+  <p>Each row needs three names, or three titles that resolve to names on the day someone asks. Who is allowed to turn the tool on for a loan type. Who reviews its output as part of their job (here, the underwriter of record). Who is called when the output is wrong, and what they are allowed to do about it: pause the tool, roll back a version, pull the affected files. Write the escalation as steps with a phone number at the end of each one. A path that ends at "contact the vendor" is not a path.</p>
+
+  <h2 class="hv" id="validation">Validation on your own files</h2>
+  <p>A vendor's accuracy figure was measured on the vendor's files. Both agencies want to know how the tool performs on yours, and the only way to know is to run it on loans you have already funded and compare its output with what your underwriter signed. That comparison is the validation record: recalculated income beside signed income by income type, sourced deposits beside the ones your underwriter accepted, drafted conditions beside the ones you actually placed, the page cite on both sides, and every difference explained in a sentence.</p>
+  <p>This is why the $0 Pilot Order exists in the form it does. Fifty funded files, the same process a paid file receives, and a variance and defect report at the end that is written to be filed in this section of the binder. After that, the monthly variance report on the 500 File Pack and the Enterprise Block keeps the section current without anyone building a spreadsheet.</p>
+
+  <h2 class="hv" id="monitoring">Monitoring and the audit log</h2>
+  <p>Monitoring is a cadence you can show: monthly variance, a quarterly review of what changed in the tool and what changed in the variance, an annual model review. The evidence behind the cadence is the audit log. On the Enterprise Block every read, calculation, edit, routing and signature event is logged with the user, the timestamp and the before and after values, exportable as CSV. That file answers the question a reviewer will actually ask, which is never "does the tool work" and always "on this loan, what did the tool say, what did the underwriter change, and who signed."</p>
+
+  <h2 class="hv">What the vendor's documentation pack has to contain</h2>
+  <p>Your inventory row is only as complete as what the vendor handed you. Ask for a documentation pack with, at the least, a system description in plain language (what goes in, what comes out, what it does not do), a data handling statement (where files are stored, for how long, who can see them, how deletion works), validation results on your own files rather than a benchmark, a change log with dates and a description of each change to the rules or the models, and a stated cadence for updating the pack. Financing Bot's pack, on the Enterprise Block, is updated each quarter and is written to be dropped into the inventory as it stands.</p>
+  <table class="ledger" data-reveal="draw-table">
+    <caption class="sr-only">What the documentation pack contains</caption>
+    <thead><tr><th>index</th><th>the pack contains</th></tr></thead>
+    <tbody>
+      <tr style="--i:0"><td class="m">01</td><td>a system description in plain language (what goes in, what comes out, what it does not do)</td></tr>
+      <tr style="--i:1"><td class="m">02</td><td>a data handling statement (where files are stored, for how long, who can see them, how deletion works)</td></tr>
+      <tr style="--i:2"><td class="m">03</td><td>validation results on your own files rather than a benchmark</td></tr>
+      <tr style="--i:3"><td class="m">04</td><td>a change log with dates and a description of each change to the rules or the models</td></tr>
+      <tr style="--i:4"><td class="m">05</td><td>a stated cadence for updating the pack</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="hv">What the binder does not do</h2>
+  <p>It does not move risk. The representation and warranty relief the agencies offer attaches to data verified through their own programs and to findings from their own models, DU and LPA. It does not attach to a vendor's tool, and it does not attach to this one. A lender that uses Financing Bot keeps its reps and warranties whole, keeps its adverse action duties under Regulation B, and keeps a named underwriter's signature on every decision.</p>
+  <p>The governance file exists to prove that last fact to anyone who asks, on any loan, at any time. That is a reasonable thing to be asked for. It should be a quick thing to produce.</p>
+</Post>
+
+<style is:global>
+  .spool-2d { display: grid; gap: 10px; align-content: center; height: 100%; font-size: 12px; color: var(--ash); }
+  .spool-2d div { border-bottom: var(--hair) solid var(--rule); padding-bottom: 6px; transform: translateY(12px); opacity: 0; transition: transform var(--base) var(--cr), opacity var(--base) var(--cr); }
+  .scene.is-2d.in .spool-2d div { transform: none; opacity: 1; }
+  .scene.is-2d.in .spool-2d div:nth-child(2) { transition-delay: 0.1s; } .scene.is-2d.in .spool-2d div:nth-child(3) { transition-delay: 0.2s; } .scene.is-2d.in .spool-2d div:nth-child(4) { transition-delay: 0.3s; } .scene.is-2d.in .spool-2d div:nth-child(5) { transition-delay: 0.4s; }
+  .toc a { text-decoration: none; }
+</style>

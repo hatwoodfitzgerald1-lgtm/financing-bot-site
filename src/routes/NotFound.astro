@@ -1,0 +1,27 @@
+---
+import Ledger from '../layouts/Ledger.astro';
+import PaperButton from '../components/PaperButton.astro';
+---
+<Ledger route="/404" page="notfound" hover="carriage" footerIndex="0001" noindex={true}>
+  <section class="row flush nf" aria-label="No file at this address">
+    <span class="row-idx" aria-hidden="true">0000</span>
+    <div class="g nf-g">
+      <div class="c1-6 nf-copy" data-reveal="rise">
+        <h1 class="hv">No file at this address. Nothing was deducted.</h1>
+        <p class="lede mt"><a class="link hv" href="/">Back to the queue</a></p>
+        <div class="mt2"><PaperButton label="Buy a file pack" price="from $2,400" href="/pricing#ledger" /></div>
+      </div>
+      <div class="c7-12 nf-tally" aria-hidden="true">
+        <svg class="tally one" viewBox="0 0 32 24" width="480" height="360" fill="none" stroke="currentColor" stroke-width="0.6" stroke-linecap="square"><path d="M6 3v18"/></svg>
+      </div>
+    </div>
+  </section>
+</Ledger>
+<style is:global>
+  .nf { border-top: 0; min-height: 70vh; display: grid; align-content: center; }
+  .nf-copy { padding: 64px 0; }
+  .nf-tally { color: var(--paper); display: grid; place-items: center; }
+  .nf-tally .tally.one { width: 100%; max-width: 480px; height: auto; }
+  .nf-tally .tally.one path { stroke-dasharray: 18; stroke-dashoffset: 18; animation: draw var(--slow) var(--cr) 0.3s forwards; }
+  @media (max-width: 899px) { .nf-tally .tally.one { max-width: 200px; } }
+</style>

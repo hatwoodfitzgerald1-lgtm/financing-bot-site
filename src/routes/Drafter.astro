@@ -1,0 +1,176 @@
+---
+import Ledger from '../layouts/Ledger.astro';
+import Row from '../components/Row.astro';
+import rules from '../data/drafterRules.json';
+const s = rules.strings;
+---
+<Ledger route="/drafter" page="drafter" hover="tighten" footerIndex="0005" scene="tray">
+  <Row index="0001" id="drafter-head" class="dh" label="Draft the conditions" reveal="mask-rows">
+    <div class="g">
+      <div class="c1-7">
+        <h1 class="hv"><span class="ln"><span>Draft the conditions</span></span></h1>
+        <p class="lede mt2">Describe one loan in six rows and the page drafts the condition list that scenario would produce, split prior to doc and prior to close, in the grammar the product uses. It drafts from a rules table on this page in sample wording; on your account it drafts from your own condition library. Nothing here is a decision about any loan.</p>
+        <noscript><p class="mt small">The drafter needs JavaScript. The pricing ledger is at <a href="/pricing">/pricing</a>.</p></noscript>
+      </div>
+    </div>
+  </Row>
+
+  <div class="drafter-wrap">
+    <div class="tray-col">
+      <div class="tray-sticky">
+        <div class="scene" id="tray" data-scene="tray" data-poster="W-10">
+          <img class="poster" src="/assets/posters/W-10.webp" width="1600" height="1000" alt="A still of the /drafter output tray scene: drafted condition lines resting in a tray beneath a printer slot." loading="lazy" decoding="async" />
+          <div class="s2d tray-2d m" id="tray-2d" aria-hidden="true"></div>
+          <p class="scene-text" id="tray-text">the output tray: each drafted row prints into the tray as you describe the loan</p>
+        </div>
+      </div>
+    </div>
+    <div class="drafter-main">
+      <!-- 0002 Inputs -->
+      <Row index="0002" id="inputs" flush label="Inputs">
+        <form class="inputs" id="drafter-form" novalidate>
+          <div class="irow" data-reveal="rule-unmask">
+            <div class="ilab"><span class="m ash">01</span><span>Product</span></div>
+            <div class="ictl"><div class="tabs" role="radiogroup" aria-label="Product">
+              <label><input type="radio" name="product" value="Conv" />Conv</label>
+              <label><input type="radio" name="product" value="FHA" />FHA</label>
+              <label><input type="radio" name="product" value="VA" />VA</label>
+            </div></div>
+            <div class="ihelp">Sets the threshold rule for deposits, the designation the package needs, and the product conditions.</div>
+          </div>
+          <div class="irow" data-reveal="stagger-rows">
+            <div class="ilab"><span class="m ash">02</span><span>Income types present</span></div>
+            <div class="ictl checks">
+              <label class="check srow"><input type="checkbox" name="income" value="w2" /><span>W2 wage</span></label>
+              <label class="check srow"><input type="checkbox" name="income" value="se" /><span>self employed Schedule C</span></label>
+              <label class="check srow"><input type="checkbox" name="income" value="rental" /><span>rental Schedule E</span></label>
+              <label class="check srow"><input type="checkbox" name="income" value="obc" /><span>overtime, bonus or commission</span></label>
+            </div>
+            <div class="ihelp">Tick every type in the file. Each one drafts its own document rows.</div>
+          </div>
+          <div class="irow" data-reveal="rise">
+            <div class="ilab"><span class="m ash">03</span><span>Assets</span></div>
+            <div class="ictl"><div class="tabs" role="radiogroup" aria-label="Assets">
+              <label class="on"><input type="radio" name="assets" value="none" checked />no deposit above the threshold</label>
+              <label><input type="radio" name="assets" value="deposit" />a deposit above the threshold</label>
+            </div></div>
+            <div class="ihelp">The threshold is 50 percent of qualifying monthly income on a conventional purchase and 1 percent of adjusted value on FHA.</div>
+          </div>
+          <div class="irow" data-reveal="slab">
+            <div class="ilab slab-none"><span class="m ash">04</span><span>AUS findings</span></div>
+            <div class="ictl"><div class="tabs slab" role="radiogroup" aria-label="AUS findings">
+              <label class="on"><input type="radio" name="aus" value="matched" checked />all matched to the file</label>
+              <label><input type="radio" name="aus" value="open" />one finding open</label>
+            </div></div>
+            <div class="ihelp">An open finding is one with no page in the file that answers it.</div>
+          </div>
+          <div class="irow" id="row-designation" data-reveal="fold" hidden>
+            <div class="ilab"><span class="m ash">05</span><span>Underwriter designation on file</span></div>
+            <div class="ictl"><div class="tabs" role="radiogroup" aria-label="Underwriter designation on file">
+              <label class="on"><input type="radio" name="designation" value="entered" checked />DE or SAR entered</label>
+              <label><input type="radio" name="designation" value="none" />not yet entered</label>
+            </div></div>
+            <div class="ihelp">FHA and VA packages route only to a profile carrying the designation.</div>
+          </div>
+          <div class="irow" data-reveal="wipe">
+            <div class="ilab"><span class="m ash">06</span><span>Monthly file volume</span></div>
+            <div class="ictl vol">
+              <div class="stepper" role="group" aria-label="Monthly file volume">
+                <button type="button" id="vol-minus" aria-label="50 files fewer">−</button>
+                <output id="vol-out" for="vol-range" class="m">400</output>
+                <button type="button" id="vol-plus" aria-label="50 files more">+</button>
+              </div>
+              <label class="range-lab"><span class="sr-only">Monthly file volume</span><input type="range" id="vol-range" name="volume" min="200" max="5000" step="50" value="400" /></label>
+            </div>
+            <div class="ihelp">Used only to name the pack that fits at the foot of the page.</div>
+          </div>
+        </form>
+      </Row>
+
+      <!-- 0003 Drafted for this scenario -->
+      <Row index="0003" id="result" flush label="Drafted for this scenario">
+        <div class="result" aria-live="polite">
+          <div class="res-head">
+            <h2 class="hv">{s.heading}</h2>
+            <div class="count m" id="count" hidden><span class="drum" id="count-drum" data-drum="0">0</span><span id="count-rest"></span></div>
+          </div>
+          <div class="empty" id="empty"><span class="m ash">{s.empty}</span></div>
+          <div id="routing" class="routing" hidden></div>
+          <div class="blocks" id="blocks" hidden>
+            <div class="blk"><h3 class="m">{s.ptd}</h3><ol id="ptd" class="clist"></ol></div>
+            <div class="blk"><h3 class="m">{s.ptc}</h3><ol id="ptc" class="clist"></ol></div>
+          </div>
+          <div class="res-foot" id="res-foot" hidden>
+            <p class="m small">{s.footer}</p>
+            <p class="small ash">{s.note}</p>
+          </div>
+        </div>
+      </Row>
+    </div>
+  </div>
+
+  <div class="band r21 grade-light" data-reveal="wipe">
+    <picture>
+      <source media="(max-width: 899px)" srcset="/assets/photo/PH-10-1280.webp" type="image/webp" />
+      <source srcset="/assets/photo/PH-10.webp" type="image/webp" />
+      <img src="/assets/photo/PH-10.jpg" width="2560" height="1097" alt="A printed condition list taped to the bezel of a monitor." loading="lazy" decoding="async" />
+    </picture>
+  </div>
+
+  <!-- 0004 The pack that fits -->
+  <Row index="0004" id="fits" label="The pack that fits" reveal="rise">
+    <div class="g">
+      <h2 class="c1-6 hv">{s.packHeading}</h2>
+      <div class="c7-12" id="fits-body">
+        <p class="lede" id="fits-sentence" hidden></p>
+        <p class="ash" id="fits-empty">Pick a product above and the pack that fits your monthly volume is named here.</p>
+        <a class="btn idle" id="fits-btn" href="/pricing#ledger" hidden><span class="lbl"><span id="fits-label">Buy the 100 File Pack</span></span><span class="price" id="fits-price">$2,400.00</span></a>
+        <p class="mt"><a class="link quiet" href="/cart?pilot=1" data-pilot>{s.pilot}</a></p>
+      </div>
+    </div>
+  </Row>
+</Ledger>
+
+<style is:global>
+  .dh { border-top: 0; padding-top: clamp(48px, 8vh, 96px); }
+  .drafter-wrap { position: relative; }
+  .tray-col { position: absolute; top: 0; right: 0; bottom: 0; width: calc(100vw / 12 * 4); z-index: 2; pointer-events: none; }
+  .tray-sticky { position: sticky; top: var(--nav-h); height: calc(100vh - var(--nav-h)); pointer-events: auto; }
+  .tray-sticky .scene { position: absolute; inset: 0; border-left: var(--hair) solid var(--rule); }
+  .tray-2d { display: none; padding: 24px; gap: 8px; align-content: end; height: 100%; font-size: 12px; }
+  .scene.is-2d .tray-2d { display: grid; }
+  .tray-2d div { border-top: var(--hair) solid var(--rule); padding-top: 4px; color: var(--paper); animation: outof var(--base) var(--cr); }
+  @keyframes outof { from { transform: translateY(-8px); opacity: 0; } }
+  .drafter-main { width: calc(100vw / 12 * 8); }
+  @media (max-width: 899px) { .tray-col { position: relative; width: 100vw; height: 220px; } .tray-sticky { position: relative; height: 220px; } .drafter-main { width: 100vw; } }
+  .inputs { width: 100%; }
+  .irow { display: grid; grid-template-columns: minmax(160px, 2fr) 4fr 3fr; gap: 16px 24px; padding: 20px var(--gutter); border-bottom: var(--hair) solid var(--rule); align-items: start; }
+  .irow:first-child { border-top: 0; }
+  .ilab { display: grid; gap: 4px; font-size: 15px; }
+  .ihelp { font-size: 13px; color: var(--ash); line-height: 1.5; }
+  .checks .check { margin-bottom: 10px; }
+  .vol { display: grid; gap: 12px; }
+  .range-lab input[type="range"] { width: 100%; accent-color: #E9E5DA; }
+  @media (max-width: 899px) { .irow { grid-template-columns: 1fr; gap: 10px; } }
+  .result { padding: 40px var(--gutter) 48px; }
+  .res-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .count { font-size: 15px; }
+  .empty { border-top: var(--hair) solid var(--rule); border-bottom: var(--hair) solid var(--rule); padding: 18px 0; margin-top: 24px; font-size: 14px; }
+  .empty[hidden] { display: none; }
+  .routing { margin-top: 24px; border-top: var(--hair) solid var(--rule); border-bottom: var(--hair) solid var(--rule); padding: 14px 0; display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: baseline; font-size: 14px; }
+  .routing[hidden] { display: none; }
+  .blocks { margin-top: 24px; display: grid; gap: 32px; }
+  .blk h3 { font-size: 13px; color: var(--ash); font-weight: 400; border-bottom: var(--hair) solid var(--rule); padding-bottom: 8px; }
+  .clist { list-style: none; margin: 0; padding: 0; }
+  .clist li { display: grid; grid-template-columns: 64px 1fr auto auto; gap: 8px 16px; align-items: baseline; padding: 12px 0; border-bottom: var(--hair) solid var(--rule); font-size: 15px; animation: land var(--base) var(--cr) both; }
+  .clist li .ci { font-family: var(--mono); font-size: 13px; color: var(--ash); }
+  .clist li .cc { font-family: var(--mono); font-size: 12px; color: var(--ash); }
+  .clist li.out { animation: leave var(--base) var(--cr) forwards; }
+  .clist .none { color: var(--ash); font-size: 13px; padding: 12px 0; }
+  @keyframes land { from { transform: translateX(-16px); opacity: 0; } }
+  @keyframes leave { to { transform: translateX(16px); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .clist li, .clist li.out, .tray-2d div { animation: none; } }
+  @media (max-width: 599px) { .clist li { grid-template-columns: 56px 1fr; } .clist li .cc, .clist li .chip { grid-column: 2; } }
+  .res-foot { margin-top: 24px; }
+  #fits-body { display: grid; justify-items: start; gap: 16px; }
+</style>

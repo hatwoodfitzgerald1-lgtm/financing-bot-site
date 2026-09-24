@@ -1,0 +1,75 @@
+---
+import Post from '../components/Post.astro';
+import Kit from '../components/Kit.astro';
+---
+<Post route="/blog/form-1084-add-backs" page="post1" n="01" title="How the Form 1084 add backs actually work" standfirst="One Schedule C borrower, two tax years, five lines and a 24 month average, added up on the page so you can check every cent." tag="1084" ph="PH-06" phAlt="A printed tax schedule page on a desk under the lamp, one line of figures in focus." scene="abacus" poster="W-06" posterAlt="A still of the post 1 add back abacus scene: five horizontal bars for lines 31, 13, 12, 30 and 24b resting in a sum bar." sceneText="the add back abacus: lines 31, 13, 12, 30 and 24b sliding into the sum bar" footerIndex="0004" button={{ label: 'Buy a file pack', price: 'from $2,400', href: '/pricing#ledger' }}>
+  <div slot="s2d" class="abacus-2d m" aria-hidden="true">
+    <div class="ab" style="--w:84"><span>line 31</span><b>84,600.00</b></div>
+    <div class="ab" style="--w:10"><span>line 13</span><b>9,850.00</b></div>
+    <div class="ab" style="--w:2"><span>line 12</span><b>0.00</b></div>
+    <div class="ab" style="--w:5"><span>line 30</span><b>4,200.00</b></div>
+    <div class="ab neg" style="--w:3"><span>line 24b</span><b>1,380.00</b></div>
+    <div class="ab sum" style="--w:97"><span>2024</span><b>97,270.00</b></div>
+  </div>
+
+  <p>Take the 2024 return out of the file and turn to Schedule C. Line 31 says net profit, and on the sample file this note follows all the way through (Sample Mortgage Co., LN 2026090412, borrower R.M., underwriter of record J. Ortiz, DE) it reads $84,600.00. That is where the worksheet starts. It is not where it ends, and the distance between the two is the whole point of Form 1084.</p>
+
+  <h2 class="hv">What line 31 leaves out</h2>
+  <p>Net profit is what was left after every expense the return allowed, and some of those expenses never left the borrower's account as cash. Depreciation is the obvious one. A truck bought in 2023 keeps reducing profit on paper for years while the money went out once. Fannie Mae's Form 1084, the Cash Flow Analysis, exists to put that cash back where the borrower can spend it, one line at a time, with a page behind each line. Freddie Mac's Form 91 does the same job from the same Schedule C lines, so everything below reads across to a Freddie Mac file without changing a number.</p>
+
+  <h2 class="hv">The four lines that come back, and the one that goes out</h2>
+  <p>Line 13, depreciation. Added back in full. It is a non cash expense and the largest add back on most Schedule C files. On the sample file it is $9,850.00 for 2024, on page 47 of the upload.</p>
+  <p>Line 12, depletion. Added back for the same reason. Most service businesses show zero here and the sample file does too. The row still prints, with its zero, because a blank cell is where a QC reviewer's question starts.</p>
+  <p>Line 30, business use of home. Added back. The borrower's housing cost already sits on the liability side of the application, so leaving it inside the business expenses would count it twice. $4,200.00 on the sample file, page 47.</p>
+  <p>Line 24b, meals. This one goes the other way. The return allowed only part of what the borrower spent on meals as an expense; the rest still left the business account, so the worksheet subtracts line 24b rather than pretending the cash stayed. $1,380.00 for 2024.</p>
+  <p>Amortization and casualty losses have their own rows on the form and follow the depreciation logic. The sample file has neither, so those rows print zero and stay on the sheet.</p>
+
+  <div class="spec">
+    <div>
+      <h2 class="hv">2024 on the page</h2>
+      <p>Net profit 84,600.00, plus depreciation 9,850.00, plus depletion 0.00, plus business use of home 4,200.00, minus meals 1,380.00. Total for 2024: 97,270.00.</p>
+      <p>Every one of those figures carries the cite p.47, because page 47 of the upload is where the 2024 Schedule C sits. The cite is printed beside the figure, in the same row, not in a footnote at the bottom of the sheet. An underwriter checking one number should not have to hunt for the page.</p>
+      <h2 class="hv">2025 on the page</h2>
+      <p>Now the 2025 return, which is page 52. Net profit 92,150.00. Depreciation 10,400.00, a second vehicle having gone into service. Depletion 0.00. Business use of home 4,200.00 again. Meals 2,120.00, subtracted. Total for 2025: 104,630.00.</p>
+      <p>Two years, two totals, two pages.</p>
+    </div>
+    <table class="ledger" data-reveal="draw-table">
+      <caption class="sr-only">The lines on the page, 2024 and 2025</caption>
+      <thead><tr><th>line</th><th class="r">2024 p.47</th><th class="r">2025 p.52</th></tr></thead>
+      <tbody>
+        <tr style="--i:0"><td>net profit, line 31</td><td class="m r">84,600.00</td><td class="m r">92,150.00</td></tr>
+        <tr style="--i:1"><td>plus depreciation, line 13</td><td class="m r">9,850.00</td><td class="m r">10,400.00</td></tr>
+        <tr style="--i:2"><td>plus depletion, line 12</td><td class="m r">0.00</td><td class="m r">0.00</td></tr>
+        <tr style="--i:3"><td>plus business use of home, line 30</td><td class="m r">4,200.00</td><td class="m r">4,200.00</td></tr>
+        <tr style="--i:4"><td>minus meals, line 24b</td><td class="m r">1,380.00</td><td class="m r">2,120.00</td></tr>
+        <tr style="--i:5"><td>total</td><td class="m r">97,270.00</td><td class="m r">104,630.00</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="hv">Why 24 and not 12</h2>
+  <p>The rule for a self employed borrower with two full years of returns is the average, and the worksheet writes the average as a 24 month figure: 97,270.00 plus 104,630.00 is 201,900.00, and 201,900.00 divided by 24 is $8,412.50 a month. The result is the same as averaging two annual figures and dividing by twelve. Writing it in months is a habit worth keeping, because when a year to date profit and loss statement is added later the months on the sheet stay honest instead of turning into a fraction of a year nobody wrote down.</p>
+  <p>Before the average is used, the trend is checked. 2025 is up 7.6 percent on 2024, which is stable and rising, so the two year average is the qualifying figure. Had 2025 come in lower than 2024, the average would not be used at all; the rule takes the more recent, lower year and asks for a reason the decline will not continue. The worksheet prints the trend either way, so the reader sees which rule applied and why without redoing the division.</p>
+  <figure class="kitfig" data-reveal="draw-svg"><Kit id="K-B1" /><figcaption>the two year average: 97,270.00 and 104,630.00 meeting the 24 month sum, 201,900.00, divided into 24 of 8,412.50</figcaption></figure>
+
+  <h2 class="hv">What the AUS had</h2>
+  <p>The loan officer entered $7,568.75 in the AUS. That figure is not so much wrong as incomplete: it is the same two year average with everything in it except depreciation. 20,250.00 of depreciation across the two years, divided by 24, is 843.75, and $7,568.75 plus $843.75 is $8,412.50 to the cent. The worksheet prints both figures side by side with the difference and the line that caused it, because the DU or LPA findings were run on the lower figure and the underwriter will want to decide whether to run them again.</p>
+  <figure class="fig"><div class="shot"><img src="/assets/product/P-02-worksheet.webp" srcset="/assets/product/P-02-worksheet@1x.webp 1600w, /assets/product/P-02-worksheet.webp 3200w" sizes="(max-width: 899px) 100vw, 58vw" width="3200" height="2072" alt="The Form 1084 income worksheet for loan LN 2026090412: Schedule C lines for 2024 and 2025 with page cites, year totals of 97,270.00 and 104,630.00, a 24 month total of 201,900.00 and a monthly qualifying income of $8,412.50 beside the AUS entered figure of $7,568.75." loading="lazy" decoding="async" /></div><figcaption>the worksheet in the package: the AUS entered figure at its foot with the difference and the line that caused it</figcaption></figure>
+
+  <blockquote class="pq">Nothing on that sheet is a recommendation; it is arithmetic with an address.</blockquote>
+
+  <h2 class="hv">What goes in the package</h2>
+  <p>The worksheet, the two Schedule C pages it cites, the trend line, and the AUS comparison. The figure that was recalculated and sourced is the only one printed in the accent color, so it can be found in a second on a busy sheet. Nothing on that sheet is a recommendation; it is arithmetic with an address. The underwriter reads it, changes any line they disagree with (the original stays beside the edit), and signs.</p>
+  <p>If you'd rather see this run on your own Schedule C files than on a sample, that is what a file pack is for.</p>
+</Post>
+
+<style is:global>
+  .abacus-2d { display: grid; gap: 10px; align-content: center; height: 100%; font-size: 12px; }
+  .abacus-2d .ab { display: grid; grid-template-columns: 64px 1fr auto; gap: 10px; align-items: center; color: var(--ash); }
+  .abacus-2d .ab::after { content: ''; grid-column: 2; grid-row: 1; height: 10px; border: var(--hair) solid var(--paper); width: calc(var(--w) * 1%); transform: scaleX(0); transform-origin: left; transition: transform var(--slow) var(--cr); }
+  .abacus-2d .ab b { font-weight: 400; color: var(--paper); grid-column: 3; grid-row: 1; }
+  .abacus-2d .ab span { grid-column: 1; grid-row: 1; }
+  .abacus-2d .ab.neg::after { border-style: dashed; }
+  .abacus-2d .ab.sum::after { background: var(--paper); }
+  .scene.is-2d.in .abacus-2d .ab::after { transform: none; }
+</style>

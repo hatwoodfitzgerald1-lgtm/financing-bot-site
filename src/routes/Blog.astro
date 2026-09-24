@@ -1,0 +1,80 @@
+---
+import Ledger from '../layouts/Ledger.astro';
+import Row from '../components/Row.astro';
+const posts = [
+  { n: '01', href: '/blog/form-1084-add-backs', title: 'How the Form 1084 add backs actually work', sf: 'One Schedule C borrower, two tax years, five lines and a 24 month average, added up on the page so you can check every cent.', tag: '1084', date: '2026-09-24' },
+  { n: '02', href: '/blog/large-deposit-letter', title: 'What the large deposit rule asks for, and what a drafted letter should say', sf: 'The two thresholds, where a source has to come from, how seasoning is read across two statements, and the six things the borrower’s letter has to carry.', tag: 'deposits', date: '2026-09-24' },
+  { n: '03', href: '/blog/prior-to-doc-prior-to-close', title: 'Prior to doc or prior to close: writing conditions an LOS can carry', sf: 'Which side of the line each condition sits on, one requirement per row, the page that raised it, and the file that goes up instead of out.', tag: 'conditions', date: '2026-09-24' },
+  { n: '04', href: '/blog/ai-governance-file', title: 'The governance file a lender now keeps on every AI tool', sf: 'Lender Letter LL-2026-04 and Guide Section 1302.8 in plain terms: what the inventory lists, who owns each row, what gets validated on your own files, and what a vendor has to hand you.', tag: 'governance', date: '2026-09-24' },
+];
+---
+<Ledger route="/blog" page="blog" hover="index-card" footerIndex="0003" scene="tape">
+  <section class="row flush bh" id="blog-head" aria-label="Blog">
+    <span class="row-idx" aria-hidden="true">0001</span>
+    <canvas class="ruler-rail" id="ruler-field" aria-hidden="true"></canvas>
+    <div class="g bh-g">
+      <div class="c1-7 bh-copy in" data-reveal="mask-rows">
+        <h1 class="hv"><span class="ln"><span>Four notes on the work</span></span></h1>
+        <p class="lede mt2">Each one walks a piece of the file the way the software walks it, with the form, the line and the rule named, and the sample file's numbers where numbers help. Read them in any order.</p>
+      </div>
+      <div class="bh-scene">
+        <div class="scene" id="tape" data-scene="tape" data-poster="W-05">
+          <img class="poster" src="/assets/posters/W-05.webp" width="1600" height="1000" alt="A still of the /blog ledger tape scene: the four post titles printed along one continuous ledger tape unspooling through the dark." loading="lazy" decoding="async" />
+          <div class="s2d tape-2d m" aria-hidden="true"><div class="tape-track">{posts.map((p) => <span>{p.n} {p.title}</span>)}{posts.map((p) => <span>{p.n} {p.title}</span>)}</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="band r21 grade-full" data-reveal="wipe">
+      <picture>
+        <source media="(max-width: 899px)" srcset="/assets/photo/PH-05-1280.webp" type="image/webp" />
+        <source srcset="/assets/photo/PH-05.webp" type="image/webp" />
+        <img src="/assets/photo/PH-05.jpg" width="2560" height="1097" alt="A task lamp over a closed file on an otherwise empty desk at night." loading="lazy" decoding="async" />
+      </picture>
+    </div>
+  </section>
+
+  <Row index="0002" id="index" label="The post index" reveal="slide-index">
+    <div class="g sort-row">
+      <div class="c1-12 tabs" role="tablist" aria-label="Sort the index">
+        <button type="button" role="tab" aria-selected="true" data-sort="date">by date</button>
+        <button type="button" role="tab" aria-selected="false" data-sort="form">by form</button>
+      </div>
+    </div>
+    <ol class="post-index" id="post-index">
+      {posts.map((p) => (
+        <li class="idx-row" data-tag={p.tag} data-n={p.n}>
+          <span class="num pn"><span class="drum" data-drum={p.n}>{p.n}</span></span>
+          <div class="txt">
+            <h2><a class="hv" href={p.href}>{p.title}</a></h2>
+            <p class="sf">{p.sf}</p>
+            <div class="meta"><span class="chip">{p.tag}</span><span class="m ash small">{p.date}</span></div>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </Row>
+</Ledger>
+
+<style is:global>
+  .bh { border-top: 0; overflow: hidden; }
+  .ruler-rail { position: absolute; top: 0; left: 0; width: 100%; height: 40px; pointer-events: none; }
+  .bh-g { align-items: stretch; padding-top: 40px; }
+  .bh-copy { padding: clamp(40px, 8vh, 96px) 24px clamp(40px, 6vh, 72px) 0; position: relative; z-index: 2; }
+  .bh-scene { grid-column: 8 / -1; margin-right: calc(-1 * var(--gutter)); position: relative; min-height: 380px; }
+  .bh-scene .scene { position: absolute; inset: 0; }
+  .tape-2d { display: none; overflow: hidden; align-items: center; }
+  .scene.is-2d .tape-2d { display: flex; }
+  .tape-track { display: flex; gap: 48px; white-space: nowrap; font-size: 13px; color: var(--paper); border-top: var(--hair) solid var(--rule); border-bottom: var(--hair) solid var(--rule); padding: 12px 0; animation: tape 30s linear infinite; }
+  @keyframes tape { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .tape-track { animation: none; } }
+  @media (max-width: 899px) { .bh-scene { grid-column: 1 / -1; margin-inline: calc(-1 * var(--gutter)); min-height: 160px; } }
+  .sort-row { margin-bottom: 24px; }
+  .post-index { list-style: none; margin: 0; padding: 0; width: 100vw; border-top: var(--hair) solid var(--rule); }
+  .post-index .idx-row { display: grid; grid-template-columns: minmax(120px, 2fr) 10fr; gap: 24px; padding: 32px var(--gutter); border-bottom: var(--hair) solid var(--rule); align-items: start; transition: order 0s; }
+  .post-index .pn { font-size: clamp(64px, 6vw, 96px); }
+  .post-index h2 { font-size: clamp(22px, 2.2vw, 32px); max-width: 28ch; }
+  .post-index h2 a { text-decoration: none; }
+  .post-index .sf { margin-top: 10px; max-width: 64ch; color: rgba(233,229,218,0.85); }
+  .post-index .meta { display: flex; gap: 16px; align-items: center; margin-top: 12px; }
+  @media (max-width: 599px) { .post-index .idx-row { grid-template-columns: 1fr; gap: 8px; } }
+</style>

@@ -1,0 +1,56 @@
+---
+import Post from '../components/Post.astro';
+import Kit from '../components/Kit.astro';
+---
+<Post route="/blog/large-deposit-letter" page="post2" n="02" title="What the large deposit rule asks for, and what a drafted letter should say" standfirst="The two thresholds, where a source has to come from, how seasoning is read across two statements, and the six things the borrower's letter has to carry." tag="deposits" ph="PH-07" phAlt="Two bank statement pages side by side on a desk, one line under the lamp." scene="threshold" poster="W-07" posterAlt="A still of the post 2 threshold plane scene: two columns of deposit figures with the translucent threshold plane resting across them, the figures above it lit." sceneText="the threshold plane: 4,206.25 conventional and 4,120.00 FHA sliding down two columns of deposits" footerIndex="0004" button={{ label: 'Buy a file pack', price: 'from $2,400', href: '/pricing#ledger' }} link={{ label: 'Or order the Pilot at $0', href: '/cart?pilot=1', pilot: true }}>
+  <div slot="s2d" class="thr-2d m" aria-hidden="true">
+    <div class="col"><span>6,500.00</span><span>2,250.00</span><span>1,180.00</span><span>640.00</span></div>
+    <div class="col"><span>6,500.00</span><span>3,900.00</span><span>2,100.00</span><span>410.00</span></div>
+    <div class="plane" style="--t:22%"><i>4,206.25 conv</i></div>
+    <div class="plane" style="--t:26%"><i>4,120.00 FHA</i></div>
+  </div>
+
+  <div class="thr-open" data-reveal="count"><span class="num sm cnt"><span class="drum" data-drum="4,206.25">0,000.00</span></span><span class="m ash small"> conventional line</span> <span class="num sm cnt"><span class="drum" data-drum="4,120.00">0,000.00</span></span><span class="m ash small"> FHA line</span></div>
+  <p>Two months of statements, pages 88 to 94 of the upload, and one line that stops the eye: a deposit of $6,500.00 on the fourteenth. Whether that line is a problem depends on two numbers that live elsewhere in the file, and the first job is to go and fetch them.</p>
+
+  <h2 class="hv">Two thresholds, two products</h2>
+  <p>On a conventional purchase the test is Fannie Mae's: a single deposit is large when it exceeds 50 percent of the total monthly qualifying income for the loan. Qualifying income on the sample file (Sample Mortgage Co., LN 2026090412) is $8,412.50, so the line is drawn at $4,206.25. The $6,500.00 deposit is over it.</p>
+  <p>On FHA the test comes from HUD Handbook 4000.1 and it is drawn against the property, not the income: any single deposit greater than 1 percent of the adjusted value, which on a purchase is the lower of the sales price and the appraised value. At an adjusted value of $412,000.00 the line is $4,120.00. The same deposit is over that too. On a different file it might clear one test and fail the other, which is why the asset worksheet prints which rule it used and the figure it drew the line from.</p>
+  <p>The conventional rule is written for purchases. On a refinance the Selling Guide does not set a large deposit test, though your own overlay may, and the software drafts to whichever threshold your condition library names.</p>
+
+  <h2 class="hv">What "sourced" means on the page</h2>
+  <p>A deposit is sourced when a page in the file says where the money came from and that page agrees with the statement. A copy of the deposited check. A transfer from another account the borrower has already documented, matched by date and amount on both statements. A bill of sale with a check that matches it. A gift letter with the donor's statement behind it. The source is a page, and the worksheet prints its number beside the deposit.</p>
+  <p>When there is no such page, the deposit is marked unsourced. Not ignored, not explained away. Marked. An unsourced deposit is left out of funds to close and out of reserves, and the worksheet shows the file both ways: with the deposit counted and without it. If the file qualifies without it, the underwriter may decide the letter is enough. If it does not, the funds have to be sourced or removed. That is the underwriter's call, and the two column view is there so the call takes a minute.</p>
+
+  <h2 class="hv">Seasoning across two statements</h2>
+  <p>Seasoning is time. Funds that have sat in the account for the full two statement periods are seasoned; nobody asks where they came from because the question has expired. A deposit inside the window is not seasoned, and the threshold above decides whether it needs a source.</p>
+  <p>Reading two statements side by side is where the software earns its keep on this part of the file. The opening balance of the second statement has to equal the closing balance of the first, and it is checked. Every deposit over the threshold is listed with its date and its page. A transfer that shows as a withdrawal on one account and a deposit on another is matched and noted, so it is not counted as new money twice and does not get its own letter.</p>
+  <figure class="kitfig" data-reveal="draw-svg"><Kit id="K-B2" /><figcaption>seasoning across two statements: the 6,500.00 deposit on August 14 above the 4,206.25 conventional and 4,120.00 FHA lines</figcaption></figure>
+
+  <h2 class="hv">The six things the letter carries</h2>
+  <p>When a deposit is over the threshold and the source is not fully documented, the software drafts a letter of explanation for the borrower's signature. Drafted, not sent, and it says only what the file supports. It carries:</p>
+  <ol class="ruled" data-reveal="stagger-rows">
+    <li class="srow">The borrower's name and the loan number, so it files itself.</li>
+    <li class="srow">The account, by bank name and the last four digits, as printed on the statement.</li>
+    <li class="srow">The deposit, by date and amount, exactly as the statement shows it. $6,500.00 on August 14, 2026, not "about six and a half thousand in mid August".</li>
+    <li class="srow">The source in one sentence, in the borrower's own words. "Proceeds from the sale of my 2019 truck to a private buyer."</li>
+    <li class="srow">A statement that the funds are not borrowed and carry no repayment obligation. If they are borrowed, the letter is the wrong document; the loan is a liability and belongs on the application.</li>
+    <li class="srow">A signature line and a date, with the supporting page named beneath: bill of sale, copy of the check, donor's statement.</li>
+  </ol>
+  <p>What it does not carry: an explanation of every other deposit on the statement, two deposits with different sources in one letter, and any wording that sounds like it came out of software. The draft uses plain sentences the borrower can read aloud and sign without asking what they mean.</p>
+
+  <h2 class="hv">What the underwriter does with it</h2>
+  <p>The letter and its source page come back in the package as a prior to doc condition in your own condition wording, cited to the statement page where the deposit sits. Whether the source is acceptable is not something the software has a view on. It gathered the pages, drew the line by the rule for the product, and drafted the letter. You read them and decide.</p>
+  <p>The pilot runs this on 50 funded files, so you can hold what was drafted against what your underwriter actually required on the same loans.</p>
+</Post>
+
+<style is:global>
+  .thr-2d { position: relative; height: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; font-size: 13px; }
+  .thr-2d .col { display: grid; align-content: start; gap: 18px; padding-top: 12px; }
+  .thr-2d .col span { border-bottom: var(--hair) solid var(--rule); padding-bottom: 4px; color: var(--ash); }
+  .thr-2d .col span:first-child { color: var(--paper); }
+  .thr-2d .plane { position: absolute; left: 0; right: 0; top: var(--t); border-top: 1px solid var(--paper); opacity: 0.7; transform: translateY(-120px); transition: transform var(--slow) var(--cr); }
+  .thr-2d .plane i { position: absolute; right: 0; top: 2px; font-style: normal; font-size: 10px; color: var(--paper); }
+  .scene.is-2d.in .thr-2d .plane { transform: none; }
+  .thr-open { display: flex; gap: 8px 24px; flex-wrap: wrap; align-items: baseline; margin-bottom: 24px; }
+</style>

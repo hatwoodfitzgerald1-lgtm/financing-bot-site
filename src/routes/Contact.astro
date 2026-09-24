@@ -1,0 +1,76 @@
+---
+import Ledger from '../layouts/Ledger.astro';
+import Row from '../components/Row.astro';
+import SmsBlock from '../components/SmsBlock.astro';
+---
+<Ledger route="/contact" page="contact" hover="boxed" footerIndex="0005" scene="plate">
+  <Row index="0001" id="contact-head" class="ch0" label="Contact" reveal="mask-rows">
+    <div class="g">
+      <div class="c1-7">
+        <h1 class="hv"><span class="ln"><span>Contact</span></span></h1>
+        <p class="lede mt2">Support reads email in the order it arrives and answers within the window your pack carries: the next business day on the 100 File Pack, the same business day on the 500 File Pack and the Enterprise Block. For a file question, put the loan number in the subject line and we open the package before we reply.</p>
+      </div>
+    </div>
+  </Row>
+
+  <Row index="0002" id="note" label="Send a note" reveal="stagger-rows">
+    <div class="g">
+      <form class="c1-6 note-form" id="contact-form" novalidate>
+        <h2 class="hv srow">Send a note</h2>
+        <div class="err-summary srow" tabindex="-1"><h3>There is a problem</h3><ul></ul></div>
+        <div class="field srow"><label for="c-name">Your name <span class="req">(required)</span></label><div class="cell"><input id="c-name" name="name" type="text" autocomplete="name" required data-empty="Enter your name" /></div><div class="msg"></div></div>
+        <div class="field srow"><label for="c-lender">Lender (legal name as it appears on your NMLS record) <span class="req">(required)</span></label><div class="cell"><input id="c-lender" name="lender" type="text" autocomplete="organization" required data-empty="Enter the lender's legal name" /></div><div class="msg"></div></div>
+        <div class="field srow"><label for="c-email">Work email <span class="req">(required)</span></label><div class="cell"><input id="c-email" name="email" type="email" autocomplete="email" required data-empty="Enter your work email address" data-format="Enter an email address in the correct format, like name@lender.com" /></div><div class="msg"></div></div>
+        <div class="field srow"><label for="c-loan">Loan number, if the note is about a file <span class="req">(optional)</span></label><div class="cell"><input id="c-loan" name="loan" type="text" inputmode="numeric" pattern="[A-Za-z0-9 ]*" /></div></div>
+        <div class="field srow"><label for="c-msg">Message <span class="req">(required)</span></label><div class="cell"><textarea id="c-msg" name="message" rows="4" required data-empty="Enter a message"></textarea></div><div class="msg"></div></div>
+        <div class="sys small srow" hidden>The note did not send. Email <a href="mailto:support@financingbot.com">support@financingbot.com</a> directly.</div>
+        <button class="btn-line srow" type="submit"><span class="drum-label">Send</span></button>
+        <p class="success mt" role="status" aria-live="polite" hidden>Sent. You'll hear back inside your pack's support window, from support@financingbot.com.</p>
+        <p class="small ash mt srow">This form is for support and orders. It is not a loan application and nothing entered here is used to make one.</p>
+      </form>
+    </div>
+  </Row>
+
+  <Row index="0003" id="plate-row" flush label="The address plate">
+    <div class="band r21 grade-full plate-band">
+      <picture>
+        <source media="(max-width: 899px)" srcset="/assets/photo/PH-11-1280.webp" type="image/webp" />
+        <source srcset="/assets/photo/PH-11.webp" type="image/webp" />
+        <img src="/assets/photo/PH-11.jpg" width="2560" height="1097" alt="A desk phone and a printed support card on a reception counter at night." loading="lazy" decoding="async" />
+      </picture>
+      <div class="over g" style="align-content:center">
+        <div class="c1-6 plate-wrap">
+          <div class="scene plate-scene" id="plate" data-scene="plate" data-poster="W-11">
+            <img class="poster" src="/assets/posters/W-11.webp" width="1600" height="1000" alt="A still of the /contact address plate scene: a graphite plate engraved with the address, phone, support email and hours cells." loading="lazy" decoding="async" />
+            <div class="s2d"></div>
+          </div>
+          <dl class="plate-dom kv m" id="plate-dom" data-reveal="rule-unmask">
+            <div class="rl hr" style="grid-column:1/-1"></div>
+            <dt>address</dt><dd>[Physical Address]</dd>
+            <dt>phone</dt><dd>[PHONE NUMBER]</dd>
+            <dt>support email</dt><dd><a href="mailto:support@financingbot.com">support@financingbot.com</a></dd>
+            <dt>hours</dt><dd>Monday to Friday, 8:00 to 18:00 Eastern</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </Row>
+
+  <Row index="0004" id="sms" label="Join Our SMS List">
+    <div class="g"><div class="c1-5"><SmsBlock level="h2" id="sms-contact" /></div></div>
+  </Row>
+</Ledger>
+
+<style is:global>
+  .ch0 { border-top: 0; padding-top: clamp(48px, 8vh, 96px); }
+  .note-form .success[hidden] { display: none; }
+  .plate-band { min-height: 560px; }
+  .plate-wrap { margin-left: var(--gutter); position: relative; padding: 56px 40px; }
+  .plate-scene { position: absolute; inset: 0; }
+  .plate-dom { margin: 0; position: relative; z-index: 1; background: rgba(35,37,39,0.92); border: var(--hair) solid var(--paper); grid-template-columns: 140px 1fr; }
+  .plate-dom dt, .plate-dom dd { margin: 0; padding: 12px 14px; border-bottom: var(--hair) solid var(--rule); font-size: 14px; min-width: 0; overflow-wrap: anywhere; }
+  @media (max-width: 599px) { .plate-dom { grid-template-columns: 96px 1fr; } .plate-dom dt, .plate-dom dd { font-size: 13px; padding: 10px; } }
+  .plate-dom dt { color: var(--ash); font-size: 12px; border-right: var(--hair) solid var(--rule); }
+  .plate-dom a { color: var(--paper); }
+  @media (max-width: 899px) { .plate-band { aspect-ratio: auto; } .plate-wrap { margin: 24px var(--gutter); padding: 0; } .plate-scene { display: none; } }
+</style>

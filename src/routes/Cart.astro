@@ -1,0 +1,75 @@
+---
+import Ledger from '../layouts/Ledger.astro';
+import Row from '../components/Row.astro';
+import Tally from '../components/Tally.astro';
+---
+<Ledger route="/cart" page="cart" hover="counter" footerIndex="0003" scene="cart">
+  <Row index="0001" id="cart-head" class="ch0" label="Cart" reveal="mask-rows">
+    <div class="g">
+      <div class="c1-6"><h1 class="hv"><span class="ln"><span>Cart</span></span></h1></div>
+      <div class="cart-scene">
+        <div class="scene" id="cart-tray" data-scene="cart" data-poster="W-12">
+          <img class="poster" src="/assets/posters/W-12.webp" width="1600" height="1000" alt="A still of the /cart tray scene: the cart rows as graphite slabs resting in a tray." loading="lazy" decoding="async" />
+          <div class="s2d"></div>
+        </div>
+      </div>
+    </div>
+  </Row>
+  <Row index="0002" id="cart-rows" flush label="Cart rows">
+    <div class="cart-wrap">
+      <div class="cart-table" id="cart-table" hidden>
+        <div class="crow head m"><span>pack</span><span>files</span><span>valid</span><span>quantity</span><span class="r">line total</span><span></span></div>
+        <div id="cart-lines"></div>
+        <div class="subtotal-rule hr"></div>
+        <div class="crow sub"><span class="m ash">subtotal</span><span></span><span></span><span></span><span class="r m sub-fig"><span class="drum" id="subtotal" data-drum="$0.00">$0.00</span></span><span></span></div>
+        <p class="small ash tax-note">Sales tax, where a state charges it on prewritten software, is added at checkout from the billing address.</p>
+        <p class="small ash">Nothing renews unless auto reorder is switched on at review.</p>
+        <div class="cart-actions">
+          <a class="btn idle" id="to-checkout" href="/checkout"><span class="lbl"><span>Continue to checkout</span></span></a>
+          <a class="link" href="/pricing#ledger">Back to the pricing ledger</a>
+        </div>
+        <p class="small ash" id="empty-line" hidden>Add a pack from the pricing ledger to continue</p>
+      </div>
+      <div class="cart-empty" id="cart-empty" hidden>
+        <svg class="tally one" viewBox="0 0 32 24" width="64" height="48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"><path d="M6 3v18"/></svg>
+        <p class="m">0 files in the cart</p>
+        <a class="link" href="/pricing#ledger">Open the pricing ledger</a>
+      </div>
+    </div>
+  </Row>
+</Ledger>
+
+<style is:global>
+  .ch0 { border-top: 0; padding-top: clamp(48px, 8vh, 96px); }
+  .cart-scene { grid-column: 7 / -1; margin-right: calc(-1 * var(--gutter)); position: relative; min-height: 260px; }
+  .cart-scene .scene { position: absolute; inset: 0; }
+  @media (max-width: 899px) { .cart-scene { grid-column: 1 / -1; margin-inline: calc(-1 * var(--gutter)); min-height: 160px; } }
+  .cart-wrap { padding: 0 0 48px; }
+  .crow { display: grid; grid-template-columns: 3fr 2fr 3fr 2fr 2fr 1fr; gap: 12px; align-items: center; padding: 14px var(--gutter); border-bottom: var(--hair) solid var(--rule); font-size: 14px; }
+  .crow.head { font-size: 12px; color: var(--ash); border-top: var(--hair) solid var(--rule); }
+  .crow .r { text-align: right; }
+  .crow.line { animation: enter var(--base) var(--cr) both; }
+  .crow.line.out { animation: leave var(--base) var(--cr) forwards; }
+  @keyframes enter { from { transform: translateX(-16px); opacity: 0; } }
+  @keyframes leave { to { transform: translateX(24px); opacity: 0; } }
+  .crow .note { grid-column: 1 / -1; font-size: 12px; color: var(--ash); }
+  .crow .rm { background: transparent; border: 0; color: var(--ash); text-decoration: underline; cursor: pointer; padding: 0; font-size: 13px; justify-self: end; }
+  .crow .rm:hover, .crow .rm:focus-visible { color: var(--paper); }
+  .subtotal-rule { margin: 0 var(--gutter); transform: scaleX(0); transform-origin: left; transition: transform var(--base) var(--cr) 0.2s; }
+  .in .subtotal-rule, .cart-table:not([hidden]) .subtotal-rule { transform: none; }
+  .crow.sub { border-bottom: 0; padding-top: 24px; }
+  .sub-fig { font-size: 32px; }
+  .tax-note { padding: 0 var(--gutter); margin-top: 8px; }
+  .cart-wrap > .cart-table > p { padding: 0 var(--gutter); }
+  .cart-actions { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; padding: 24px var(--gutter) 0; }
+  #empty-line { padding: 12px var(--gutter) 0; }
+  .cart-empty { padding: 48px var(--gutter); display: grid; gap: 16px; justify-items: start; border-top: var(--hair) solid var(--rule); }
+  .cart-empty .tally.one path { stroke-dasharray: 18; stroke-dashoffset: 18; animation: draw var(--base) var(--cr) forwards; }
+  @media (max-width: 899px) {
+    .crow { grid-template-columns: 1fr 1fr; }
+    .crow.head { display: none; }
+    .crow.line > span:nth-child(1) { grid-column: 1 / -1; font-weight: 600; }
+    .cart-actions { position: sticky; bottom: 0; background: var(--graphite); padding-bottom: 16px; border-top: var(--hair) solid var(--rule); }
+    .cart-actions .btn { width: 100%; justify-content: center; }
+  }
+</style>

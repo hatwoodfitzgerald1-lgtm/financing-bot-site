@@ -1,0 +1,65 @@
+---
+import Post from '../components/Post.astro';
+import Kit from '../components/Kit.astro';
+---
+<Post route="/blog/prior-to-doc-prior-to-close" page="post3" n="03" title="Prior to doc or prior to close: writing conditions an LOS can carry" standfirst="Which side of the line each condition sits on, one requirement per row, the page that raised it, and the file that goes up instead of out." tag="conditions" ph="PH-08" phAlt="A monitor showing a findings report beside its printed copy on the desk." scene="columns" poster="W-08" posterAlt="A still of the post 3 reconciling columns scene: the AUS entered figures and the recalculated figures as two columns brought together, matches greyed and the one difference held apart with the recalculated figure in verdigris." sceneText="the reconciling columns: AUS entered figures and recalculated figures sliding together, the one difference held apart" footerIndex="0004" button={{ label: 'Buy a file pack', price: 'from $2,400', href: '/pricing#ledger' }} link={{ label: 'Draft the conditions', href: '/drafter' }} linkFirst={true}>
+  <div slot="s2d" class="cols-2d m" aria-hidden="true">
+    <div class="l"><span>$7,568.75</span><span>$41,200.00</span><span>0</span><span>118</span></div>
+    <div class="r"><span class="vd">$8,412.50</span><span>$41,200.00</span><span>0</span><span>118</span></div>
+  </div>
+
+  <p>A condition is a sentence someone else has to clear. A processor reads it and asks the borrower for a document. A closer reads it and decides whether docs can be drawn. A QC reviewer reads it six months later and holds the cleared document against it. Three readers, one sentence, and most conditions fail because they were written for none of them.</p>
+
+  <h2 class="hv">The line between doc and close</h2>
+  <p>Prior to doc means the condition has to be satisfied before closing documents are drawn, and the test for putting a condition there is one question: could clearing it change the approval? Income documents, asset sources, the appraisal, anything the AUS ran on, anything that could move a ratio or the loan amount. If the answer is yes, it is PTD.</p>
+  <p>Prior to close means it has to be satisfied before funding, and it cannot change the decision. Final title. The hazard policy with the right mortgagee clause. Closing disclosure timing, payoff figures, the verbal verification of employment inside its window. Necessary, and not decisive.</p>
+  <p>When a condition could sit on either side, it goes to PTD. A closer holding a PTC that turns out to move the DTI has a problem nobody wants at a quarter to five on a Friday.</p>
+  <figure class="kitfig" data-reveal="draw-svg"><Kit id="K-B3" /><figcaption>the split: prior to doc and prior to close, with the one question on the rule between them</figcaption></figure>
+
+  <h2 class="hv">One requirement per row</h2>
+  <p>The condition library on most LOS installs is full of lines like "Provide all income documentation." That line cannot be cleared; it can only be argued about. A condition an LOS can carry names one document, by form and by year, and stops.</p>
+  <p>Not "Updated income docs." Instead: "Signed 1040 with all schedules for 2024 and 2025."</p>
+  <p>Not "Verify business." Instead: "Verification of the existence of the business within 120 calendar days prior to the note date, by third party listing or CPA letter."</p>
+  <p>Two documents mean two rows. A processor can then clear one and leave the other open, and the LOS can count what is left, which is the only way a pipeline report ever tells the truth.</p>
+
+  <h2 class="hv">Cite the page that raised it</h2>
+  <p>Every condition was raised by something in the file, and the something has a page number. The 2024 Schedule C on page 47 is why there is a year to date profit and loss condition. The $6,500.00 deposit on page 88 is why there is a letter of explanation condition. The condition prints that cite. The processor knows what to look at, the underwriter knows why the row exists without reopening the file, and the QC reviewer can read the cleared document against the page that asked for it.</p>
+
+  <h2 class="hv">Wording that survives QC</h2>
+  <p>QC reads the condition, then reads what cleared it. If the two do not match, the condition is written up, and the underwriter who signed off the clearing is the name on the finding. So the wording has to be specific enough that a document either satisfies it or does not. "Most recent paystub" fails when the file holds three paystubs from two employers. "Year to date paystub dated within 30 days of the application, showing employer name, pay period and year to date gross" passes, because the reviewer can hold the paystub against each phrase in turn.</p>
+  <p>This is why the software drafts from your condition library and never from its own. Your wording has already been through your QC and through your investors' post closing reviews. The software fills in the cite, the year and the borrower, and puts the row on the correct side of the line by the question above. If a library line is too vague to draft against, it leaves that line alone and tells you which one.</p>
+
+  <h2 class="hv">The sample file, drafted</h2>
+  <p>LN 2026090412 at Sample Mortgage Co., a conventional purchase with a self employed borrower and a co borrower on W2 wages. Three rows came out.</p>
+  <table class="ledger" data-reveal="draw-table">
+    <caption class="sr-only">The three drafted rows</caption>
+    <thead><tr><th>index</th><th>condition</th><th>cite</th><th>status</th></tr></thead>
+    <tbody>
+      <tr style="--i:0"><td class="m">PTD 01</td><td>Signed 1040 with all schedules for 2024 and 2025.</td><td class="m ash">p.47, p.52</td><td><span class="chip">drafted</span></td></tr>
+      <tr style="--i:1"><td class="m">PTD 02</td><td>Year to date profit and loss statement for the business.</td><td class="m ash">Schedule C p.47</td><td><span class="chip">drafted</span></td></tr>
+      <tr style="--i:2"><td class="m">PTC 01</td><td>Verbal verification of employment for the co borrower within 10 business days prior to the note date.</td><td class="m ash">URLA p.1, W2 p.31</td><td><span class="chip">drafted</span></td></tr>
+    </tbody>
+  </table>
+  <p>PTD 01. Signed 1040 with all schedules for 2024 and 2025. Cites p.47, p.52.</p>
+  <p>PTD 02. Year to date profit and loss statement for the business. Cites Schedule C p.47.</p>
+  <p>PTC 01. Verbal verification of employment for the co borrower within 10 business days prior to the note date. Cites URLA p.1, W2 p.31.</p>
+  <p>Each row carries the status chip "drafted" until a processor changes it, and each row pastes into the LOS as one line with its cite at the end.</p>
+  <figure class="fig"><div class="shot"><img src="/assets/product/P-03a-conditions-ptd.webp" srcset="/assets/product/P-03a-conditions-ptd@1x.webp 1600w, /assets/product/P-03a-conditions-ptd.webp 3200w" sizes="(max-width: 899px) 100vw, 58vw" width="3200" height="2072" alt="The condition list for loan LN 2026090412 in Sample Mortgage Co. wording, scrolled to the prior to doc block: two prior to doc conditions, each with its page cite and status." loading="lazy" decoding="async" /></div><figcaption>the condition list in the package, scrolled to the prior to doc block</figcaption></figure>
+
+  <h2 class="hv">The open finding</h2>
+  <p>A DU or LPA finding that the file does not answer is also a condition, and it is nearly always PTC unless it touches income or assets. The reconciliation prints each finding beside the page that answers it; the one with no page is listed open and drafted as "Resolve open finding line 4 against the file page." The number is the finding's own line on the report, so the closer can find it without reading the whole thing.</p>
+
+  <h2 class="hv">The file that goes up instead of out</h2>
+  <p>On another file that night, LN 2026090418, the 2024 W2 on page 31 named one employer and the year to date paystub on page 27 named another. No condition was drafted, because any condition would have chosen which page to believe, and choosing is deciding. The file was referred up with both pages listed and nothing else attached. The underwriter opened it first the next morning, which is the point. A contradiction named at two in the morning is a phone call at nine, not a QC finding in March.</p>
+  <blockquote class="pq">A contradiction named at two in the morning is a phone call at nine, not a QC finding in March.</blockquote>
+  <p>The condition drafter on this site takes a scenario you describe and drafts the list it would produce, in the same grammar, so you can see the split before you buy anything.</p>
+</Post>
+
+<style is:global>
+  .cols-2d { display: grid; grid-template-columns: 1fr 1fr; gap: 0; height: 100%; align-content: center; font-size: 14px; }
+  .cols-2d > div { display: grid; gap: 14px; }
+  .cols-2d .l { text-align: right; padding-right: 24px; transform: translateX(-40px); transition: transform var(--slow) var(--cr); color: var(--ash); }
+  .cols-2d .r { padding-left: 24px; border-left: var(--hair) solid var(--rule); transform: translateX(40px); transition: transform var(--slow) var(--cr); color: var(--ash); }
+  .cols-2d span.vd { color: var(--verdigris); }
+  .scene.is-2d.in .cols-2d .l, .scene.is-2d.in .cols-2d .r { transform: none; }
+</style>

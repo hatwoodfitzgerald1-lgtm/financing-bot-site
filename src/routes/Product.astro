@@ -1,0 +1,249 @@
+---
+import Ledger from '../layouts/Ledger.astro';
+import Row from '../components/Row.astro';
+import PaperButton from '../components/PaperButton.astro';
+import Tally from '../components/Tally.astro';
+import offering from '../data/offering.json';
+const script = [
+  ['Schedule C line 31 net profit, 2024', 'p.47', '84,600.00', 'Form 91 net profit or loss, line 31, 2024'],
+  ['plus line 13 depreciation', 'p.47', '94,450.00', 'plus depreciation, line 13'],
+  ['plus line 12 depletion', 'p.47', '94,450.00', 'plus depletion, line 12'],
+  ['plus line 30 business use of home', 'p.47', '98,650.00', 'plus business use of home, line 30'],
+  ['minus line 24b meals', 'p.47', '97,270.00', 'minus meals exclusion, line 24b'],
+  ['Schedule C line 31 net profit, 2025', 'p.52', '189,420.00', 'Form 91 net profit or loss, line 31, 2025'],
+  ['plus line 13 depreciation', 'p.52', '199,820.00', 'plus depreciation, line 13'],
+  ['plus line 12 depletion', 'p.52', '199,820.00', 'plus depletion, line 12'],
+  ['plus line 30 business use of home', 'p.52', '204,020.00', 'plus business use of home, line 30'],
+  ['minus line 24b meals', 'p.52', '201,900.00', 'minus meals exclusion, line 24b'],
+  ['÷ 24', '', '8,412.50', '÷ 24'],
+];
+const rail = ['URLA p.1', 'credit p.9', 'paystub YTD, co borrower p.27', 'W2 2024, co borrower p.31', 'Schedule C 2024 p.47', 'Schedule C 2025 p.52', 'bank statement 1 p.88', 'bank statement 2 p.91', 'package p.118'];
+---
+<Ledger route="/product" page="product" hover="cite" footerIndex="0008" scene="rail">
+  <!-- 0001 Header: the page count ruler field behind, the index rail at the right -->
+  <section class="row flush prh" id="product-head" aria-label="How it works">
+    <span class="row-idx" aria-hidden="true">0001</span>
+    <canvas class="ruler-field" id="ruler-field" aria-hidden="true"></canvas>
+    <div class="g prh-g">
+      <div class="c1-7 prh-copy in" data-reveal="mask-rows">
+        <h1 class="hv"><span class="ln"><span>How it works: the queue,</span></span><span class="ln"><span>the worksheet, the condition list</span></span></h1>
+        <p class="lede mt2">Three screens, one file. LN 2026090412 came in at 17:42 on a Tuesday and this is what happened to it, in the order you'd open the screens the next morning.</p>
+        <div class="ruler-legend m ash small mt2"><span>p.1</span><span>p.100</span><span>p.200</span><span>…</span><span>p.1000</span><span class="lit">lit tick = indexed page</span></div>
+      </div>
+      <div class="prh-scene">
+        <div class="scene" id="rail" data-scene="rail" data-poster="W-03">
+          <img class="poster" src="/assets/posters/W-03.webp" width="1600" height="1000" alt="A still of the /product index rail scene: one loan file as a vertical rail of page tabs, each labelled with its page number." loading="lazy" decoding="async" />
+          <ol class="s2d rail-2d m" aria-hidden="true">{rail.map((t) => <li><span>{t}</span></li>)}</ol>
+        </div>
+        <ol class="rail-dom m" aria-label="The index rail, in rail order">{rail.map((t) => <li>{t}</li>)}</ol>
+        <p class="m small ash rail-cap" id="rail-hold">On LN 2026090418 the W2 on p.31 and the paystub on p.27 name different employers. Both tabs stay out. Nothing is chosen.</p>
+        <p class="m small rail-cap" id="rail-end">118 pages named. One package.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 0002 The queue: pinned chapter, V-02 at the right edge, three beats -->
+  <Row index="0002" id="ch-queue" class="chapter" label="Chapter 0002, the queue">
+    <div class="g ch-g">
+      <div class="c1-5 beats" id="beats">
+        <h2 class="hv">The queue</h2>
+        <div class="beat on" data-beat="0"><div class="bidx m">Beat 1 | read</div><p>Every page in the upload gets a name and a number before anything is calculated. Duplicates fold into one entry. A page the software cannot read (a bad scan, a locked PDF) is listed by number so the processor knows exactly what to resend, and the file is not deducted until it comes back whole.</p></div>
+        <div class="beat" data-beat="1"><div class="bidx m">Beat 2 | contradictions</div><p>The contradictions column is a count, and most rows read zero. When it does not, the two pages are listed side by side in the package with their cites, and the file's status chip reads referred up. The count is the first thing an underwriter should look at in the morning, and it is the fourth column for that reason.</p></div>
+        <div class="beat" data-beat="2"><div class="bidx m">Beat 3 | returned</div><p>The returned column is a time, and the queue sorts by it. A complete file on the standard queue comes back the same business day; Enterprise files go ahead of the standard packs. The underwriter of record column shows the name and designation the package was addressed to, which on an FHA or VA file has to carry DE or SAR before the file will route at all.</p></div>
+        <div class="beat-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+      </div>
+      <div class="ch-media" id="ch-queue-media">
+        <div class="shot v02">
+          <video id="v02" muted playsinline preload="metadata" poster="/assets/video/V-02-poster.webp" width="1920" height="1242" aria-label="The Financing Bot queue pushing in on one loan, then its Form 1084 worksheet with the monthly qualifying income landing beside its page cite, then its condition list with a condition signed off by the underwriter.">
+            <source src="/assets/video/V-02-product-in-motion.webm" type="video/webm" />
+            <source src="/assets/video/V-02-product-in-motion.mp4" type="video/mp4" media="(min-width: 900px)" />
+            <source src="/assets/video/V-02-product-in-motion-720.mp4" type="video/mp4" />
+          </video>
+          <img class="v02-rm" src="/assets/product/P-01-queue.webp" width="3200" height="2072" alt="The Financing Bot queue for Sample Mortgage Co.: sixty loan files listed by loan number, borrower initials, product, pages, contradictions, underwriter of record, a lowercase status chip and the returned time." loading="lazy" decoding="async" hidden />
+          <button type="button" class="replay m" id="v02-replay" hidden>replay</button>
+        </div>
+        <div class="m small ash cols-line">loan | borrower | product | pages | contradictions | underwriter of record | status | returned</div>
+      </div>
+    </div>
+  </Row>
+
+  <!-- 0003 The worksheet with The Recalculation -->
+  <Row index="0003" id="ch-worksheet" flush label="Chapter 0003, the worksheet">
+    <div class="setpiece" id="setpiece">
+      <div class="sp-pin">
+        <div class="g sp-g">
+          <div class="c1-12 sp-top"><h2 class="hv">The worksheet</h2><span class="m ash small">The Recalculation</span></div>
+          <div class="c1-7 sp-figwrap"><div class="sp-fig m" id="sp-fig"><span class="drum" data-drum="84,600.00">00,000.00</span></div><div class="sp-land m" id="sp-land">$8,412.50</div><div class="sp-cite m ash" id="sp-cite">recalculated, sourced p.47, p.52</div></div>
+          <ol class="c8-12 sp-lines m" id="sp-lines">
+            {script.map((l, i) => (<li data-i={i} data-total={l[2]}><span class="lbl" data-f1084={l[0]} data-f91={l[3]}>{l[0]}</span><span class="cite ash">{l[1]}</span><span class="run ash">{l[2]}</span></li>))}
+          </ol>
+        </div>
+      </div>
+      <table class="ledger sp-table" id="sp-table" hidden>
+        <caption class="sr-only">The Recalculation as a table</caption>
+        <thead><tr><th>line</th><th>cite</th><th class="r">running total</th></tr></thead>
+        <tbody>{script.map((l) => (<tr><td>{l[0]}</td><td class="m ash">{l[1]}</td><td class="m r">{l[2]}</td></tr>))}<tr><td>monthly qualifying income</td><td class="m ash">p.47, p.52</td><td class="m r vd">$8,412.50</td></tr></tbody>
+      </table>
+    </div>
+    <div class="g mt2">
+      <p class="c1-7 lede">That figure is the monthly qualifying income the package carries. The screenshot beneath is the worksheet it came from. Read the AUS entered figure at its foot: the difference is printed with the line that caused it, so the question of whether to run the findings again is already framed for you.</p>
+      <div class="c8-12 form-toggle">
+        <div class="tabs" role="group" aria-label="Worksheet form">
+          <button type="button" id="f1084" role="switch" aria-checked="true" class="on">Form 1084</button>
+          <button type="button" id="f91" role="switch" aria-checked="false">Form 91</button>
+        </div>
+        <p class="small ash mt">Form 91 is Freddie Mac's worksheet. The rows read from the same Schedule C lines, so the labels change and the figures do not.</p>
+      </div>
+    </div>
+    <div class="shot-band mt2" data-reveal="rule-unmask">
+      <div class="rl hr"></div>
+      <div class="txt shot"><img src="/assets/product/P-02-worksheet.webp" srcset="/assets/product/P-02-worksheet@1x.webp 1600w, /assets/product/P-02-worksheet.webp 3200w" sizes="100vw" width="3200" height="2072" alt="The Form 1084 income worksheet for loan LN 2026090412: Schedule C lines for 2024 and 2025 with page cites, year totals of 97,270.00 and 104,630.00, a 24 month total of 201,900.00 and a monthly qualifying income of $8,412.50 beside the AUS entered figure of $7,568.75." loading="lazy" decoding="async" /></div>
+      <div class="m small ash foot-line">24 month total 201,900.00 | monthly qualifying income $8,412.50 | (97,270.00 + 104,630.00) ÷ 24 | AUS entered $7,568.75 | difference +$843.75</div>
+    </div>
+  </Row>
+
+  <!-- 0004 The condition list: accordion with media reveal -->
+  <Row index="0004" id="ch-conditions" class="chapter" label="Chapter 0004, the condition list">
+    <div class="g ch-g">
+      <div class="c1-5">
+        <h2 class="hv">The condition list</h2>
+        <div class="acc mt2" id="acc">
+          <div class="acc-item open">
+            <h3><button type="button" aria-expanded="true" aria-controls="acc-ptd" data-shot="ptd"><span>Prior to doc</span><i></i></button></h3>
+            <div class="acc-body" id="acc-ptd"><p>Anything that could change the approval sits here: income documents, asset sources, the appraisal, anything the AUS ran on. On the sample file that is the signed returns for both years and the year to date profit and loss for the business, each row ending in the page that raised it.</p></div>
+          </div>
+          <div class="acc-item">
+            <h3><button type="button" aria-expanded="false" aria-controls="acc-ptc" data-shot="ptc"><span>Prior to close</span><i></i></button></h3>
+            <div class="acc-body" id="acc-ptc" hidden><p>What has to be in the file before funding but cannot move the decision. On the sample file that is the verbal verification of employment for the co borrower inside its ten business day window, cited to the URLA and the W2. When a row could sit on either side, it sits in prior to doc.</p></div>
+          </div>
+        </div>
+        <div class="legend m small mt2"><span class="chip">drafted</span> (as delivered) <span class="chip">sent to processing</span> (a processor changed it) <span class="chip">signed off by J. Ortiz, DE</span> (the underwriter of record cleared it)</div>
+      </div>
+      <div class="ch-media">
+        <div class="shot acc-shot" id="acc-shot">
+          <img data-shot="ptd" src="/assets/product/P-03a-conditions-ptd.webp" srcset="/assets/product/P-03a-conditions-ptd@1x.webp 1600w, /assets/product/P-03a-conditions-ptd.webp 3200w" sizes="(max-width: 899px) 100vw, 55vw" width="3200" height="2072" alt="The condition list for loan LN 2026090412 in Sample Mortgage Co. wording, scrolled to the prior to doc block: two prior to doc conditions, each with its page cite and status." loading="lazy" decoding="async" />
+          <img data-shot="ptc" src="/assets/product/P-03b-conditions-ptc.webp" srcset="/assets/product/P-03b-conditions-ptc@1x.webp 1600w, /assets/product/P-03b-conditions-ptc.webp 3200w" sizes="(max-width: 899px) 100vw, 55vw" width="3200" height="2072" alt="The condition list for loan LN 2026090412, scrolled to the prior to close block: one prior to close condition with its page cite, signed off by J. Ortiz, DE." loading="lazy" decoding="async" hidden />
+        </div>
+      </div>
+    </div>
+  </Row>
+
+  <!-- 0005 Referred up: pull quote interlude over the tally motif -->
+  <Row index="0005" id="ch-referred" label="Chapter 0005, referred up" reveal="words">
+    <div class="pq-field">
+      <div class="pq-tally" aria-hidden="true"><Tally size={640} /></div>
+      <div class="g">
+        <blockquote class="c1-10 pq" id="pq">One file is referred up. The 2024 W2 and the year to date paystub name different employers; both pages are listed. Nothing was decided.</blockquote>
+        <p class="c1-7 mt2">Referred up is a status, not a verdict. The package for that file holds the two pages side by side with their cites, the rest of the file worked as far as the rule allows, and no recommendation of any kind. It routes to the underwriter of record ahead of the decision ready files, because a named contradiction is the file most worth opening first.</p>
+      </div>
+    </div>
+  </Row>
+
+  <!-- 0006 The human underwriter rule: the Who signs slab -->
+  <Row index="0006" id="ch-signs" label="Chapter 0006, the human underwriter rule" reveal="slab">
+    <div class="g">
+      <div class="c2-8 slab who">
+        <h2 class="hv">Who signs</h2>
+        <p class="mt">Every package is addressed to one named underwriter of record. On an FHA or VA file the package routes only to a profile that carries a DE or SAR designation entered by your account owner; with none entered, the file waits in the queue with a routing note and is not deducted. The underwriter changes what they disagree with, the original figure stays beside the edit, and the signature event is logged with the time.</p>
+        <p class="disc mt2">{offering.disclaimer}</p>
+        <p class="m small ash mt">{offering.packageFooter}</p>
+      </div>
+    </div>
+  </Row>
+
+  <!-- 0007 Button band over PH-03 -->
+  <Row index="0007" id="ch-button" flush label="Chapter 0007, buy a file pack" reveal="rise">
+    <div class="band r21 grade-light">
+      <picture>
+        <source media="(max-width: 899px)" srcset="/assets/photo/PH-03-1280.webp" type="image/webp" />
+        <source srcset="/assets/photo/PH-03.webp" type="image/webp" />
+        <img src="/assets/photo/PH-03.jpg" width="2560" height="1097" alt="A single monitor in a dark room showing a table of rows, a keyboard in front, the rest of the room black." loading="lazy" decoding="async" />
+      </picture>
+      <div class="over g" style="align-content:center">
+        <div class="c1-6 inset-line">
+          <p class="lede">A file pack is the only thing to buy. Upload opens the minute the receipt sends.</p>
+          <PaperButton label={offering.primaryButton.label} price={offering.primaryButton.price} href={offering.primaryButton.href} />
+        </div>
+      </div>
+    </div>
+  </Row>
+</Ledger>
+
+<style is:global>
+  .prh { border-top: 0; overflow: hidden; }
+  .prh-g { min-height: 70vh; align-items: center; }
+  .prh-copy { position: relative; z-index: 2; padding: clamp(56px, 10vh, 120px) 24px clamp(40px, 8vh, 96px) 0; }
+  .ruler-legend { display: flex; gap: 18px; flex-wrap: wrap; }
+  .ruler-legend .lit { color: var(--paper); }
+  .prh-scene { grid-column: 8 / -1; margin-right: calc(-1 * var(--gutter)); position: relative; min-height: 520px; align-self: stretch; z-index: 1; }
+  .prh-scene .scene { position: absolute; inset: 0; }
+  .rail-2d { display: none; margin: 0; padding: 24px; list-style: none; }
+  .rail-2d li { border-left: var(--hair) solid var(--rule); padding: 8px 12px; font-size: 12px; transform: translateX(-12px); opacity: 0.3; transition: transform var(--base) var(--cr), opacity var(--base) var(--cr); }
+  .rail-2d li.in { transform: none; opacity: 1; border-left-color: var(--paper); }
+  .scene.is-2d .rail-2d { display: block; }
+  .rail-dom { position: absolute; left: 16px; top: 16px; margin: 0; padding: 0; list-style: none; font-size: 11px; color: var(--ash); z-index: 2; display: grid; gap: 2px; }
+  .rail-cap { position: absolute; left: 16px; right: 16px; bottom: 12px; z-index: 2; margin: 0; opacity: 0; transition: opacity var(--base) var(--cr); background: rgba(26,27,29,0.8); padding: 6px 8px; }
+  .rail-cap.on { opacity: 1; }
+  @media (max-width: 899px) { .prh-scene { grid-column: 1 / -1; margin-inline: calc(-1 * var(--gutter)); min-height: 360px; } .rail-dom { display: none; } }
+  /* chapters */
+  .ch-g { align-items: start; }
+  .beats { position: relative; }
+  .beat { margin-top: 24px; border-top: var(--hair) solid var(--rule); padding-top: 16px; }
+  .bidx { font-size: 12px; color: var(--ash); margin-bottom: 8px; }
+  .beat-dots { display: flex; gap: 6px; margin-top: 24px; }
+  .beat-dots i { width: 24px; height: 2px; background: var(--rule); }
+  .beat-dots i.on { background: var(--paper); }
+  .ch-media { grid-column: 7 / -1; margin-right: calc(-1 * var(--gutter)); align-self: stretch; }
+  .v02 { position: relative; aspect-ratio: 3200 / 2072; }
+  .v02 video { width: 100%; height: 100%; object-fit: cover; }
+  .replay { position: absolute; right: 12px; bottom: 12px; background: var(--graphite); color: var(--paper); border: var(--hair) solid var(--paper); padding: 4px 10px; font-size: 12px; cursor: pointer; }
+  .cols-line { padding: 10px 12px; }
+  @media (min-width: 900px) {
+    #ch-queue.pinned .beats .beat { position: absolute; left: 0; right: 0; top: 92px; opacity: 0; transform: translateY(12px); transition: opacity var(--base) var(--cr), transform var(--base) var(--cr); pointer-events: none; }
+    #ch-queue.pinned .beats .beat.on { opacity: 1; transform: none; pointer-events: auto; }
+    #ch-queue.pinned .beats { min-height: 360px; }
+    #ch-queue.pinned .beat-dots { position: absolute; top: 60px; left: 0; margin: 0; }
+  }
+  @media (max-width: 899px) { .ch-media { grid-column: 1 / -1; margin-inline: calc(-1 * var(--gutter)); order: -1; margin-bottom: 24px; } .cols-line { padding-inline: var(--gutter); } }
+  /* set piece */
+  .setpiece { width: 100vw; }
+  .sp-pin { min-height: 100vh; display: grid; align-content: center; }
+  .sp-g { align-items: center; padding-block: 48px; }
+  .sp-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 40px; }
+  .sp-fig { font-size: clamp(56px, 11vw, 160px); line-height: 1; color: var(--paper); letter-spacing: -0.02em; transition: color var(--base) var(--cr); }
+  .sp-fig.vd { color: var(--verdigris); }
+  .sp-land { display: none; }
+  .sp-cite { font-size: 14px; margin-top: 12px; opacity: 0; transition: opacity var(--base) var(--cr); }
+  .sp-cite.on { opacity: 1; }
+  .sp-lines { list-style: none; margin: 0; padding: 0; font-size: 13px; border-top: var(--hair) solid var(--rule); }
+  .sp-lines li { display: grid; grid-template-columns: 1fr auto auto; gap: 16px; padding: 8px 0; border-bottom: var(--hair) solid var(--rule); color: var(--ash); opacity: 0.35; transition: opacity var(--fast) var(--ra), color var(--fast) var(--ra); }
+  .sp-lines li.on { opacity: 1; color: var(--paper); }
+  .sp-lines li .lbl { clip-path: inset(0 100% 0 0); transition: clip-path var(--base) steps(24); }
+  .sp-lines li.on .lbl { clip-path: inset(0 0 0 0); }
+  .sp-lines li.on .run { color: var(--paper); }
+  .sp-table { margin: 0 var(--gutter) 40px; width: calc(100% - 2 * var(--gutter)); }
+  .form-toggle { justify-self: start; }
+  .shot-band { width: 100vw; }
+  .shot-band .rl { margin: 0; }
+  .shot-band .shot { border-top: 0; }
+  .foot-line { padding: 10px var(--gutter); }
+  /* accordion */
+  .acc { border-top: var(--hair) solid var(--rule); }
+  .acc-item { border-bottom: var(--hair) solid var(--rule); }
+  .acc h3 { margin: 0; }
+  .acc h3 button { width: 100%; display: flex; justify-content: space-between; align-items: center; background: transparent; border: 0; padding: 16px 0; color: var(--paper); font: inherit; font-weight: 600; font-stretch: 88%; font-size: 20px; cursor: pointer; text-align: left; }
+  .acc h3 button i { width: 12px; height: 12px; border: var(--hair) solid var(--paper); position: relative; transition: background var(--fast) var(--ra); }
+  .acc-item.open h3 button i { background: var(--paper); }
+  .acc-body { padding-bottom: 16px; }
+  .acc-shot img { transition: opacity var(--base) var(--cr); }
+  .legend .chip { margin-right: 4px; }
+  /* pull quote */
+  .pq-field { position: relative; width: 100vw; padding-block: clamp(24px, 4vw, 64px); overflow: hidden; }
+  .pq-tally { position: absolute; right: 4vw; top: 50%; transform: translateY(-50%); color: var(--paper); opacity: 0.12; pointer-events: none; }
+  .pq-tally .tally { width: 640px; height: 480px; }
+  .pq { margin: 0; font-family: var(--sans); font-stretch: 88%; font-weight: 600; font-size: clamp(28px, 3.4vw, 52px); line-height: 1.12; letter-spacing: -0.01em; }
+  .who { padding: clamp(32px, 4vw, 56px); }
+  .who .disc { font-size: 15px; color: rgba(233,229,218,0.85); }
+  .inset-line { background: rgba(26,27,29,0.84); padding: 28px; border: var(--hair) solid var(--rule); margin-left: var(--gutter); display: grid; gap: 24px; justify-items: start; }
+  @media (max-width: 899px) { #ch-button .band { aspect-ratio: auto; min-height: 420px; } .inset-line { margin: 24px var(--gutter); } .sp-lines { margin-top: 32px; } }
+</style>

@@ -1,0 +1,176 @@
+---
+import Ledger from '../layouts/Ledger.astro';
+import Row from '../components/Row.astro';
+const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','DC','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY'];
+const year = 2026;
+const years = Array.from({ length: 13 }, (_, i) => year + i);
+const months = Array.from({ length: 12 }, (_, i) => String(i + 1).padStart(2, '0'));
+---
+<Ledger route="/checkout" page="checkout" hover="counter" footerIndex="0006" scene="slabs">
+  <Row index="0001" id="checkout-head" class="ch0" label="Checkout" reveal="mask-rows">
+    <div class="g">
+      <div class="c1-6">
+        <h1 class="hv"><span class="ln"><span>Checkout</span></span></h1>
+        <p class="lede mt2">One page, four sections. The account is created from what you enter here after payment; nothing exists before that.</p>
+      </div>
+      <div class="c8-12 slab-index m" id="slab-index" aria-label="Sections">
+        <span class="on" data-s="1">01 Account</span><span data-s="2">02 Billing</span><span data-s="3">03 Payment</span><span data-s="4">04 Review</span>
+      </div>
+    </div>
+  </Row>
+
+  <div class="g co-g">
+    <form class="c1-6 co-form" id="checkout-form" novalidate>
+      <div class="co-empty" id="co-empty" hidden><p>The cart is empty. Add a pack from the pricing ledger to continue.</p><a class="link" href="/pricing#ledger">Open the pricing ledger</a></div>
+      <!-- 01 Account -->
+      <Row index="0002" id="s1" class="co-sec" label="01 Account" reveal="rule-unmask">
+        <div class="rl hr"></div>
+        <div class="txt">
+          <div class="sec-head"><span class="num sm">01</span><h2 class="hv">Account</h2><button type="button" class="link quiet signin" id="signin-link" aria-expanded="false" aria-controls="signin-panel">Bought before? Sign in to skip sections 01 and 02.</button></div>
+          <div class="signin-panel" id="signin-panel" hidden><div class="field"><label for="si-email">Work email</label><div class="cell"><input id="si-email" type="email" autocomplete="email" /></div></div><div class="field"><label for="si-pass">Password</label><div class="cell"><input id="si-pass" type="password" autocomplete="current-password" /></div></div><p class="small ash">Signing in is optional. Every section below works without an account.</p></div>
+          <div class="field"><label for="f-lender">Lender legal name <span class="req">(required)</span></label><div class="cell"><input id="f-lender" name="lenderName" type="text" autocomplete="organization" required data-empty="Enter the lender's legal name" /></div><div class="msg"></div></div>
+          <div class="field"><label for="f-nmls">NMLS company ID <span class="req">(required)</span></label><div class="cell"><input id="f-nmls" name="nmlsId" type="text" inputmode="numeric" required data-empty="Enter the NMLS company ID" data-digits="NMLS company ID must be numbers only" /></div><div class="help">The company ID from NMLS Consumer Access, digits only. The pilot is limited to one per company ID.</div><div class="msg"></div></div>
+          <div class="field" id="f-owner"><span class="lab">Account owner name <span class="req">(required)</span></span><div class="row2"><div class="cell"><label class="sr-only" for="f-first">First name</label><input id="f-first" name="firstName" type="text" autocomplete="given-name" placeholder="First name" required aria-label="First name" /></div><div class="cell"><label class="sr-only" for="f-last">Last name</label><input id="f-last" name="lastName" type="text" autocomplete="family-name" placeholder="Last name" required aria-label="Last name" /></div></div><div class="msg" data-owner="Enter the account owner's name"></div></div>
+          <div class="field"><label for="f-email">Work email <span class="req">(required)</span></label><div class="cell"><input id="f-email" name="email" type="email" autocomplete="email" required data-empty="Enter your work email address" data-format="Enter an email address in the correct format, like name@lender.com" /></div><div class="help">The receipt, the activation email and the balance notices go here.</div><div class="msg"></div></div>
+          <div class="field"><label for="f-mobile">Mobile number <span class="req">(optional)</span></label><div class="cell"><input id="f-mobile" name="mobile" type="tel" inputmode="tel" autocomplete="tel" data-format="Enter a mobile number in the correct format, like 404 555 0100, or leave the field empty" /></div><div class="help">Optional. Used only if we need to reach the account owner about this order, for example a debit that did not settle. Entering a number here does not sign you up for text messages; that consent is given only in the Join Our SMS List block.</div><div class="msg"></div></div>
+        </div>
+      </Row>
+      <!-- 02 Billing -->
+      <Row index="0003" id="s2" class="co-sec" label="02 Billing" reveal="rule-unmask">
+        <div class="rl hr"></div>
+        <div class="txt">
+          <div class="sec-head"><span class="num sm">02</span><h2 class="hv">Billing</h2></div>
+          <div class="field"><label for="f-country">Country <span class="req">(required)</span></label><div class="cell"><select id="f-country" name="country" autocomplete="country" required data-empty="Select a country"><option value="US" selected>United States</option><option value="CA">Canada</option><option value="GB">United Kingdom</option><option value="AU">Australia</option><option value="other">Other</option></select></div><div class="msg"></div></div>
+          <div class="field"><label for="f-addr1">Billing address line 1 <span class="req">(required)</span></label><div class="cell"><input id="f-addr1" name="address1" type="text" autocomplete="address-line1" required data-empty="Enter the billing address" /></div><div class="msg"></div></div>
+          <div class="field"><label for="f-addr2">Address line 2 <span class="req">(optional)</span></label><div class="cell"><input id="f-addr2" name="address2" type="text" autocomplete="address-line2" /></div></div>
+          <div class="row3">
+            <div class="field"><label for="f-city">City <span class="req">(required)</span></label><div class="cell"><input id="f-city" name="city" type="text" autocomplete="address-level2" required data-empty="Enter a city" /></div><div class="msg"></div></div>
+            <div class="field"><label for="f-state">State <span class="req">(required)</span></label><div class="cell"><select id="f-state" name="state" autocomplete="address-level1" required data-empty="Select a state"><option value="">Select</option>{states.map((s) => <option value={s}>{s}</option>)}</select></div><div class="msg"></div></div>
+            <div class="field"><label for="f-zip">ZIP code <span class="req">(required)</span></label><div class="cell"><input id="f-zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" required data-empty="Enter a ZIP code, like 30301" data-format="Enter a ZIP code, like 30301" /></div><div class="msg"></div></div>
+          </div>
+          <div class="help state-help">Sales tax is calculated from this address where the state taxes prewritten software.</div>
+          <div class="field mt"><label for="f-po">PO number <span class="req">(optional)</span></label><div class="cell"><input id="f-po" name="poNumber" type="text" /></div><div class="help">Printed on the receipt if entered.</div></div>
+        </div>
+      </Row>
+      <!-- 03 Payment -->
+      <Row index="0004" id="s3" class="co-sec" label="03 Payment" reveal="rule-unmask">
+        <div class="rl hr"></div>
+        <div class="txt">
+          <div class="sec-head"><span class="num sm">03</span><h2 class="hv">Payment</h2></div>
+          <p class="zero-line" id="zero-line" hidden>No payment method is collected for a $0 order.</p>
+          <div id="pay-wrap">
+            <div class="tabs pay-tabs" role="radiogroup" aria-label="Payment method">
+              <button type="button" role="radio" aria-checked="false" data-method="card">Card</button>
+              <button type="button" role="radio" aria-checked="false" data-method="ach">ACH debit</button>
+            </div>
+            <div class="msg method-msg" id="method-msg"></div>
+            <div class="pay-panel" id="panel-card" hidden>
+              <div class="marks m small ash">Visa, Mastercard, American Express, Discover</div>
+              <div class="field"><label for="f-cnum">Card number <span class="req">(required)</span></label><div class="cell"><input id="f-cnum" name="cardNumber" type="text" inputmode="numeric" autocomplete="cc-number" data-empty="Enter the card number" data-format="Check the card number and try again" /></div><div class="msg"></div></div>
+              <div class="field"><label for="f-cname">Name on card <span class="req">(required)</span></label><div class="cell"><input id="f-cname" name="cardName" type="text" autocomplete="cc-name" data-empty="Enter the name on the card" /></div><div class="msg"></div></div>
+              <div class="row3 exp-row">
+                <div class="field"><span class="lab">Expiry (MM YY) <span class="req">(required)</span></span><div class="row2"><div class="cell"><label class="sr-only" for="f-mm">Expiry month</label><select id="f-mm" name="expMonth" autocomplete="cc-exp-month"><option value="">MM</option>{months.map((m) => <option value={m}>{m}</option>)}</select></div><div class="cell"><label class="sr-only" for="f-yy">Expiry year</label><select id="f-yy" name="expYear" autocomplete="cc-exp-year"><option value="">YY</option>{years.map((y) => <option value={y}>{String(y).slice(2)}</option>)}</select></div></div><div class="msg" id="exp-msg"></div></div>
+                <div class="field"><label for="f-cvv">Security code <span class="req">(required)</span></label><div class="cell"><input id="f-cvv" name="cvv" type="text" inputmode="numeric" autocomplete="cc-csc" maxlength="4" data-empty="Enter the security code" /></div><div class="help">The 3 digits on the back of the card, or the 4 on the front of an American Express card</div><div class="msg"></div></div>
+              </div>
+            </div>
+            <div class="pay-panel" id="panel-ach" hidden>
+              <div class="field"><label for="f-aname">Account holder name <span class="req">(required)</span></label><div class="cell"><input id="f-aname" name="achName" type="text" autocomplete="name" data-empty="Enter the account holder's name" /></div><div class="msg"></div></div>
+              <div class="field"><label for="f-routing">Routing number <span class="req">(required)</span></label><div class="cell"><input id="f-routing" name="routing" type="text" inputmode="numeric" data-empty="Enter the routing number" data-format="Routing number must be 9 digits" /></div><div class="msg"></div></div>
+              <div class="field"><label for="f-acct">Account number <span class="req">(required)</span></label><div class="cell"><input id="f-acct" name="account" type="text" inputmode="numeric" data-empty="Enter the account number" data-format="Enter the account number" /></div><div class="msg"></div></div>
+              <div class="field"><span class="lab">Account type <span class="req">(required)</span></span><div class="tabs" role="radiogroup" aria-label="Account type" id="acct-type"><button type="button" role="radio" aria-checked="false" data-type="checking">checking</button><button type="button" role="radio" aria-checked="false" data-type="savings">savings</button></div><div class="msg" id="acct-type-msg"></div></div>
+              <p class="small ash">The file balance posts when the debit settles, usually within three business days. The account, seats and condition library activate right away.</p>
+            </div>
+          </div>
+        </div>
+      </Row>
+      <!-- 04 Review -->
+      <Row index="0005" id="s4" class="co-sec" label="04 Review" reveal="rule-unmask">
+        <div class="rl hr"></div>
+        <div class="txt">
+          <div class="sec-head"><span class="num sm">04</span><h2 class="hv">Review</h2></div>
+          <div class="tbl-scroll"><table class="ledger review" id="review-table">
+            <thead><tr><th>pack</th><th>files</th><th>rate</th><th class="r">line total</th></tr></thead>
+            <tbody id="review-lines"></tbody>
+            <tfoot>
+              <tr><td colspan="3" class="ash">sales tax</td><td class="m r" id="tax-cell">$0.00</td></tr>
+              <tr class="total"><td colspan="3">total</td><td class="m r tot" id="total-cell"><span class="drum" id="total-drum" data-drum="$0.00">$0.00</span></td></tr>
+            </tfoot>
+          </table></div>
+          <p class="small ash" id="validity"></p>
+          <div class="field"><label class="check" for="f-agree"><input id="f-agree" name="agree" type="checkbox" /><span>I agree to the <a href="/terms-of-service" target="_blank" rel="noopener">Terms of Service</a> and the <a href="/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> on behalf of the lender named in section 01.</span></label><div class="msg" id="agree-msg"></div></div>
+          <div class="reorder" id="reorder-wrap">
+            <div class="switch"><button type="button" role="switch" aria-checked="false" id="auto-reorder" aria-labelledby="reorder-lab"></button><span id="reorder-lab">Auto reorder</span></div>
+            <p class="small ash"><span class="drum" id="reorder-state" data-drum="Off.">Off.</span> When on, the same pack is bought again when your balance reaches zero, on this payment method, with a receipt emailed the same minute. It can be turned off from the account page at any time.</p>
+          </div>
+          <div class="err-summary" id="co-errors" tabindex="-1"><h3>There is a problem</h3><ul></ul></div>
+          <div class="msg decline" id="decline-msg"></div>
+          <button class="btn idle full" type="submit" id="pay-btn"><span class="lbl"><span id="pay-label">Pay <span class="drum" id="pay-drum" data-drum="$0.00">$0.00</span></span></span></button>
+          <p class="small ash mt">Card payments post the balance now. Nothing else on this page renews or converts.</p>
+        </div>
+      </Row>
+    </form>
+    <aside class="c8-12 co-side">
+      <div class="side-sticky">
+        <div class="scene" id="slabs" data-scene="slabs" data-poster="W-13">
+          <img class="poster" src="/assets/posters/W-13.webp" width="1600" height="1000" alt="A still of the /checkout section slabs scene: the four numbered section slabs standing in depth with the active one lit." loading="lazy" decoding="async" />
+          <div class="s2d"></div>
+        </div>
+        <div class="summary" id="side-summary">
+          <h3 class="m small ash">order summary</h3>
+          <div id="side-lines"></div>
+          <div class="sum-row"><span class="ash">sales tax</span><span class="m" id="side-tax">$0.00</span></div>
+          <div class="sum-row total"><span>total</span><span class="m" id="side-total">$0.00</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+  <div class="mobile-total m" id="mobile-total" hidden><button type="button" aria-expanded="false" aria-controls="side-summary">Total <span id="mobile-total-fig">$0.00</span></button></div>
+</Ledger>
+
+<style is:global>
+  .ch0 { border-top: 0; padding-top: clamp(48px, 8vh, 96px); }
+  .slab-index { display: flex; gap: 12px; flex-wrap: wrap; font-size: 12px; color: var(--ash); align-self: end; }
+  @media (max-width: 899px) { .slab-index { margin-top: 28px; } }
+  .slab-index span { border: var(--hair) solid var(--rule); padding: 6px 10px; }
+  .slab-index span.on { color: var(--paper); border-color: var(--paper); }
+  .co-g { align-items: start; }
+  .co-form { padding-bottom: 48px; }
+  .co-empty { padding: 32px 0 64px; display: grid; gap: 12px; justify-items: start; }
+  .co-sec { border-top: 0; padding-block: 32px 8px; }
+  .co-sec .rl { margin-bottom: 24px; }
+  .sec-head { display: flex; gap: 24px; align-items: baseline; flex-wrap: wrap; margin-bottom: 24px; }
+  .sec-head .num { border-bottom: 0; }
+  .signin { background: transparent; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
+  .signin-panel { border: var(--hair) solid var(--rule); padding: 16px; margin-bottom: 24px; }
+  .state-help { margin-top: -8px; margin-bottom: 8px; }
+  .pay-tabs { margin-bottom: 20px; }
+  .pay-tabs button { min-width: 120px; }
+  .marks { margin-bottom: 16px; padding: 8px 0; border-top: var(--hair) solid var(--rule); border-bottom: var(--hair) solid var(--rule); }
+  .method-msg, .decline { display: none; font-size: 13px; font-weight: 600; margin: 0 0 16px; }
+  .method-msg.on, .decline.on { display: block; }
+  .method-msg::before, .decline::before { content: '!'; display: inline-block; width: 16px; height: 16px; line-height: 16px; text-align: center; border: 1px solid var(--paper); font-family: var(--mono); font-size: 11px; margin-right: 8px; }
+  .zero-line { border: var(--hair) solid var(--rule); padding: 14px 16px; }
+  .tbl-scroll { overflow-x: auto; margin-bottom: 16px; }
+  .review { min-width: 100%; }
+  @media (max-width: 599px) { .review th:nth-child(3), .review td:nth-child(3) { display: none; } }
+  .review tfoot td { border-bottom: 0; }
+  .review .total td { border-top: var(--hair) solid var(--paper); padding-top: 16px; }
+  .review .tot { font-size: 32px; }
+  .reorder { border-top: var(--hair) solid var(--rule); border-bottom: var(--hair) solid var(--rule); padding: 12px 0; margin: 8px 0 24px; display: grid; gap: 8px; }
+  .co-side { align-self: stretch; }
+  .side-sticky { position: sticky; top: calc(var(--nav-h) + 16px); }
+  .co-side .scene { aspect-ratio: 16 / 10; margin-bottom: 16px; }
+  .summary { border-top: var(--hair) solid var(--rule); }
+  .summary h3 { padding: 10px 0; font-weight: 400; }
+  .sum-row { display: flex; justify-content: space-between; padding: 10px 0; border-top: var(--hair) solid var(--rule); font-size: 14px; }
+  .sum-row.total { font-size: 18px; border-top-color: var(--paper); }
+  .mobile-total { display: none; }
+  @media (max-width: 899px) {
+    .co-side { display: none; }
+    .co-side.open { display: block; position: fixed; left: 0; right: 0; bottom: 56px; background: var(--graphite); z-index: 48; padding: 16px var(--gutter); border-top: var(--hair) solid var(--rule); }
+    .co-side.open .scene { display: none; }
+    .mobile-total { display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 48; background: var(--slate); border-top: var(--hair) solid var(--rule); }
+    .mobile-total button { width: 100%; height: 56px; background: transparent; border: 0; color: var(--paper); font: inherit; display: flex; justify-content: space-between; padding: 0 var(--gutter); }
+    .co-form { padding-bottom: 96px; }
+  }
+</style>

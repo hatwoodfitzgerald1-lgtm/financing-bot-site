@@ -1,0 +1,175 @@
+---
+import Ledger from '../layouts/Ledger.astro';
+import Row from '../components/Row.astro';
+import PaperButton from '../components/PaperButton.astro';
+import offering from '../data/offering.json';
+const packs = offering.packs;
+const kv = [
+  ['files', packs.map((p) => p.filesLabel)],
+  ['valid', packs.map((p) => p.valid)],
+  ['seats', packs.map((p) => p.seats)],
+  ['queue', packs.map((p) => p.queue)],
+  ['support', packs.map((p) => p.support)],
+];
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+<Ledger route="/pricing" page="pricing" hover="tabulate" footerIndex="0006" scene="drums">
+  <!-- 0001 Header: the H1 over the tally wall, the balance drums at the right -->
+  <section class="row flush ph" id="pricing-head" aria-label="Pricing">
+    <span class="row-idx" aria-hidden="true">0001</span>
+    <canvas class="tally-wall" id="tally-wall-head" aria-hidden="true"></canvas>
+    <div class="g ph-g">
+      <div class="c1-7 ph-copy in" data-reveal="mask-rows">
+        <h1 class="hv"><span class="ln"><span>The ledger: what a file costs,</span></span><span class="ln"><span>and what comes back with it</span></span></h1>
+        <p class="lede mt2">Three columns, one rate each, every row shared so you can read across. A file is one loan application worked to one package, and it leaves the balance when the package is delivered, never at upload. Prices include the web app and the seats listed; sales tax is its own row at checkout where a state taxes prewritten software.</p>
+        <p class="m ash small mt">files counted as you scroll</p>
+      </div>
+      <div class="ph-scene">
+        <div class="scene" id="drums" data-scene="drums" data-poster="W-02">
+          <img class="poster" src="/assets/posters/W-02.webp" width="1600" height="1000" alt="A still of the /pricing balance drums scene: three mechanical drum counters reading 100, 500 and 2,000." loading="lazy" decoding="async" />
+          <div class="s2d drums-2d m" aria-hidden="true"><div><span class="drum" data-drum="100">000</span><small>files</small></div><div><span class="drum" data-drum="500">000</span><small>files</small></div><div><span class="drum" data-drum="2,000">0,000</span><small>files</small></div></div>
+          <p class="scene-text">the balance drums: 100, 500, 2,000 files, rolling down as each column enters view</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 0002 The ledger, spanning all 12 columns -->
+  <Row index="0002" id="ledger" flush label="The ledger">
+    <div class="ledger-wrap" id="ledger-wrap">
+      <table class="pl" id="pl" data-reveal="draw-table">
+        <thead>
+          <tr class="pl-name">
+            <th scope="col" class="pl-i"><span class="sr-only">row</span></th>
+            {packs.map((p, i) => (<th scope="col" class="pl-c" data-col={i}><div class="pl-nm"><span class="cap">{p.ledgerName}</span><span class="chip">{p.chip}</span>{p.recommend && <span class="chip rec" id="rec-chip">{p.recommend}</span>}</div></th>))}
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pl-total" style="--i:0">
+            <td class="pl-i m">total</td>
+            {packs.map((p, i) => (<td class="pl-c" data-col={i}><span class="tot m"><span class="drum" data-drum={p.priceLabel}>{p.priceLabel.replace(/\d/g, '0')}</span></span></td>))}
+          </tr>
+          <tr class="pl-rate" style="--i:1">
+            <td class="pl-i m">rate</td>
+            {packs.map((p, i) => (<td class="pl-c m" data-col={i}>{p.rateLabel} <span class="ash">{p.arithmetic}</span></td>))}
+          </tr>
+          {kv.map(([k, vals], j) => (
+            <tr class="pl-kv" style={`--i:${j + 2}`}>
+              <td class="pl-i m">{k}</td>
+              {(vals as string[]).map((v, i) => (<td class="pl-c" data-col={i}>{v}</td>))}
+            </tr>
+          ))}
+          {offering.inclusions.map((inc, n) => (
+            <tr class="pl-inc" data-inc={n} style={`--i:${n + 7}`}>
+              <td class="pl-i m">{pad(n + 1)}</td>
+              {inc.map((t, i) => (<td class="pl-c" data-col={i}>{t ? t : <span class="m ash ni">{offering.notIncluded}</span>}</td>))}
+            </tr>
+          ))}
+          <tr class="pl-step" style="--i:27">
+            <td class="pl-i m">blocks</td>
+            <td class="pl-c" data-col="0"></td>
+            <td class="pl-c" data-col="1"></td>
+            <td class="pl-c" data-col="2">
+              <div class="stepper" role="group" aria-label="Enterprise blocks">
+                <button type="button" id="ent-minus" aria-label="One block fewer">−</button>
+                <output id="ent-qty" for="ent-minus ent-plus">1</output>
+                <button type="button" id="ent-plus" aria-label="One block more">+</button>
+              </div>
+              <div class="m small mt" id="ent-readout" aria-live="polite"><span class="drum" data-drum="1">1</span> block | <span class="drum" data-drum="2,000">2,000</span> files | <span class="drum" data-drum="$36,000.00">$36,000.00</span></div>
+            </td>
+          </tr>
+          <tr class="pl-btn" style="--i:28">
+            <td class="pl-i"></td>
+            {packs.map((p, i) => (<td class="pl-c" data-col={i}><PaperButton label={p.button} class="full center" data={{ add: p.sku, qtyfrom: p.blocks ? 'ent-qty' : '' }} /></td>))}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </Row>
+
+  <!-- 0003 The pilot row -->
+  <Row index="0003" id="pilot" tight reveal="rule-unmask" label="Pilot Order">
+    <div class="pilot-row">
+      <div class="rl hr"></div>
+      <div class="g"><p class="c1-12 txt small">{offering.pilot.rowLine} <a class="link" href="/cart?pilot=1" data-pilot>{offering.pilot.link}</a></p></div>
+    </div>
+  </Row>
+
+  <!-- Pricing photograph band -->
+  <div class="band r21 grade-light" data-reveal="wipe">
+    <picture>
+      <source media="(max-width: 899px)" srcset="/assets/photo/PH-02-1280.webp" type="image/webp" />
+      <source srcset="/assets/photo/PH-02.webp" type="image/webp" />
+      <img src="/assets/photo/PH-02.jpg" width="2560" height="1097" alt="Three stapled loan packages of different thickness on a desk edge, each with a plain cover sheet." loading="lazy" decoding="async" />
+    </picture>
+  </div>
+
+  <!-- 0004 Pack terms: editorial index -->
+  <Row index="0004" id="terms" label="Pack terms">
+    <div class="g"><h2 class="c1-7 hv">Pack terms</h2></div>
+    <div class="g mt2 terms-index" data-reveal="slide-index">
+      {offering.packTerms.map(([h, body], i) => (
+        <div class="c2-8 idx-row term"><span class="num sm">{pad(i + 1)}</span><div class="txt"><h3>{h}</h3><p>{body}</p></div></div>
+      ))}
+    </div>
+  </Row>
+
+  <!-- 0005 Disclaimer band: a slate slab that lowers into place -->
+  <Row index="0005" id="disclaimer" flush reveal="slab" label="Disclaimer">
+    <div class="slab disc"><div class="g"><p class="c1-9">{offering.disclaimer}</p></div></div>
+  </Row>
+</Ledger>
+
+<style is:global>
+  .ph { border-top: 0; overflow: hidden; }
+  .ph-g { min-height: 62vh; align-items: center; }
+  .ph-copy { padding: clamp(56px, 10vh, 120px) 24px clamp(40px, 8vh, 96px) 0; position: relative; z-index: 2; }
+  .ph-scene { grid-column: 8 / -1; margin-right: calc(-1 * var(--gutter)); align-self: stretch; position: relative; min-height: 420px; }
+  .ph-scene .scene { position: absolute; inset: 0; }
+  .drums-2d { display: none; grid-template-columns: repeat(3, 1fr); gap: 8px; place-items: center; padding: 24px; font-family: var(--mono); }
+  .drums-2d > div { display: grid; text-align: center; font-size: clamp(28px, 6vw, 48px); border: var(--hair) solid var(--rule); padding: 16px 8px; width: 100%; }
+  .drums-2d small { font-size: 12px; color: var(--ash); }
+  .scene.is-2d .drums-2d { display: grid; }
+  @media (max-width: 899px) { .ph-scene { grid-column: 1 / -1; margin-inline: calc(-1 * var(--gutter)); min-height: 240px; } .ph-scene .scene { position: relative; height: 240px; } }
+  /* The ledger table */
+  .ledger-wrap { width: 100vw; overflow-x: auto; }
+  .pl { width: 100%; border-collapse: collapse; table-layout: fixed; min-width: 900px; }
+  .pl th, .pl td { border-bottom: var(--hair) solid var(--rule); vertical-align: top; text-align: left; padding: 12px 16px; font-size: 13px; line-height: 1.5; }
+  .pl .pl-i { width: 88px; padding-left: var(--gutter); color: var(--ash); font-family: var(--mono); font-size: 12px; border-right: var(--hair) solid var(--rule); }
+  .pl .pl-c { border-right: var(--hair) solid var(--rule); }
+  .pl .pl-c:last-child { border-right: 0; padding-right: var(--gutter); }
+  .pl thead th { padding-top: 28px; padding-bottom: 20px; font-weight: 400; }
+  .pl-nm { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+  .pl-nm .cap { font-weight: 600; font-size: 14px; }
+  .pl-total .tot { font-size: 40px; line-height: 1; }
+  .pl-total td { padding-top: 20px; padding-bottom: 20px; }
+  .pl-inc td { transition: background var(--fast) var(--cr); }
+  .pl-inc.lit td { background: var(--slate); }
+  .pl-btn td { padding-top: 20px; padding-bottom: 28px; }
+  .pl-step td { padding-top: 20px; }
+  .pl .pl-c.hi { background: var(--el-1); }
+  .pl thead .pl-c.hi .cap { position: relative; }
+  .pl thead .pl-c.hi::before { content: attr(data-ri); }
+  .pl .rec.pulse { animation: pulse var(--base) var(--ra) 2; }
+  @keyframes pulse { 50% { transform: translateY(-2px); color: var(--paper); border-color: var(--paper); } }
+  @media (max-width: 899px) {
+    .pl { min-width: 0; display: block; }
+    .pl thead, .pl tbody, .pl tr, .pl th, .pl td { display: block; }
+    .pl thead { display: none; }
+    .pl tr { border: 0; }
+    .pl .pl-i { width: auto; border-right: 0; border-bottom: 0; padding: 12px var(--gutter) 4px; }
+    .pl .pl-c { border-right: 0; padding-inline: var(--gutter); }
+    .pl-btn .pl-c { padding-bottom: 12px; }
+    .pl-step .pl-c[data-col="0"], .pl-step .pl-c[data-col="1"], .pl-btn .pl-i, .pl-step .pl-i { display: none; }
+  }
+  .pilot-row .rl { margin: 0 var(--gutter) 16px; }
+  .pilot-row .txt { font-size: 13px; }
+  .pilot-row .link { margin-left: 8px; }
+  .terms-index .term { display: grid; grid-template-columns: 96px 1fr; gap: 24px; padding: 28px 0; border-bottom: var(--hair) solid var(--rule); align-items: start; }
+  .terms-index .term:first-child { border-top: var(--hair) solid var(--rule); }
+  .terms-index .term h3 { margin-bottom: 8px; }
+  .terms-index .txt { display: block; }
+  @media (max-width: 599px) { .terms-index .term { grid-template-columns: 1fr; gap: 8px; } }
+  .disc { padding: clamp(40px, 5vw, 72px) 0; }
+  .disc p { font-size: 16px; line-height: 1.6; }
+</style>
