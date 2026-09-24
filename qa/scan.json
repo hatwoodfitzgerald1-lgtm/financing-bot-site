@@ -1,0 +1,326 @@
+{
+ "/": {
+  "status": 200,
+  "title": "Financing Bot: the loan file, read and cited",
+  "description_len": 153,
+  "canonical": "https://financingbot.com/",
+  "og_image": "https://financingbot.com/assets/brand/B-01-og.png",
+  "robots": "index, follow",
+  "dashes": [],
+  "banned_adjectives": [],
+  "placeholders_present": {
+   "[BUSINESS NAME]": true,
+   "[PHONE NUMBER]": true,
+   "[Physical Address]": true
+  },
+  "ein_address_present": false,
+  "disclaimer_present": false,
+  "sms_block_present": true,
+  "sms_checkboxes_checked_by_default": false
+ },
+ "/pricing": {
+  "status": 200,
+  "title": "Pricing: three prepaid file packs, one rate each",
+  "description_len": 153,
+  "canonical": "https://financingbot.com/pricing",
+  "og_image": "https://financingbot.com/assets/brand/B-01-og.png",
+  "robots": "index, follow",
+  "dashes": [],
+  "banned_adjectives": [],
+  "placeholders_present": {
+   "[BUSINESS NAME]": true,
+   "[PHONE NUMBER]": true,
+   "[Physical Address]": true
+  },
+  "ein_address_present": false,
+  "disclaimer_present": true,
+  "sms_block_present": true,
+  "sms_checkboxes_checked_by_default": false
+ },
+ "/product": {
+  "status": 200,
+  "title": "How it works: queue, worksheet, condition list",
+  "description_len": 148,
+  "canonical": "https://financingbot.com/product",
+  "og_image": "https://financingbot.com/assets/brand/B-01-og.png",
+  "robots": "index, follow",
+  "dashes": [],
+  "banned_adjectives": [],
+  "placeholders_present": {
+   "[BUSINESS NAME]": true,
+   "[PHONE NUMBER]": true,
+   "[Physical Address]": true
+  },
+  "ein_address_present": false,
+  "disclaimer_present": true,
+  "sms_block_present": true,
+  "sms_checkboxes_checked_by_default": false
+ },
+ "/about": {
+  "status": 200,
+  "title": "About Financing Bot: built in 2026, decided by you",
+  "description_len": 146,
+  "canonical": "https://financingbot.com/about",
+  "og_image": "https://financingbot.com/assets/brand/B-01-og.png",
+  "robots": "index, follow",
+  "dashes": [],
+  "banned_adjectives": [],
+  "placeholders_present": {
+   "[BUSINESS NAME]": true,
+   "[PHONE NUMBER]": true,
+   "[Physical Address]": true
+  },
+  "ein_address_present": false,
+  "disclaimer_present": true,
+  "sms_block_present": true,
+  "sms_checkboxes_checked_by_default": false
+ },
+ "/blog": {
+  "status": 200,
+  "title": "Blog: four notes on the underwriting file",
+  "description_len": 143,
+  "canonical": "https://financingbot.com/blog",
+  "og_image": "https://financingbot.com/assets/brand/B-01-og.png",
+  "robots": "index, follow",
+  "dashes": [],
+  "banned_adjectives": [],
+  "placeholders_present": {
+   "[BUSINESS NAME]": true,
+   "[PHONE NUMBER]": true,
+   "[Physical Address]": true
+  },
+  "ein_address_present": false,
+  "disclaimer_present": false,
+  "sms_block_present": true,
+  "sms_checkboxes_checked_by_default": false
+ },
+ "/blog/form-1084-add-backs": {
+  "status": 200,
+  "title": "How the Form 1084 add backs actually work",
+  "description_len": 150,
+  "canonical": "https://financingbot.com/blog/form-1084-add-backs",
+  "og_image": "https://financingbot.com/assets/brand/B-01-og.png",
+  "robots": "index, follow",
+  "dashes": [],
+  "banned_adjectives": [],
+  "placeholders_present": {
+   "[BUSINESS NAME]": true,
+   "[PHONE NUMBER]": true,
+   "[Physical Address]": true
+  },
+  "ein_address_present": false,
+  "disclaimer_present": false,
+  "sms_block_present": true,
+  "sms_checkboxes_checked_by_default": false
+ },
+ "/blog/large-deposit-letter": {
+  "status": 200,
+  "title": "The large deposit rule and the drafted letter",
+  "description_len": 148,
+  "canonical": "https://financingbot.com/blog/large-deposit-letter",
+  "og_image": "https://financingbot.com/assets/brand/B-01-og.png",
+  "robots": "index, follow",
+  "dashes": [],
+  "banned_adjectives": [],
+  "placeholders_present": {
+   "[BUSINESS NAME]": true,
+   "[PHONE NUMBER]": true,
+   "[Physical Address]": true
+  },
+  "ein_address_present": false,
+  "disclaimer_present": false,
+  "sms_block_present": true,
+  "sms_checkboxes_checked_by_default": false
+ },
+ "/blog/prior-to-doc-prior-to-close": {
+  "status": 200,
+  "title": "Prior to doc or prior to close: conditions an LOS carries",
+  "description_len": 150,
+  "canonical": "https://financingbot.com/blog/prior-to-doc-prior-to-close",
+  "og_image": "https://financingbot.com/assets/brand/B-01-og.png",
+  "robots": "index, follow",
+  "dashes": [],
+  "banned_adjectives": [],
+  "placeholders_present": {
+   "[BUSINESS NAME]": true,
+   "[PHONE NUMBER]": true,
+   "[Physical Address]": true
+  },
+  "ein_address_present": false,
+  "disclaimer_present": false,
+  "sms_block_present": true,
+  "sms_checkboxes_checked_by_default": false
+ },
+ "/blog/ai-governance-file": {
+  "status": 200,
+  "title": "The governance file a lender keeps on every AI tool",
+  "description_len": 148,
+  "canonical": "https://financingbot.com/blog/ai-governance-file",
+  "og_image": "https://financingbot.com/assets/brand/B-01-og.png",
+  "robots": "index, follow",
+  "dashes": [],
+  "banned_adjectives": [],
+  "placeholders_present": {
+   "[BUSINESS NAME]": true,
+   "[PHONE NUMBER]": true,
+   "[Physical Address]": true
+  },
+  "ein_address_present": false,
+  "disclaimer_present": false,
+  "sms_block_present": true,
+  "sms_checkboxes_checked_by_default": false
+ },
+ "/drafter": {
+  "status": 200,
+  "title": "Condition drafter: draft a list from one scenario",
+  "description_len": 151,
+  "canonical": "https://financingbot.com/drafter",
+  "og_image": "https://financingbot.com/assets/brand/B-01-og.png",
+  "robots": "index, follow",
+  "dashes": [],
+  "banned_adjectives": [],
+  "placeholders_present": {
+   "[BUSINESS NAME]": true,
+   "[PHONE NUMBER]": true,
+   "[Physical Address]": true
+  },
+  "ein_address_present": false,
+  "disclaimer_present": false,
+  "sms_block_present": true,
+  "sms_checkboxes_checked_by_default": false
+ },
+ "/contact": {
+  "status": 200,
+  "title": "Contact Financing Bot support",
+  "description_len": 139,
+  "canonical": "https://financingbot.com/contact",
+  "og_image": "https://financingbot.com/assets/brand/B-01-og.png",
+  "robots": "index, follow",
+  "dashes": [],
+  "banned_adjectives": [],
+  "placeholders_present": {
+   "[BUSINESS NAME]": true,
+   "[PHONE NUMBER]": true,
+   "[Physical Address]": true
+  },
+  "ein_address_present": false,
+  "disclaimer_present": false,
+  "sms_block_present": true,
+  "sms_checkboxes_checked_by_default": false
+ },
+ "/cart": {
+  "status": 200,
+  "title": "Cart",
+  "description_len": 137,
+  "canonical": "https://financingbot.com/cart",
+  "og_image": "https://financingbot.com/assets/brand/B-01-og.png",
+  "robots": "index, follow",
+  "dashes": [],
+  "banned_adjectives": [],
+  "placeholders_present": {
+   "[BUSINESS NAME]": true,
+   "[PHONE NUMBER]": true,
+   "[Physical Address]": true
+  },
+  "ein_address_present": false,
+  "disclaimer_present": false,
+  "sms_block_present": true,
+  "sms_checkboxes_checked_by_default": false
+ },
+ "/checkout": {
+  "status": 200,
+  "title": "Checkout: account, billing, payment, review",
+  "description_len": 143,
+  "canonical": "https://financingbot.com/checkout",
+  "og_image": "https://financingbot.com/assets/brand/B-01-og.png",
+  "robots": "index, follow",
+  "dashes": [],
+  "banned_adjectives": [],
+  "placeholders_present": {
+   "[BUSINESS NAME]": true,
+   "[PHONE NUMBER]": true,
+   "[Physical Address]": true
+  },
+  "ein_address_present": false,
+  "disclaimer_present": false,
+  "sms_block_present": true,
+  "sms_checkboxes_checked_by_default": false
+ },
+ "/order-confirmation": {
+  "status": 200,
+  "title": "Order placed",
+  "description_len": 119,
+  "canonical": "https://financingbot.com/order-confirmation",
+  "og_image": "https://financingbot.com/assets/brand/B-01-og.png",
+  "robots": "index, follow",
+  "dashes": [],
+  "banned_adjectives": [],
+  "placeholders_present": {
+   "[BUSINESS NAME]": true,
+   "[PHONE NUMBER]": true,
+   "[Physical Address]": true
+  },
+  "ein_address_present": false,
+  "disclaimer_present": false,
+  "sms_block_present": true,
+  "sms_checkboxes_checked_by_default": false
+ },
+ "/terms-of-service": {
+  "status": 200,
+  "title": "Terms of Service",
+  "description_len": 115,
+  "canonical": "https://financingbot.com/terms-of-service",
+  "og_image": "https://financingbot.com/assets/brand/B-01-og.png",
+  "robots": "index, follow",
+  "dashes": [],
+  "banned_adjectives": [],
+  "placeholders_present": {
+   "[BUSINESS NAME]": true,
+   "[PHONE NUMBER]": true,
+   "[Physical Address]": true
+  },
+  "ein_address_present": true,
+  "disclaimer_present": false,
+  "sms_block_present": true,
+  "sms_checkboxes_checked_by_default": false
+ },
+ "/privacy-policy": {
+  "status": 200,
+  "title": "Privacy Policy",
+  "description_len": 142,
+  "canonical": "https://financingbot.com/privacy-policy",
+  "og_image": "https://financingbot.com/assets/brand/B-01-og.png",
+  "robots": "index, follow",
+  "dashes": [],
+  "banned_adjectives": [],
+  "placeholders_present": {
+   "[BUSINESS NAME]": true,
+   "[PHONE NUMBER]": true,
+   "[Physical Address]": true
+  },
+  "ein_address_present": true,
+  "disclaimer_present": false,
+  "sms_block_present": true,
+  "sms_checkboxes_checked_by_default": false
+ },
+ "/nope-404": {
+  "status": 404,
+  "title": "No file at this address",
+  "description_len": 65,
+  "canonical": "https://financingbot.com",
+  "og_image": "https://financingbot.com/assets/brand/B-01-og.png",
+  "robots": "noindex",
+  "dashes": [],
+  "banned_adjectives": [],
+  "placeholders_present": {
+   "[BUSINESS NAME]": true,
+   "[PHONE NUMBER]": true,
+   "[Physical Address]": true
+  },
+  "ein_address_present": false,
+  "disclaimer_present": false,
+  "sms_block_present": true,
+  "sms_checkboxes_checked_by_default": false
+ }
+}
+DASH AND WORD SCAN: PASS
