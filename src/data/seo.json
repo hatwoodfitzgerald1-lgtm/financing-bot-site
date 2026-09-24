@@ -1,0 +1,19 @@
+{
+  "/": { "title": "Financing Bot: the loan file, read and cited", "description": "Financing Bot reads a mortgage loan file and returns a decision ready package to your named underwriter, every figure beside its page. Packs from $2,400." },
+  "/product": { "title": "How it works: queue, worksheet, condition list", "description": "Three screens follow one loan file: the queue, the Form 1084 income worksheet with every add back cited, and conditions drafted in your own wording." },
+  "/pricing": { "title": "Pricing: three prepaid file packs, one rate each", "description": "100 files at $24.00, 500 at $22.00, or an Enterprise Block of 2,000 at $18.00. Valid twelve months, deducted on delivery, nothing that renews on its own." },
+  "/drafter": { "title": "Condition drafter: draft a list from one scenario", "description": "Describe one loan in six rows and see the condition list it would produce, split prior to doc and prior to close, each row with the page it would cite." },
+  "/about": { "title": "About Financing Bot: built in 2026, decided by you", "description": "Why a file preparation tool was founded in 2026, the cost and defect figures behind it, the line it never crosses, and how it is bought on a card." },
+  "/blog": { "title": "Blog: four notes on the underwriting file", "description": "Form 1084 add backs worked to the cent, the large deposit letter, prior to doc versus prior to close, and the governance file on every AI tool." },
+  "/blog/form-1084-add-backs": { "title": "How the Form 1084 add backs actually work", "description": "A Schedule C borrower, two tax years, lines 13, 12, 30 and 24b, the 24 month average and the AUS difference, added up on the page so you can check it." },
+  "/blog/large-deposit-letter": { "title": "The large deposit rule and the drafted letter", "description": "The 50 percent and 1 percent thresholds, what a sourced deposit looks like on the page, seasoning across two statements, and the letter's six parts." },
+  "/blog/prior-to-doc-prior-to-close": { "title": "Prior to doc or prior to close: conditions an LOS carries", "description": "The one question that splits a condition, one document per row, the page it cites, wording that survives QC, and the file that is referred up instead." },
+  "/blog/ai-governance-file": { "title": "The governance file a lender keeps on every AI tool", "description": "Lender Letter LL-2026-04 and Guide Section 1302.8 in plain terms: the inventory, roles, validation on your files, monitoring, and the vendor's pack." },
+  "/contact": { "title": "Contact Financing Bot support", "description": "Support email, phone, address and hours for Financing Bot. Put the loan number in the subject line and we open the package before we reply." },
+  "/cart": { "title": "Cart", "description": "Your file packs before checkout: pack, files, validity and line total. Files are deducted only when a package is delivered to your queue." },
+  "/checkout": { "title": "Checkout: account, billing, payment, review", "description": "Guest checkout in four sections. Card or ACH debit, one agreement checkbox, auto reorder off by default, and the account created after payment." },
+  "/order-confirmation": { "title": "Order placed", "description": "Your order number and what happens next: receipt, activation email, upload, underwriter profiles and condition library." },
+  "/terms-of-service": { "title": "Terms of Service", "description": "The terms that govern the purchase and use of Financing Bot file packs, the pilot, the web app and the SMS program." },
+  "/privacy-policy": { "title": "Privacy Policy", "description": "How Financing Bot handles account, order and file data, and the commitment that no mobile information is shared with or sold to third parties." },
+  "/404": { "title": "No file at this address", "description": "The page you asked for is not in the queue. Nothing was deducted." }
+}
