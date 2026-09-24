@@ -42,6 +42,9 @@ const linkify = (s: string) => s.replace(/support@financingbot\.com/g, '<a href=
   </Row>
 </Ledger>
 <style is:global>
+
+body[data-page="terms"], body[data-page="privacy"] {
+
   .legal-field { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.12; }
   .ruled-bg { background-image: repeating-linear-gradient(to bottom, var(--paper) 0 1px, transparent 1px 28px); opacity: 1; display: block; }
   .ch0 { border-top: 0; padding-top: clamp(48px, 8vh, 96px); }
@@ -53,4 +56,6 @@ const linkify = (s: string) => s.replace(/support@financingbot\.com/g, '<a href=
   .legal-col h2 .txt { display: inline-block; }
   .legal-col ul { padding-left: 20px; }
   .legal-col li { margin-bottom: 0.6em; }
+
+}
 </style>

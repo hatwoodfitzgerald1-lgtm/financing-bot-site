@@ -49,6 +49,9 @@ const { route, page, n, title, standfirst, tag, ph, phAlt, scene, poster, poster
 </Ledger>
 
 <style is:global>
+
+body[data-page^="post"] {
+
   .pth { border-top: 0; overflow: hidden; }
   .pth-g { align-items: stretch; }
   .pth-copy { padding: clamp(40px, 8vh, 96px) 24px clamp(40px, 6vh, 72px) 0; position: relative; z-index: 2; }
@@ -74,4 +77,6 @@ const { route, page, n, title, standfirst, tag, ph, phAlt, scene, poster, poster
   .post-body .spec { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
   @media (max-width: 899px) { .post-body .spec { grid-template-columns: 1fr; } .post-body .kitfig { margin-left: calc(-1 * var(--gutter)); } }
   .closing { display: grid; gap: 20px; justify-items: start; }
+
+}
 </style>
