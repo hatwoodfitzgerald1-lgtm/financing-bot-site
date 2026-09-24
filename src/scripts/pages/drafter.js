@@ -35,7 +35,7 @@ export function init({ env }) {
   }
   function row(r, idx) {
     const li = document.createElement('li'); li.dataset.key = r.side + r.text;
-    li.innerHTML = `<span class="ci">${r.side} ${String(idx).padStart(2, '0')}</span><span class="ct">${r.text}</span><span class="cc">${r.cite}</span><span class="chip">${r.chip}</span>`;
+    li.innerHTML = `<span class="ci">${r.key || r.side.toLowerCase()}</span><span class="ct">${r.text}</span><span class="cc">${r.cite}</span><span class="chip">${r.chip}</span>`;
     return li;
   }
   function render() {
@@ -48,7 +48,7 @@ export function init({ env }) {
     const P = rows.filter((r) => r.side === 'PTD'), C = rows.filter((r) => r.side === 'PTC');
     const n = P.length + C.length;
     rollTo(countDrum, String(n));
-    countRest.textContent = ` drafted: ${P.length} PTD, ${C.length} PTC`;
+    countRest.textContent = ` drafted: ${P.length} prior to doc, ${C.length} prior to close`;
     const keys = rows.map((r) => r.side + r.text);
     const paintList = (ol, list) => {
       // removed rows slide out, new rows land one by one
@@ -58,7 +58,7 @@ export function init({ env }) {
         const key = r.side + r.text;
         let li = [...ol.children].find((x) => x.dataset.key === key && !x.classList.contains('out'));
         if (!li) { li = row(r, i + 1); li.style.animationDelay = env.rm ? '0s' : (i * 0.14) + 's'; ol.appendChild(li); }
-        else { li.querySelector('.ci').textContent = `${r.side} ${String(i + 1).padStart(2, '0')}`; ol.appendChild(li); }
+        else { ol.appendChild(li); }
       });
       if (!list.length) { const d = document.createElement('li'); d.className = 'none'; d.textContent = 'none drafted'; ol.appendChild(d); }
     };
