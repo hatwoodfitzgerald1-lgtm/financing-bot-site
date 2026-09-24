@@ -229,6 +229,11 @@ const worksheet = [
 </Ledger>
 
 <style is:global>
+@keyframes uncover { to { transform: scaleY(0); } }
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes settle { from { transform: scale(1.02); } to { transform: none; } }
+body[data-page="home"] {
+
   .hero { min-height: calc(100vh - var(--nav-h)); border-top: 0; overflow: visible; }
   .hero-g { min-height: calc(100vh - var(--nav-h)); align-content: start; }
   .hero-copy { padding-top: clamp(64px, 14vh, 132px); padding-bottom: 48px; position: relative; z-index: 3; padding-right: 24px; }
@@ -237,18 +242,18 @@ const worksheet = [
   .h1-mask { position: relative; width: fit-content; }
   .h1-mask .cover { position: absolute; left: -4px; right: -4px; height: 34%; background: var(--graphite); border-bottom: var(--hair) solid var(--rule); transform-origin: top; transform: scaleY(1); }
   .h1-mask .c1 { top: 0; } .h1-mask .c2 { top: 33%; } .h1-mask .c3 { top: 66%; }
-  body.loaded .h1-mask .cover { animation: uncover var(--base) var(--cr) forwards; }
-  body.loaded .h1-mask .c2 { animation-delay: 0.07s; } body.loaded .h1-mask .c3 { animation-delay: 0.14s; }
-  @keyframes uncover { to { transform: scaleY(0); } }
+  &.loaded .h1-mask .cover { animation: uncover var(--base) var(--cr) forwards; }
+  &.loaded .h1-mask .c2 { animation-delay: 0.07s; } &.loaded .h1-mask .c3 { animation-delay: 0.14s; }
+  
   @media (prefers-reduced-motion: reduce) { .h1-mask .cover { display: none; } }
-  html.rm .h1-mask .cover { display: none; }
+  html.rm & .h1-mask .cover { display: none; }
   .audience { margin-top: 24px; max-width: 42ch; color: rgba(233,229,218,0.8); }
   .cta { margin-top: 40px; }
   .clear-cap { margin-top: 40px; max-width: 46ch; min-height: 72px; }
   .cap-line { font-size: 15px; line-height: 1.5; min-height: 1.5em; }
   .cap-line::after { content: ''; display: inline-block; width: 0.55em; height: 1em; background: var(--paper); vertical-align: -0.15em; margin-left: 2px; opacity: 0; }
   .cap-line.typing::after { opacity: 1; animation: blink 1.2s steps(2) infinite; }
-  @keyframes blink { 50% { opacity: 0; } }
+  
   .cap-foot { font-size: 12px; margin-top: 8px; opacity: 0; transition: opacity var(--base) var(--cr); }
   .clear-cap.done .cap-foot { opacity: 1; }
   .wall-col { grid-column: 7 / -1; margin-right: calc(-1 * var(--gutter)); position: relative; min-height: calc(100vh - var(--nav-h)); }
@@ -281,7 +286,7 @@ const worksheet = [
   .pk-row.clear .pk-chip { color: var(--paper); border-color: var(--paper); }
   .pk-row { transition: opacity var(--base) var(--cr), transform var(--base) var(--cr); }
   .pk-row.clear { animation: settle var(--base) var(--cr); }
-  @keyframes settle { from { transform: scale(1.02); } to { transform: none; } }
+  
   .pk-arith { padding: 0 0 12px 48px; font-size: 12px; }
   .pk-cap { padding: 16px 0 24px; font-size: 14px; min-height: 1.5em; }
   @media (max-width: 899px), (pointer: coarse) {
@@ -349,4 +354,6 @@ const worksheet = [
   .sms-tally { display: flex; align-items: center; justify-content: center; color: var(--paper); }
   .sms-tally .tally { width: 160px; height: 120px; }
   @media (max-width: 899px) { .sms-tally { display: none; } }
+
+}
 </style>

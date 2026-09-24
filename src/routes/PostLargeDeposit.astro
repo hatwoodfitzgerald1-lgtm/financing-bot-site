@@ -45,6 +45,9 @@ import Kit from '../components/Kit.astro';
 </Post>
 
 <style is:global>
+
+body[data-page="post2"] {
+
   .thr-2d { position: relative; height: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; font-size: 13px; }
   .thr-2d .col { display: grid; align-content: start; gap: 18px; padding-top: 12px; }
   .thr-2d .col span { border-bottom: var(--hair) solid var(--rule); padding-bottom: 4px; color: var(--ash); }
@@ -53,4 +56,6 @@ import Kit from '../components/Kit.astro';
   .thr-2d .plane i { position: absolute; right: 0; top: 2px; font-style: normal; font-size: 10px; color: var(--paper); }
   .scene.is-2d.in .thr-2d .plane { transform: none; }
   .thr-open { display: flex; gap: 8px 24px; flex-wrap: wrap; align-items: baseline; margin-bottom: 24px; }
+
+}
 </style>

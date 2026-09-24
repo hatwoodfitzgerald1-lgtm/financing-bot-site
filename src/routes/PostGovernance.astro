@@ -61,9 +61,14 @@ import Kit from '../components/Kit.astro';
 </Post>
 
 <style is:global>
+
+body[data-page="post4"] {
+
   .spool-2d { display: grid; gap: 10px; align-content: center; height: 100%; font-size: 12px; color: var(--ash); }
   .spool-2d div { border-bottom: var(--hair) solid var(--rule); padding-bottom: 6px; transform: translateY(12px); opacity: 0; transition: transform var(--base) var(--cr), opacity var(--base) var(--cr); }
   .scene.is-2d.in .spool-2d div { transform: none; opacity: 1; }
   .scene.is-2d.in .spool-2d div:nth-child(2) { transition-delay: 0.1s; } .scene.is-2d.in .spool-2d div:nth-child(3) { transition-delay: 0.2s; } .scene.is-2d.in .spool-2d div:nth-child(4) { transition-delay: 0.3s; } .scene.is-2d.in .spool-2d div:nth-child(5) { transition-delay: 0.4s; }
   .toc a { text-decoration: none; }
+
+}
 </style>

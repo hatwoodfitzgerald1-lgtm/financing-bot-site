@@ -130,6 +130,9 @@ const stations = [
 </Ledger>
 
 <style is:global>
+
+body[data-page="about"] {
+
   .ah { border-top: 0; overflow: hidden; }
   .ah-g { align-items: start; }
   .ah-copy { position: relative; z-index: 2; padding: clamp(56px, 10vh, 120px) 24px clamp(40px, 6vh, 80px) 0; }
@@ -153,4 +156,6 @@ const stations = [
   .entity { width: 100vw; margin-top: 32px; }
   .entity > div { padding-inline: var(--gutter); font-size: 15px; }
   .entity > div:nth-child(odd) { padding-left: var(--gutter); }
+
+}
 </style>

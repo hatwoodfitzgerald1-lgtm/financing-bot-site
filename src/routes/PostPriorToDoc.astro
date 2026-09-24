@@ -56,10 +56,15 @@ import Kit from '../components/Kit.astro';
 </Post>
 
 <style is:global>
+
+body[data-page="post3"] {
+
   .cols-2d { display: grid; grid-template-columns: 1fr 1fr; gap: 0; height: 100%; align-content: center; font-size: 14px; }
   .cols-2d > div { display: grid; gap: 14px; }
   .cols-2d .l { text-align: right; padding-right: 24px; transform: translateX(-40px); transition: transform var(--slow) var(--cr); color: var(--ash); }
   .cols-2d .r { padding-left: 24px; border-left: var(--hair) solid var(--rule); transform: translateX(40px); transition: transform var(--slow) var(--cr); color: var(--ash); }
   .cols-2d span.vd { color: var(--verdigris); }
   .scene.is-2d.in .cols-2d .l, .scene.is-2d.in .cols-2d .r { transform: none; }
+
+}
 </style>

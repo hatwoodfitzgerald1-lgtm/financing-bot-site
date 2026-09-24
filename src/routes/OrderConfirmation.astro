@@ -52,6 +52,9 @@ import Seal from '../components/Seal.astro';
 </Ledger>
 
 <style is:global>
+
+body[data-page="confirmation"] {
+
   .ch0 { border-top: 0; padding-top: clamp(48px, 8vh, 96px); }
   .order-no { font-size: clamp(40px, 5vw, 64px); line-height: 1; }
   .oc-scene { grid-column: 7 / -1; margin-right: calc(-1 * var(--gutter)); position: relative; min-height: 320px; }
@@ -67,4 +70,6 @@ import Seal from '../components/Seal.astro';
   .pass-panel { padding: 16px; margin-top: 12px; }
   .pass-panel[hidden] { display: none; }
   #set-pass { background: transparent; border: 0; padding: 0; cursor: pointer; font-size: 16px; }
+
+}
 </style>

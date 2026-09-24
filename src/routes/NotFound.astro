@@ -18,10 +18,15 @@ import PaperButton from '../components/PaperButton.astro';
   </section>
 </Ledger>
 <style is:global>
+
+body[data-page="notfound"] {
+
   .nf { border-top: 0; min-height: 70vh; display: grid; align-content: center; }
   .nf-copy { padding: 64px 0; }
   .nf-tally { color: var(--paper); display: grid; place-items: center; }
   .nf-tally .tally.one { width: 100%; max-width: 480px; height: auto; }
   .nf-tally .tally.one path { stroke-dasharray: 18; stroke-dashoffset: 18; animation: draw var(--slow) var(--cr) 0.3s forwards; }
   @media (max-width: 899px) { .nf-tally .tally.one { max-width: 200px; } }
+
+}
 </style>

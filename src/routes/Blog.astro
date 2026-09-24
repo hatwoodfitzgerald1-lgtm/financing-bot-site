@@ -56,6 +56,9 @@ const posts = [
 </Ledger>
 
 <style is:global>
+@keyframes tape { to { transform: translateX(-50%); } }
+body[data-page="blog"] {
+
   .bh { border-top: 0; overflow: hidden; }
   .ruler-rail { position: absolute; top: 0; left: 0; width: 100%; height: 40px; pointer-events: none; }
   .bh-g { align-items: stretch; padding-top: 40px; }
@@ -65,7 +68,7 @@ const posts = [
   .tape-2d { display: none; overflow: hidden; align-items: center; }
   .scene.is-2d .tape-2d { display: flex; }
   .tape-track { display: flex; gap: 48px; white-space: nowrap; font-size: 13px; color: var(--paper); border-top: var(--hair) solid var(--rule); border-bottom: var(--hair) solid var(--rule); padding: 12px 0; animation: tape 30s linear infinite; }
-  @keyframes tape { to { transform: translateX(-50%); } }
+  
   @media (prefers-reduced-motion: reduce) { .tape-track { animation: none; } }
   @media (max-width: 899px) { .bh-scene { grid-column: 1 / -1; margin-inline: calc(-1 * var(--gutter)); min-height: 160px; } }
   .sort-row { margin-bottom: 24px; }
@@ -77,4 +80,6 @@ const posts = [
   .post-index .sf { margin-top: 10px; max-width: 64ch; color: rgba(233,229,218,0.85); }
   .post-index .meta { display: flex; gap: 16px; align-items: center; margin-top: 12px; }
   @media (max-width: 599px) { .post-index .idx-row { grid-template-columns: 1fr; gap: 8px; } }
+
+}
 </style>

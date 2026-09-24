@@ -64,6 +64,9 @@ import Kit from '../components/Kit.astro';
 </Post>
 
 <style is:global>
+
+body[data-page="post1"] {
+
   .abacus-2d { display: grid; gap: 10px; align-content: center; height: 100%; font-size: 12px; }
   .abacus-2d .ab { display: grid; grid-template-columns: 64px 1fr auto; gap: 10px; align-items: center; color: var(--ash); }
   .abacus-2d .ab::after { content: ''; grid-column: 2; grid-row: 1; height: 10px; border: var(--hair) solid var(--paper); width: calc(var(--w) * 1%); transform: scaleX(0); transform-origin: left; transition: transform var(--slow) var(--cr); }
@@ -72,4 +75,6 @@ import Kit from '../components/Kit.astro';
   .abacus-2d .ab.neg::after { border-style: dashed; }
   .abacus-2d .ab.sum::after { background: var(--paper); }
   .scene.is-2d.in .abacus-2d .ab::after { transform: none; }
+
+}
 </style>

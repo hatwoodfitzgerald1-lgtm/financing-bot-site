@@ -170,6 +170,9 @@ const rail = ['URLA p.1', 'credit p.9', 'paystub YTD, co borrower p.27', 'W2 202
 </Ledger>
 
 <style is:global>
+
+body[data-page="product"] {
+
   .prh { border-top: 0; overflow: hidden; }
   .prh-g { min-height: 70vh; align-items: center; }
   .prh-copy { position: relative; z-index: 2; padding: clamp(56px, 10vh, 120px) 24px clamp(40px, 8vh, 96px) 0; }
@@ -246,4 +249,6 @@ const rail = ['URLA p.1', 'credit p.9', 'paystub YTD, co borrower p.27', 'W2 202
   .who .disc { font-size: 15px; color: rgba(233,229,218,0.85); }
   .inset-line { background: rgba(26,27,29,0.84); padding: 28px; border: var(--hair) solid var(--rule); margin-left: var(--gutter); display: grid; gap: 24px; justify-items: start; }
   @media (max-width: 899px) { #ch-button .band { aspect-ratio: auto; min-height: 420px; } .inset-line { margin: 24px var(--gutter); } .sp-lines { margin-top: 32px; } }
+
+}
 </style>

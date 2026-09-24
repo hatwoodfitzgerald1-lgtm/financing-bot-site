@@ -132,6 +132,11 @@ const s = rules.strings;
 </Ledger>
 
 <style is:global>
+@keyframes outof { from { transform: translateY(-8px); opacity: 0; } }
+@keyframes land { from { transform: translateX(-16px); opacity: 0; } }
+@keyframes leave { to { transform: translateX(16px); opacity: 0; } }
+body[data-page="drafter"] {
+
   .dh { border-top: 0; padding-top: clamp(48px, 8vh, 96px); }
   .drafter-wrap { position: relative; }
   .tray-col { position: absolute; top: 0; right: 0; bottom: 0; width: calc(100vw / 12 * 4); z-index: 2; pointer-events: none; }
@@ -140,7 +145,7 @@ const s = rules.strings;
   .tray-2d { display: none; padding: 24px; gap: 8px; align-content: end; height: 100%; font-size: 12px; }
   .scene.is-2d .tray-2d { display: grid; }
   .tray-2d div { border-top: var(--hair) solid var(--rule); padding-top: 4px; color: var(--paper); animation: outof var(--base) var(--cr); }
-  @keyframes outof { from { transform: translateY(-8px); opacity: 0; } }
+  
   .drafter-main { width: calc(100vw / 12 * 8); }
   @media (max-width: 899px) { .tray-col { position: relative; width: 100vw; height: 220px; } .tray-sticky { position: relative; height: 220px; } .drafter-main { width: 100vw; } }
   .inputs { width: 100%; }
@@ -167,10 +172,12 @@ const s = rules.strings;
   .clist li .cc { font-family: var(--mono); font-size: 12px; color: var(--ash); }
   .clist li.out { animation: leave var(--base) var(--cr) forwards; }
   .clist .none { color: var(--ash); font-size: 13px; padding: 12px 0; }
-  @keyframes land { from { transform: translateX(-16px); opacity: 0; } }
-  @keyframes leave { to { transform: translateX(16px); opacity: 0; } }
+  
+  
   @media (prefers-reduced-motion: reduce) { .clist li, .clist li.out, .tray-2d div { animation: none; } }
   @media (max-width: 599px) { .clist li { grid-template-columns: 56px 1fr; } .clist li .cc, .clist li .chip { grid-column: 2; } }
   .res-foot { margin-top: 24px; }
   #fits-body { display: grid; justify-items: start; gap: 16px; }
+
+}
 </style>
