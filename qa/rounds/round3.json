@@ -1,0 +1,11 @@
+{
+  "round": 3, "cap": 8, "compliance_pass": true, "novelty_pass": true, "comprehension_pass": true,
+  "criticals": [],
+  "scores": {"substance": 24, "distinctiveness": 28, "motion": 24, "performance_a11y": 19},
+  "open_issues": {
+    "substance": ["PENDING media: PH-01 to PH-11 and hero clips 2 to 4 still crossing; the bands render as the ruled field with the alt line and V-01 is provisional from clip 1"],
+    "distinctiveness": ["The eleven photograph bands and the finished V-01 loop are the one visible gap between the built site and the design document; registry hero screenshots were not on disk, so the side by side was judged from the logged descriptions"],
+    "motion": ["The 55 fps bar could not be verified in the sandbox (software GL reads 23 to 25 fps on the signature scrub; draw calls were halved this round)"],
+    "performance_a11y": ["fps recorded from software GL only; re-measure on the live site with a GPU"]
+  }
+}

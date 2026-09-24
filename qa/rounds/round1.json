@@ -1,0 +1,11 @@
+{
+  "round": 1, "cap": 8, "compliance_pass": true, "novelty_pass": true, "comprehension_pass": true,
+  "criticals": [],
+  "scores": {"substance": 23, "distinctiveness": 27, "motion": 22, "performance_a11y": 17},
+  "open_issues": {
+    "substance": ["Pricing ledger rows fade in over 2.6s after entering view, so the storefront table reads empty while scrolling", "Blog posts: the kit figure band (K-B1 to K-B4) overflows the viewport to 1555px at 1440, horizontal scroll on every post"],
+    "distinctiveness": ["Pending photograph bands render a broken image glyph and raw alt text at the top left (PH-01 to PH-11 pending); the empty state is not designed", "Blog tape and product rail scenes read faint at 1440 (ash rows at 0.35 opacity)", "Terms and Privacy: the footer row index repeats the last section index (0003, 0003)"],
+    "motion": ["Inline text links (SMS block Terms and Privacy Policy, mailto links, the skip link) have no hover or focus movement", "Drafter range input has no hover or focus motion", "Pack terms and blog index rows unmask over 2s with a container level trigger; rows below the fold reveal late", "The wall dock settle uses a CSS transform on the WebGL canvas (scale 1.02) which reads as a compositing seam in capture"],
+    "performance_a11y": ["Horizontal overflow at 1440 on the four blog posts (scrollWidth 1555)", "Mobile tap targets under 44px: footer link column (29px), cart Remove (20px), live chips (20px), auto reorder switch (28px), See how it works (24px)", "fps during the signature scrub measured 24 under software GL (indicative only; 55fps bar unverifiable in the sandbox)"]
+  }
+}

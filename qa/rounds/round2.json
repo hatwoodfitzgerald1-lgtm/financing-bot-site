@@ -1,0 +1,11 @@
+{
+  "round": 2, "cap": 8, "compliance_pass": true, "novelty_pass": true, "comprehension_pass": true,
+  "criticals": [],
+  "scores": {"substance": 24, "distinctiveness": 28, "motion": 23, "performance_a11y": 18},
+  "open_issues": {
+    "substance": ["PENDING media: PH-01 to PH-11 and hero clips 2 to 4 (bands render as the ruled field with the alt line; V-01 is a provisional loop from clip 1)"],
+    "distinctiveness": ["Pending bands are designed empty states, not the photographs the spec names", "Registry archived hero screenshots were not available for the side by side; the screenshot test was judged from the logged descriptions"],
+    "motion": ["Signature scrub fps unverifiable under software GL (24 fps indicative); the render loop is DPR capped with 60 basic material planes", "Product rail and blog tape scenes read quieter than the wall at 1440 (by design as supporting scenes)"],
+    "performance_a11y": ["fps number recorded from software GL only", "Inline consent links in the SMS sentence are 14px tall on touch (inline text links, WCAG exempt, kept as the verbatim block requires)"]
+  }
+}
