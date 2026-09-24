@@ -1,0 +1,6 @@
+---
+interface Props { class?: string; size?: number }
+const { class: cls = '', size } = Astro.props;
+const w = size ? size : 32; const h = size ? Math.round(size * 0.75) : 24;
+---
+<svg class:list={['tally', cls]} viewBox="0 0 32 24" width={w} height={h} aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"><path d="M6 3v18"/><path d="M12 3v18"/><path d="M18 3v18"/><path d="M24 3v18"/><path d="M2 20L28 4"/></svg>

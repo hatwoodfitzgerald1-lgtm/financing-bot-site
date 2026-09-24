@@ -1,0 +1,56 @@
+---
+// The legal page: the table of contents draws its rules, each clause heading
+// unmasks on its rule, body text static and fully legible at all times.
+import Ledger from '../layouts/Ledger.astro';
+import Row from '../components/Row.astro';
+import legal from '../content/legal.json';
+interface Props { which: 'terms' | 'privacy'; route: string; page: string; h1: string }
+const { which, route, page, h1 } = Astro.props;
+const blocks = (legal as any)[which] as Array<{ t: string; text?: string; items?: string[] }>;
+const heads = blocks.filter((b) => b.t === 'h2').map((b, i) => ({ text: b.text as string, id: 'c' + (i + 1) }));
+let hi = 0;
+const linkify = (s: string) => s.replace(/support@financingbot\.com/g, '<a href="mailto:support@financingbot.com">support@financingbot.com</a>');
+---
+<Ledger route={route} page={page} hover="margin-mark" footerIndex="0004" scene="field">
+  <div class="scene legal-field" id="legal-field" data-scene="field" data-poster="W-15" aria-hidden="true">
+    <img class="poster" src="/assets/posters/W-15.webp" width="1600" height="1000" alt="" loading="lazy" decoding="async" />
+    <div class="s2d ruled-bg"></div>
+  </div>
+  <Row index="0001" id="legal-head" class="ch0" label={h1} reveal="mask-rows">
+    <div class="g">
+      <div class="c2-8">
+        <h1 class="hv"><span class="ln"><span>{h1}</span></span></h1>
+        <p class="m ash small mt">[BUSINESS NAME], doing business as Financing Bot</p>
+        <p class="m ash small">Last updated 2026-09-24</p>
+      </div>
+    </div>
+  </Row>
+  <Row index="0002" id="toc" label="Contents" reveal="stagger-rows">
+    <div class="g"><nav class="c2-8 toc-list" aria-label="Contents">
+      {heads.map((h) => <a class="srow hv" href={'#' + h.id} data-ri={h.id.replace('c', '00').padStart(4, '0')}>{h.text}</a>)}
+    </nav></div>
+  </Row>
+  <Row index="0003" id="text" class="legal-body" label="The text">
+    <div class="g"><div class="c2-8 prose legal-col">
+      {blocks.map((b) => {
+        if (b.t === 'title') return <p class="m ash small">{b.text}</p>;
+        if (b.t === 'h2') { hi += 1; return <h2 class="hv" id={'c' + hi} data-ri={String(hi).padStart(4, '0')} data-reveal="rule-unmask"><span class="rl hr"></span><span class="txt">{b.text}</span></h2>; }
+        if (b.t === 'ul') return <ul>{b.items!.map((it) => <li set:html={linkify(it)} />)}</ul>;
+        return <p set:html={linkify(b.text!)} />;
+      })}
+    </div></div>
+  </Row>
+</Ledger>
+<style is:global>
+  .legal-field { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.12; }
+  .ruled-bg { background-image: repeating-linear-gradient(to bottom, var(--paper) 0 1px, transparent 1px 28px); opacity: 1; display: block; }
+  .ch0 { border-top: 0; padding-top: clamp(48px, 8vh, 96px); }
+  .toc-list { display: grid; border-top: var(--hair) solid var(--rule); }
+  .toc-list a { padding: 10px 0; border-bottom: var(--hair) solid var(--rule); text-decoration: none; color: var(--paper); font-size: 14px; }
+  .legal-col { background: var(--graphite); position: relative; }
+  .legal-col h2 { position: relative; padding-top: 0.8em; border-top: 0; display: block; }
+  .legal-col h2 .rl { display: block; position: absolute; top: 0; left: 0; right: 0; }
+  .legal-col h2 .txt { display: inline-block; }
+  .legal-col ul { padding-left: 20px; }
+  .legal-col li { margin-bottom: 0.6em; }
+</style>

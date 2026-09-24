@@ -1,0 +1,27 @@
+---
+interface Props { level?: 'h2' | 'h3'; id: string }
+const { level = 'h3', id } = Astro.props;
+const H = level;
+---
+<form class="sms" id={id} novalidate data-sms>
+  <H>Join Our SMS List</H>
+  <div class="fields">
+    <div class="err-summary" tabindex="-1"><h3>There is a problem</h3><ul></ul></div>
+    <div class="field">
+      <label for={id + '-phone'}>Your Phone Number</label>
+      <div class="cell"><input id={id + '-phone'} name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Your Phone Number" required /></div>
+      <div class="msg" id={id + '-phone-msg'}></div>
+    </div>
+    <div class="field">
+      <label class="check" for={id + '-c1'}><input id={id + '-c1'} name="terms" type="checkbox" /><span>I agree to the <a href="/terms-of-service">Terms</a> &amp; <a href="/privacy-policy">Privacy Policy</a></span></label>
+      <div class="msg" id={id + '-c1-msg'}></div>
+    </div>
+    <div class="field">
+      <label class="check consent" for={id + '-c2'}><input id={id + '-c2'} name="consent" type="checkbox" /><span>I agree to receive SMS marketing notifications from Financing Bot. Reply HELP for help or call/email [PHONE NUMBER] / support@financingbot.com STOP to cancel. Msg &amp; data rates may apply. Msg frequency varies. Information gathered in the SMS campaign will not be shared with third parties or affiliates for marketing purposes. Read our <a href="/terms-of-service">Terms</a> and <a href="/privacy-policy">Privacy Policy</a>.</span></label>
+      <div class="msg" id={id + '-c2-msg'}></div>
+    </div>
+    <div class="sys"></div>
+    <button class="btn-line" type="submit"><span class="drum-label">Submit</span></button>
+  </div>
+  <div class="success" role="status" aria-live="polite"></div>
+</form>

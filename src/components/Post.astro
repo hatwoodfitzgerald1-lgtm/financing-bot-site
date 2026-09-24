@@ -1,0 +1,77 @@
+---
+// The post template: index numeral, title, standfirst, the post's own scene at the
+// right of the title block, the hero photograph as a 100vw 2:1 band, the body in
+// columns 2 to 8, the closing block, the footer.
+import Ledger from '../layouts/Ledger.astro';
+import Row from '../components/Row.astro';
+import PaperButton from '../components/PaperButton.astro';
+interface Props { route: string; page: string; n: string; title: string; standfirst: string; tag: string; ph: string; phAlt: string; scene: string; poster: string; posterAlt: string; sceneText: string; footerIndex: string; button: { label: string; price: string; href?: string; add?: string }; link?: { label: string; href: string; pilot?: boolean }; linkFirst?: boolean }
+const { route, page, n, title, standfirst, tag, ph, phAlt, scene, poster, posterAlt, sceneText, footerIndex, button, link, linkFirst = false } = Astro.props;
+---
+<Ledger route={route} page={page} hover="ruled" footerIndex={footerIndex} scene={scene}>
+  <section class="row flush pth" aria-label={title}>
+    <span class="row-idx" aria-hidden="true">0001</span>
+    <div class="g pth-g">
+      <div class="c1-7 pth-copy" data-reveal="rise">
+        <div class="num sm ash pn"><span class="drum" data-drum={n}>{n}</span></div>
+        <h1 class="hv">{title}</h1>
+        <p class="sf">{standfirst}</p>
+        <div class="meta"><span class="chip">{tag}</span><span class="m ash small">2026-09-24</span><a class="link quiet" href="/blog">Back to the index</a></div>
+      </div>
+      <div class="pth-scene">
+        <div class="scene" id={scene} data-scene={scene} data-poster={poster}>
+          <img class="poster" src={`/assets/posters/${poster}.webp`} width="1600" height="1000" alt={posterAlt} loading="lazy" decoding="async" />
+          <div class="s2d"><slot name="s2d" /></div>
+          <p class="scene-text">{sceneText}</p>
+        </div>
+      </div>
+    </div>
+    <div class="band r2 grade-light" data-reveal="wipe">
+      <picture>
+        <source media="(max-width: 899px)" srcset={`/assets/photo/${ph}-1280.webp`} type="image/webp" />
+        <source srcset={`/assets/photo/${ph}.webp`} type="image/webp" />
+        <img src={`/assets/photo/${ph}.jpg`} width="2560" height="1280" alt={phAlt} loading="lazy" decoding="async" />
+      </picture>
+    </div>
+  </section>
+  <Row index="0002" class="post-body" label="Article">
+    <article class="g"><div class="c2-8 prose"><slot /></div></article>
+  </Row>
+  <Row index="0003" id="closing" label="Closing" reveal="rise">
+    <div class="g">
+      <div class="c2-8 closing">
+        {linkFirst && link && <a class="link" href={link.href} data-pilot={link.pilot ? '' : undefined}>{link.label}</a>}
+        {button.href ? <PaperButton label={button.label} price={button.price} href={button.href} /> : <PaperButton label={button.label} price={button.price} data={{ add: button.add || '', qtyfrom: '' }} />}
+        {!linkFirst && link && <a class="link quiet" href={link.href} data-pilot={link.pilot ? '' : undefined}>{link.label}</a>}
+      </div>
+    </div>
+  </Row>
+</Ledger>
+
+<style is:global>
+  .pth { border-top: 0; overflow: hidden; }
+  .pth-g { align-items: stretch; }
+  .pth-copy { padding: clamp(40px, 8vh, 96px) 24px clamp(40px, 6vh, 72px) 0; position: relative; z-index: 2; }
+  .pth-copy .pn { border-bottom: 0; margin-bottom: 16px; }
+  .pth-copy h1 { font-size: clamp(30px, 3.2vw, 48px); max-width: 22ch; }
+  .pth-copy .sf { font-size: clamp(17px, 1.3vw, 20px); margin-top: 20px; max-width: 56ch; color: rgba(233,229,218,0.85); }
+  .pth-copy .meta { display: flex; gap: 16px; align-items: center; margin-top: 20px; flex-wrap: wrap; }
+  .pth-scene { grid-column: 8 / -1; margin-right: calc(-1 * var(--gutter)); position: relative; min-height: 420px; }
+  .pth-scene .scene { position: absolute; inset: 0; }
+  .pth-scene .s2d { padding: 24px; }
+  @media (max-width: 899px) { .pth-scene { grid-column: 1 / -1; margin-inline: calc(-1 * var(--gutter)); min-height: 280px; } }
+  .post-body .prose > p:first-child::first-letter { font-family: var(--mono); font-size: 3.4em; float: left; line-height: 0.85; padding: 6px 12px 0 0; color: var(--paper); }
+  .post-body h2 { font-size: clamp(22px, 2vw, 30px); padding-top: 0.6em; border-top: var(--hair) solid var(--rule); }
+  .post-body .fig { margin: 2em 0; }
+  .post-body .fig figcaption { font-family: var(--mono); font-size: 12px; color: var(--ash); margin-top: 8px; }
+  .post-body .kitfig { margin: 2em 0 2em calc(-1 * (var(--gutter) + var(--col))); width: 100vw; padding: 32px var(--gutter); border-top: var(--hair) solid var(--rule); border-bottom: var(--hair) solid var(--rule); background: var(--el-1); }
+  .post-body .kitfig svg { width: 100%; height: auto; max-width: 1100px; margin: 0 auto; }
+  .post-body .pq { margin: 2em 0; padding: 24px 0; border-top: var(--hair) solid var(--rule); border-bottom: var(--hair) solid var(--rule); font-stretch: 88%; font-weight: 600; font-size: clamp(24px, 2.6vw, 36px); line-height: 1.15; }
+  .post-body ol.ruled { list-style: none; margin: 1.2em 0; padding: 0; counter-reset: r; border-top: var(--hair) solid var(--rule); }
+  .post-body ol.ruled li { display: grid; grid-template-columns: 48px 1fr; gap: 12px; padding: 12px 0; border-bottom: var(--hair) solid var(--rule); }
+  .post-body ol.ruled li::before { counter-increment: r; content: counter(r, decimal-leading-zero); font-family: var(--mono); color: var(--ash); font-size: 14px; }
+  .post-body table.ledger { margin: 1.2em 0; }
+  .post-body .spec { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  @media (max-width: 899px) { .post-body .spec { grid-template-columns: 1fr; } .post-body .kitfig { margin-left: calc(-1 * var(--gutter)); } }
+  .closing { display: grid; gap: 20px; justify-items: start; }
+</style>

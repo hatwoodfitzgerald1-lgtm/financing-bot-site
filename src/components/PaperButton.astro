@@ -1,0 +1,12 @@
+---
+// The paper block button. Label at the left in Archivo, the price cell in Fragment Mono at the right.
+interface Props { label: string; price?: string; href?: string; type?: 'button' | 'submit'; id?: string; class?: string; data?: Record<string, string>; ariaLabel?: string }
+const { label, price, href, type = 'button', id, class: cls = '', data = {}, ariaLabel } = Astro.props;
+const attrs: Record<string, string> = {};
+for (const k in data) attrs['data-' + k] = data[k];
+---
+{href ? (
+  <a class:list={['btn', 'idle', cls]} href={href} id={id} aria-label={ariaLabel} {...attrs}><span class="lbl"><span>{label}</span></span>{price && <span class="price">{price}</span>}</a>
+) : (
+  <button class:list={['btn', 'idle', cls]} type={type} id={id} aria-label={ariaLabel} {...attrs}><span class="lbl"><span>{label}</span></span>{price && <span class="price">{price}</span>}</button>
+)}

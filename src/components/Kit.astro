@@ -1,0 +1,11 @@
+---
+// Inline one brand kit SVG (K-03 to K-15, K-B1 to K-B4) from /public/assets/kit.
+const files = import.meta.glob('/public/assets/kit/*.svg', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+interface Props { id: string; class?: string; label?: string }
+const { id, class: cls = '', label } = Astro.props;
+let svg = '';
+for (const p in files) if (p.includes('/' + id + '-')) svg = files[p];
+if (cls) svg = svg.replace('<svg ', `<svg class="${cls}" `);
+if (label === '') svg = svg.replace(/role="img" aria-label="[^"]*"/, 'aria-hidden="true"');
+---
+<Fragment set:html={svg} />

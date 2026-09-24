@@ -1,0 +1,9 @@
+---
+// One ledger row: a section with the indexed rule (K-03) and its mono row index.
+interface Props { index: string; id?: string; class?: string; reveal?: string; bleed?: boolean; tight?: boolean; flush?: boolean; label?: string }
+const { index, id, class: cls = '', reveal, bleed = false, tight = false, flush = false, label } = Astro.props;
+---
+<section class:list={['row', cls, { tight, flush, bleed }]} id={id} data-reveal={reveal} aria-label={label}>
+  <span class="row-idx" aria-hidden="true">{index}</span>
+  <slot />
+</section>

@@ -1,0 +1,31 @@
+---
+import SmsBlock from './SmsBlock.astro';
+import Seal from './Seal.astro';
+interface Props { index: string }
+const { index } = Astro.props;
+---
+<footer class="footer row flush" id="footer" data-index={index}>
+  <span class="row-idx">{index}</span>
+  <canvas class="tally-wall" id="tally-wall" aria-hidden="true"></canvas>
+  <div class="g fg">
+    <div class="brand" data-reveal="rise">
+      <div class="seal-wrap"><Seal /></div>
+      <div class="wm mt"><svg viewBox="0 0 40 40" aria-hidden="true"><g stroke="currentColor" fill="none"><rect x="0.625" y="0.625" width="38.75" height="38.75" stroke-width="1.25"/><g transform="translate(4 8)" stroke-width="1.25" stroke-linecap="square"><path d="M6 3v18"/><path d="M12 3v18"/><path d="M18 3v18"/><path d="M24 3v18"/><path d="M2 20L28 4"/></g></g></svg><span>Financing Bot</span></div>
+      <div class="tag">Reads the file. Cites the page. Never signs.</div>
+      <p class="small">Financing Bot makes no loans and takes no consumer applications. It sells software to licensed mortgage lenders.</p>
+    </div>
+    <div class="contact">
+      <div><span>entity</span>[BUSINESS NAME], doing business as Financing Bot</div>
+      <div><span>address</span>[Physical Address]</div>
+      <div><span>phone</span>[PHONE NUMBER]</div>
+      <div><span>email</span><a href="mailto:support@financingbot.com">support@financingbot.com</a></div>
+    </div>
+    <div class="cols">
+      <div><h4>site</h4><a href="/product">How it works</a><a href="/pricing">Pricing</a><a href="/drafter">Condition drafter</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/contact">Contact</a></div>
+      <div><h4>account</h4><a href="/cart">Cart</a><a href="/cart?pilot=1" class="u" data-pilot>Order the Pilot at $0</a></div>
+      <div><h4>legal</h4><a href="/terms-of-service">Terms of Service</a><a href="/privacy-policy">Privacy Policy</a></div>
+    </div>
+    <div class="sms-col"><SmsBlock level="h3" id="sms-footer" /></div>
+    <div class="legal-lines"><span>© 2026 [BUSINESS NAME], doing business as Financing Bot. All rights reserved.</span></div>
+  </div>
+</footer>

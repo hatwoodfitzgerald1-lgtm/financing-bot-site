@@ -1,0 +1,20 @@
+---
+import Tally from './Tally.astro';
+---
+<div id="loader" role="status" aria-live="polite" aria-label="Loading">
+  <div class="lrow"></div><div class="lrow"></div><div class="lrow"></div><div class="lrow"></div><div class="lrow"></div><div class="lrow"></div><div class="lrow"></div><div class="lrow"></div>
+  <div class="lgrid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="lcontent">
+    <div class="counter">
+      <div class="drum m" id="loader-drum" data-drum="0">0</div>
+      <div class="cap">in queue</div>
+    </div>
+    <div class="stages" id="loader-stages">
+      <div data-stage="fonts"><span>fonts</span><Tally /></div>
+      <div data-stage="poster"><span>poster</span><Tally /></div>
+      <div data-stage="grid"><span>grid</span><Tally /></div>
+      <div data-stage="wall"><span>wall</span><Tally /></div>
+    </div>
+  </div>
+  <button class="skip" type="button" id="loader-skip">Skip</button>
+</div>
